@@ -21,7 +21,7 @@
 | Topic | Status | Date | Notes |
 |-------|--------|------|-------|
 | How the Web Works | ✅ | 2026-06-16 | Full lifecycle, DevTools exercise done |
-| HTTP Fundamentals | 🔓 | — | — |
+| HTTP Fundamentals | ✅ | 2026-06-16 | Methods/idempotency, status codes, headers, caching bug (public vs private), statelessness |
 | Client, Server & the Browser | 🔒 | — | — |
 | Dev Environment Setup | 🔒 | — | — |
 | Command Line Basics | 🔒 | — | — |
@@ -37,6 +37,7 @@
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
 | 1 | 2026-06-16 | 1.1 — How the Web Works | ✅ Pass | DNS chain, TCP/TLS handshakes, CRP, SSR vs CSR via DevTools |
+| 2 | 2026-06-16 | 1.2 — HTTP Fundamentals | ✅ Pass | Request/response shape, methods, status codes, headers, caching security bug, statelessness |
 
 ---
 
@@ -45,6 +46,7 @@
 | Date | Exercise | Module | Result |
 |------|----------|--------|--------|
 | 2026-06-16 | DevTools Network tab — GitHub request waterfall | 1.1 | ✅ Done |
+| 2026-06-16 | `curl -i https://api.github.com/users/octocat` — read raw HTTP response | 1.2 | ✅ Done |
 
 ---
 
@@ -59,6 +61,14 @@
 
 ### Concepts Understood
 - Full web request lifecycle (DNS → TCP → TLS → HTTP → CRP)
+- HTTP request/response shape: method + path + version, headers, blank line, body
+- HTTP methods and semantics: GET/POST/PUT/PATCH/DELETE, safe vs idempotent
+- Status code families: 2xx, 3xx, 4xx, 5xx and key codes within each
+- 401 vs 403: unauthenticated vs unauthorized (different UI responses)
+- Key headers: Content-Type, Authorization, Cache-Control, Set-Cookie, Location
+- Cache-Control: public vs private, max-age vs s-maxage (browser vs CDN)
+- Security bug: `public` Cache-Control on user-specific endpoints leaks data via CDN
+- HTTP statelessness: each request self-contained, enables horizontal scaling
 - DNS resolution chain (browser cache → OS → router → ISP → authoritative nameserver)
 - TCP 3-way handshake (SYN / SYN-ACK / ACK)
 - TLS handshake and why HTTPS costs extra round-trips
