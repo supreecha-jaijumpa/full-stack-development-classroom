@@ -6,31 +6,32 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 0 days |
-| 🏆 **Best Streak Ever** | 0 days |
-| 📅 **Last Session** | — |
-| 📊 **Total Sessions** | 0 |
-| ⏱️ **Total Study Time** | 0 hours |
+| 🔥 **Current Streak** | 1 day |
+| 🏆 **Best Streak Ever** | 1 day |
+| 📅 **Last Session** | 2026-06-16 |
+| 📊 **Total Sessions** | 1 |
+| ⏱️ **Total Study Time** | ~1 hour |
 
 ---
 
-## This Month
+## This Month — June 2026
 
 > Mark each day you studied with ✓
 
 | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |-----|-----|-----|-----|-----|-----|-----|
-|     |     |     |     |     |     |     |
-|     |     |     |     |     |     |     |
-|     |     |     |     |     |     |     |
-|     |     |     |     |     |     |     |
+|  1  |  2  |  3  |  4  |  5  |  6  |  7  |
+|  8  |  9  | 10  | 11  | 12  | 13  | 14  |
+| 15  | 16 ✓| 17  | 18  | 19  | 20  | 21  |
+| 22  | 23  | 24  | 25  | 26  | 27  | 28  |
+| 29  | 30  |     |     |     |     |     |
 
 ---
 
 ## Milestones
 
 ### Sessions
-- [ ] First session completed
+- [x] First session completed
 - [ ] 5 sessions done
 - [ ] 10 sessions done
 - [ ] 25 sessions done
@@ -54,7 +55,7 @@
 - [ ] Capstone shipped
 
 ### Knowledge Milestones
-- [ ] Can explain how the web works end-to-end
+- [x] Can explain how the web works end-to-end
 - [ ] Can build a responsive, accessible web page
 - [ ] Can build an interactive app in vanilla JavaScript
 - [ ] Can build a React + TypeScript SPA
@@ -72,4 +73,6 @@
 
 > Mentor fills these in — sessions where you leveled up
 
-*(none yet)*
+| Date | Achievement |
+|------|-------------|
+| 2026-06-16 | First session — unlocked "Can explain how the web works end-to-end" |
