@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-17
-> Total Sessions: 3
+> Total Sessions: 4
 > Current Streak: 2 days
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 01 — Web Foundations & Dev Setup |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | 3/6 Module 01 topics complete |
-| **Next Topic** | 1.4 — Dev Environment Setup |
+| **Overall Progress** | 4/6 Module 01 topics complete |
+| **Next Topic** | 1.5 — Command Line Basics |
 
 ---
 
@@ -23,7 +23,7 @@
 | How the Web Works | ✅ | 2026-06-16 | Full lifecycle, DevTools exercise done |
 | HTTP Fundamentals | ✅ | 2026-06-16 | Methods/idempotency, status codes, headers, caching bug (public vs private), statelessness |
 | Client, Server & the Browser | ✅ | 2026-06-17 | Three placement axes, browser runtime, SSG/SSR/CSR decision tree, state placement |
-| Dev Environment Setup | 🔒 | — | — |
+| Dev Environment Setup | ✅ | 2026-06-17 | Node LTS vs Current, package.json deep dive, ESLint + Prettier baseline config |
 | Command Line Basics | 🔒 | — | — |
 | Git & GitHub | 🔒 | — | — |
 
@@ -39,6 +39,7 @@
 | 1 | 2026-06-16 | 1.1 — How the Web Works | ✅ Pass | DNS chain, TCP/TLS handshakes, CRP, SSR vs CSR via DevTools |
 | 2 | 2026-06-16 | 1.2 — HTTP Fundamentals | ✅ Pass | Request/response shape, methods, status codes, headers, caching security bug, statelessness |
 | 3 | 2026-06-17 | 1.3 — Client, Server & the Browser | ✅ Pass | Placement axes, browser runtime, SSG/SSR/CSR decision tree, state location, DevTools Console exercise |
+| 4 | 2026-06-17 | 1.4 — Dev Environment Setup | ✅ Pass | Node LTS vs Current, fnm, package.json (type/engines/exports/scripts), ESLint + Prettier config, lint verification exercise |
 
 ---
 
@@ -49,6 +50,7 @@
 | 2026-06-16 | DevTools Network tab — GitHub request waterfall | 1.1 | ✅ Done |
 | 2026-06-16 | `curl -i https://api.github.com/users/octocat` — read raw HTTP response | 1.2 | ✅ Done |
 | 2026-06-17 | DevTools Console — `navigator.userAgent` and `window.location.href` on YouTube | 1.3 | ✅ Done |
+| 2026-06-17 | ESLint lint verification — unused variable error, then fix and confirm silence = success | 1.4 | ✅ Done |
 
 ---
 
@@ -89,6 +91,8 @@
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
 - Chrome DevTools → Console tab (`navigator.userAgent`, `window.location.href`)
+- ESLint CLI (`npx eslint <file>`) — interpreting exit code 0 (silence) vs error output
+- `node --version`, `npm --version` — verifying installs
 
 ### Things Built
 *(none yet)*
@@ -107,3 +111,9 @@
 - Covered: DNS resolution chain, TCP 3-way handshake, TLS handshake, HTTP request/response cycle, Critical Rendering Path, SSR vs CSR identification via DevTools
 - Outcome: Pass
 - Next: 1.2 — HTTP in Depth (methods, status codes, headers, REST basics)
+
+## 2026-06-17 (session 4)
+- Topic: 1.4 — Dev Environment Setup
+- Covered: Node Current vs LTS distinction; fnm for cross-project version management; package.json fields (type, engines, exports, scripts convention); ESLint + Prettier separation of concerns; baseline flat config (eslint.config.mjs + .prettierrc + .vscode/settings.json); lint verification exercise
+- Outcome: Pass
+- Next: 1.5 — Command Line Basics

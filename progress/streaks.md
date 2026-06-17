@@ -6,11 +6,11 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 1 day |
-| 🏆 **Best Streak Ever** | 1 day |
-| 📅 **Last Session** | 2026-06-16 |
-| 📊 **Total Sessions** | 1 |
-| ⏱️ **Total Study Time** | ~1 hour |
+| 🔥 **Current Streak** | 2 days |
+| 🏆 **Best Streak Ever** | 2 days |
+| 📅 **Last Session** | 2026-06-17 |
+| 📊 **Total Sessions** | 4 |
+| ⏱️ **Total Study Time** | ~4 hours |
 
 ---
 
@@ -22,7 +22,7 @@
 |-----|-----|-----|-----|-----|-----|-----|
 |  1  |  2  |  3  |  4  |  5  |  6  |  7  |
 |  8  |  9  | 10  | 11  | 12  | 13  | 14  |
-| 15  | 16 ✓| 17  | 18  | 19  | 20  | 21  |
+| 15  | 16 ✓| 17 ✓| 18  | 19  | 20  | 21  |
 | 22  | 23  | 24  | 25  | 26  | 27  | 28  |
 | 29  | 30  |     |     |     |     |     |
 
