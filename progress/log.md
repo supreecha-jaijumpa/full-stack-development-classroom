@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-17
-> Total Sessions: 6
+> Total Sessions: 7
 > Current Streak: 2 days
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 02 — HTML & CSS |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) |
-| **Next Topic** | 2.1 — Semantic HTML |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (1/6) |
+| **Next Topic** | 2.2 — CSS Fundamentals |
 
 ---
 
@@ -42,6 +42,7 @@
 | 4 | 2026-06-17 | 1.4 — Dev Environment Setup | ✅ Pass | Node LTS vs Current, fnm, package.json (type/engines/exports/scripts), ESLint + Prettier config, lint verification exercise |
 | 5 | 2026-06-17 | 1.5 — Command Line Basics | ✅ Pass | Exit codes, CI/CD usage, && and \|\| branching, piping \|, redirection >, >>, 2>, 2>&1, Git Bash on Windows |
 | 6 | 2026-06-17 | 1.6 — Git & GitHub | ✅ Pass | 3-area mental model, HEAD as pointer, Conventional Commits, Feature Branch vs Gitflow vs Trunk-Based, branch protection rules, clean commit history exercise |
+| 7 | 2026-06-17 | 2.1 — Semantic HTML | ✅ Pass | Markup as a11y/SEO contract, document outline (algorithm never implemented), landmarks need names, article syndication test (comments nest), nav vs aside by intent, alt="" rules, time/address/figure semantics, blog-post markup exercise |
 
 ---
 
@@ -55,6 +56,7 @@
 | 2026-06-17 | ESLint lint verification — unused variable error, then fix and confirm silence = success | 1.4 | ✅ Done |
 | 2026-06-17 | grep pipeline — `grep -r "HTTP" modules/ \| grep "1.1" \| wc -l` — explained each pipe stage | 1.5 | ✅ Done |
 | 2026-06-17 | login-feature repo — 4-commit Conventional Commits history pushed to GitHub | 1.6 | ✅ Done |
+| 2026-06-17 | Blog-post page semantic markup — landmarks, outline, figure/time/address, nested-article comments | 2.1 | ✅ Done |
 
 ---
 
@@ -109,6 +111,13 @@
 - Trunk-Based requires: short PRs + feature flags + fast CI — strategy and infrastructure are a package deal
 - Branch protection rules: enforce CI pass + reviewer approval before merge to main
 - Commit history = documentation — future teammates and tools (semantic-release, changelogs) read it
+- Semantic HTML as an API contract consumed by the accessibility tree, crawlers, and the next developer — element choice encodes meaning/intent, not appearance
+- Document outline: headings alone must form a usable table of contents; the HTML5 sectioning outline algorithm was never implemented, so heading levels are managed manually (no level skipping)
+- Landmarks (header/nav/main/aside/footer) map to ARIA roles; duplicate landmarks require aria-label/aria-labelledby to be distinguishable
+- `<article>` syndication test: independently distributable content → comments are nested `<article>`s inside a post `<article>`
+- `<nav>` vs `<aside>` decided by intent (site navigation vs related/complementary content), not by visual pattern
+- `alt` rules: descriptive when image is the link's only content; `alt=""` when redundant (decorative); missing `alt` makes screen readers read the filename
+- Text semantics: `<time datetime>` with timezone offset, `<address>` for authorship, `<figure>`/`<figcaption>`, `<figure>`+`<blockquote>`+`<cite>` for attributed quotes; `<a>` without `href` is not a link/focusable
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -154,3 +163,9 @@
 - Covered: 3-area Git model (working tree/staging/history); HEAD as a movable pointer; branches as labels on commits; Conventional Commits format and why commit messages are machine-readable; Feature Branch vs Gitflow vs Trunk-Based strategies; why Trunk-Based + Feature Flags is right for web products; how branch protection rules + CI enforce strategy at infrastructure level; clean commit history exercise (login-feature repo pushed to GitHub)
 - Outcome: Pass
 - Next: Module 02 — HTML & CSS (likely fast-track given 9/10 level)
+
+## 2026-06-17 (session 7)
+- Topic: 2.1 — Semantic HTML
+- Covered: Markup as an API contract for the a11y tree/crawlers/next dev; document-outline model and that the HTML5 outline algorithm was never implemented (manual heading levels, no skipping); landmarks and the rule that duplicates need accessible names; the `<article>` syndication test → comments as nested articles; `<nav>` vs `<aside>` by intent not appearance; `alt=""` vs descriptive vs missing; `<time datetime>` with offset, `<address>`, `<figure>`/`<figcaption>`, `<figure>`+`<blockquote>`+`<cite>`; `<a>` needs `href` to be a link. Exercise: full blog-post page markup — passed after fixing a `<main>`-inside-`<header>` nesting bug and three completeness gaps (footer, pull-quote attribution, avatar `alt`).
+- Outcome: Pass
+- Next: 2.2 — CSS Fundamentals (skip box-model basics; cascade/specificity as an algorithm, stacking contexts, custom-property architecture)
