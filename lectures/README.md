@@ -14,5 +14,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 01 — Web Foundations | Dev Environment Setup | [1.4-dev-environment-setup.md](01-web-foundations/1.4-dev-environment-setup.md) | 2026-06-17 |
 | 01 — Web Foundations | Command Line Basics | [1.5-command-line-basics.md](01-web-foundations/1.5-command-line-basics.md) | 2026-06-17 |
 | 02 — HTML & CSS | Semantic HTML | [2.1-semantic-html.md](02-html-css/2.1-semantic-html.md) | 2026-06-17 |
+| 02 — HTML & CSS | CSS Fundamentals | [2.2-css-fundamentals.md](02-html-css/2.2-css-fundamentals.md) | 2026-06-17 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).

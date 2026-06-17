@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-17
-> Total Sessions: 7
+> Total Sessions: 8
 > Current Streak: 2 days
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 02 — HTML & CSS |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (1/6) |
-| **Next Topic** | 2.2 — CSS Fundamentals |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (1.5/6) |
+| **Next Topic** | 2.2 — CSS Fundamentals (continue: specificity tuple, stacking contexts, custom properties) |
 
 ---
 
@@ -43,6 +43,7 @@
 | 5 | 2026-06-17 | 1.5 — Command Line Basics | ✅ Pass | Exit codes, CI/CD usage, && and \|\| branching, piping \|, redirection >, >>, 2>, 2>&1, Git Bash on Windows |
 | 6 | 2026-06-17 | 1.6 — Git & GitHub | ✅ Pass | 3-area mental model, HEAD as pointer, Conventional Commits, Feature Branch vs Gitflow vs Trunk-Based, branch protection rules, clean commit history exercise |
 | 7 | 2026-06-17 | 2.1 — Semantic HTML | ✅ Pass | Markup as a11y/SEO contract, document outline (algorithm never implemented), landmarks need names, article syndication test (comments nest), nav vs aside by intent, alt="" rules, time/address/figure semantics, blog-post markup exercise |
+| 8 | 2026-06-17 | 2.2 — CSS Fundamentals (cascade) | 🔄 In progress | Cascade as 4-step algorithm (origin/importance → layer → specificity → order); both `!important` inversions (origin + `@layer`); specificity is the 3rd question not the 1st; 6-declaration ranking exercise (full ranking correct) |
 
 ---
 
@@ -57,6 +58,7 @@
 | 2026-06-17 | grep pipeline — `grep -r "HTTP" modules/ \| grep "1.1" \| wc -l` — explained each pipe stage | 1.5 | ✅ Done |
 | 2026-06-17 | login-feature repo — 4-commit Conventional Commits history pushed to GitHub | 1.6 | ✅ Done |
 | 2026-06-17 | Blog-post page semantic markup — landmarks, outline, figure/time/address, nested-article comments | 2.1 | ✅ Done |
+| 2026-06-17 | Resolve the Cascade — rank 6 declarations across mixed `@layer`s + `!important` (F>C>E>A>D>B) | 2.2 | ✅ Done |
 
 ---
 
@@ -118,6 +120,12 @@
 - `<nav>` vs `<aside>` decided by intent (site navigation vs related/complementary content), not by visual pattern
 - `alt` rules: descriptive when image is the link's only content; `alt=""` when redundant (decorative); missing `alt` makes screen readers read the filename
 - Text semantics: `<time datetime>` with timezone offset, `<address>` for authorship, `<figure>`/`<figcaption>`, `<figure>`+`<blockquote>`+`<cite>` for attributed quotes; `<a>` without `href` is not a link/focusable
+- The cascade is a 4-step resolution algorithm: origin/importance → cascade layer → specificity → order of appearance; each step only runs if the prior didn't pick a winner
+- Origin order: UA < user < author for normal declarations; `!important` inverts it (UA/user beat author) so users can override authors for accessibility
+- Cascade layers (`@layer`): for normal declarations, unlayered > later layer > earlier layer; `!important` inverts it (earlier layer > later layer > unlayered)
+- Both inversions are the same rule — `!important` reverses priority order at every cascade level (origins and layers alike)
+- Specificity is the 3rd question, not the 1st: it only breaks ties within the same layer/importance — a weak unlayered selector beats a strong layered one for normal rules
+- `@layer` solves the design-system-vs-overrides battle structurally (no specificity arms race / `!important` wars); the important+layer inversion deliberately protects the foundational layer
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -169,3 +177,9 @@
 - Covered: Markup as an API contract for the a11y tree/crawlers/next dev; document-outline model and that the HTML5 outline algorithm was never implemented (manual heading levels, no skipping); landmarks and the rule that duplicates need accessible names; the `<article>` syndication test → comments as nested articles; `<nav>` vs `<aside>` by intent not appearance; `alt=""` vs descriptive vs missing; `<time datetime>` with offset, `<address>`, `<figure>`/`<figcaption>`, `<figure>`+`<blockquote>`+`<cite>`; `<a>` needs `href` to be a link. Exercise: full blog-post page markup — passed after fixing a `<main>`-inside-`<header>` nesting bug and three completeness gaps (footer, pull-quote attribution, avatar `alt`).
 - Outcome: Pass
 - Next: 2.2 — CSS Fundamentals (skip box-model basics; cascade/specificity as an algorithm, stacking contexts, custom-property architecture)
+
+## 2026-06-17 (session 8)
+- Topic: 2.2 — CSS Fundamentals (cascade portion)
+- Covered: The cascade as a 4-step resolution algorithm (origin/importance → cascade layer → specificity → order of appearance); both `!important` inversions — origin order (UA/user beat author) and `@layer` order (earliest layer wins, unlayered drops to lowest); the unifying insight that `!important` reverses priority at every level; specificity is the 3rd question not the 1st (weak unlayered selector beats strong layered one for normal rules); `@layer` as a structural fix for the design-system-vs-overrides battle. Exercise: ranked 6 declarations across mixed layers + `!important` (F>C>E>A>D>B) — full ranking correct; gap was narrating the steps, now closed.
+- Outcome: In progress (cascade mastered; rest of 2.2 still to cover)
+- Next: Continue 2.2 — specificity as a tuple `(id, class, type)`, `:is()`/`:where()`/`:not()` effects on the count, stacking contexts (z-index hierarchy), custom-property architecture, then the profile-card hands-on
