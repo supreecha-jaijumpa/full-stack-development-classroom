@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-17
-> Total Sessions: 5
+> Total Sessions: 6
 > Current Streak: 2 days
 
 ---
@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Current Module** | Module 01 — Web Foundations & Dev Setup |
+| **Current Module** | Module 02 — HTML & CSS |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | 5/6 Module 01 topics complete |
-| **Next Topic** | 1.6 — Git & GitHub |
+| **Overall Progress** | Module 01 complete (6/6) |
+| **Next Topic** | 2.1 — Semantic HTML |
 
 ---
 
@@ -25,7 +25,7 @@
 | Client, Server & the Browser | ✅ | 2026-06-17 | Three placement axes, browser runtime, SSG/SSR/CSR decision tree, state placement |
 | Dev Environment Setup | ✅ | 2026-06-17 | Node LTS vs Current, package.json deep dive, ESLint + Prettier baseline config |
 | Command Line Basics | ✅ | 2026-06-17 | Exit codes, CI/CD usage, &&/\|\|, piping, redirection, Git Bash on Windows |
-| Git & GitHub | 🔒 | — | — |
+| Git & GitHub | ✅ | 2026-06-17 | 3-area mental model, Conventional Commits, branching strategies, branch protection + CI |
 
 > Modules 02–18: 🔒 Locked — complete current phase first
 > See `plan/roadmap.md` for the full plan
@@ -41,6 +41,7 @@
 | 3 | 2026-06-17 | 1.3 — Client, Server & the Browser | ✅ Pass | Placement axes, browser runtime, SSG/SSR/CSR decision tree, state location, DevTools Console exercise |
 | 4 | 2026-06-17 | 1.4 — Dev Environment Setup | ✅ Pass | Node LTS vs Current, fnm, package.json (type/engines/exports/scripts), ESLint + Prettier config, lint verification exercise |
 | 5 | 2026-06-17 | 1.5 — Command Line Basics | ✅ Pass | Exit codes, CI/CD usage, && and \|\| branching, piping \|, redirection >, >>, 2>, 2>&1, Git Bash on Windows |
+| 6 | 2026-06-17 | 1.6 — Git & GitHub | ✅ Pass | 3-area mental model, HEAD as pointer, Conventional Commits, Feature Branch vs Gitflow vs Trunk-Based, branch protection rules, clean commit history exercise |
 
 ---
 
@@ -53,6 +54,7 @@
 | 2026-06-17 | DevTools Console — `navigator.userAgent` and `window.location.href` on YouTube | 1.3 | ✅ Done |
 | 2026-06-17 | ESLint lint verification — unused variable error, then fix and confirm silence = success | 1.4 | ✅ Done |
 | 2026-06-17 | grep pipeline — `grep -r "HTTP" modules/ \| grep "1.1" \| wc -l` — explained each pipe stage | 1.5 | ✅ Done |
+| 2026-06-17 | login-feature repo — 4-commit Conventional Commits history pushed to GitHub | 1.6 | ✅ Done |
 
 ---
 
@@ -97,6 +99,16 @@
 - Piping `|`: chains stdout → stdin between commands without touching disk
 - Three I/O streams: stdin (0), stdout (1), stderr (2)
 - Redirection: `>` overwrites stdout to file; `>>` appends; `2>` captures stderr; `2>&1` merges both
+- Git 3-area model: working tree → staging area → commit history
+- HEAD is a pointer to the current commit; branches are labels on commits
+- Conventional Commits: `<type>(<scope>): <description>` — machine-readable, enables changelog/release automation
+- Common commit types: feat, fix, refactor, chore, docs, test, perf
+- Feature Branch Workflow: one branch per story, merge via PR — good for small teams
+- Gitflow: main + develop + release branches — for versioned software releases (rarely right for web)
+- Trunk-Based Development: short-lived branches or direct commits to main + feature flags — default for web products deploying continuously
+- Trunk-Based requires: short PRs + feature flags + fast CI — strategy and infrastructure are a package deal
+- Branch protection rules: enforce CI pass + reviewer approval before merge to main
+- Commit history = documentation — future teammates and tools (semantic-release, changelogs) read it
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -104,6 +116,8 @@
 - ESLint CLI (`npx eslint <file>`) — interpreting exit code 0 (silence) vs error output
 - `node --version`, `npm --version` — verifying installs
 - Git Bash (`grep -r`, `wc -l`) — Unix command line on Windows
+- `git log --oneline` — reading commit history as a narrative
+- `git remote add origin` + `git push -u origin main` — connecting local repo to GitHub
 
 ### Things Built
 *(none yet)*
@@ -134,3 +148,9 @@
 - Covered: Exit codes (0=success, non-zero=failure); $? shell variable; CI/CD exit code usage (GitHub Actions); && and || as exit-code branching; process.exit() in Node.js; piping | (stdout→stdin without disk); three I/O streams (stdin/stdout/stderr); redirection >, >>, 2>, 2>&1; Git Bash as Unix shell on Windows; grep pipeline exercise
 - Outcome: Pass
 - Next: 1.6 — Git & GitHub
+
+## 2026-06-17 (session 6)
+- Topic: 1.6 — Git & GitHub
+- Covered: 3-area Git model (working tree/staging/history); HEAD as a movable pointer; branches as labels on commits; Conventional Commits format and why commit messages are machine-readable; Feature Branch vs Gitflow vs Trunk-Based strategies; why Trunk-Based + Feature Flags is right for web products; how branch protection rules + CI enforce strategy at infrastructure level; clean commit history exercise (login-feature repo pushed to GitHub)
+- Outcome: Pass
+- Next: Module 02 — HTML & CSS (likely fast-track given 9/10 level)
