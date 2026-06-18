@@ -1,7 +1,7 @@
 # Session Log
-> Last Updated: 2026-06-17
-> Total Sessions: 8
-> Current Streak: 2 days
+> Last Updated: 2026-06-18
+> Total Sessions: 9
+> Current Streak: 3 days
 
 ---
 
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 02 — HTML & CSS |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (1.5/6) |
-| **Next Topic** | 2.2 — CSS Fundamentals (continue: specificity tuple, stacking contexts, custom properties) |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (2/6) |
+| **Next Topic** | 2.3 — Layout: Flexbox & Grid |
 
 ---
 
@@ -43,7 +43,8 @@
 | 5 | 2026-06-17 | 1.5 — Command Line Basics | ✅ Pass | Exit codes, CI/CD usage, && and \|\| branching, piping \|, redirection >, >>, 2>, 2>&1, Git Bash on Windows |
 | 6 | 2026-06-17 | 1.6 — Git & GitHub | ✅ Pass | 3-area mental model, HEAD as pointer, Conventional Commits, Feature Branch vs Gitflow vs Trunk-Based, branch protection rules, clean commit history exercise |
 | 7 | 2026-06-17 | 2.1 — Semantic HTML | ✅ Pass | Markup as a11y/SEO contract, document outline (algorithm never implemented), landmarks need names, article syndication test (comments nest), nav vs aside by intent, alt="" rules, time/address/figure semantics, blog-post markup exercise |
-| 8 | 2026-06-17 | 2.2 — CSS Fundamentals (cascade) | 🔄 In progress | Cascade as 4-step algorithm (origin/importance → layer → specificity → order); both `!important` inversions (origin + `@layer`); specificity is the 3rd question not the 1st; 6-declaration ranking exercise (full ranking correct) |
+| 8 | 2026-06-17 | 2.2 — CSS Fundamentals (cascade) | ✅ Pass | Cascade as 4-step algorithm (origin/importance → layer → specificity → order); both `!important` inversions (origin + `@layer`); specificity is the 3rd question not the 1st; 6-declaration ranking exercise (full ranking correct) |
+| 9 | 2026-06-18 | 2.2 — CSS Fundamentals (complete) | ✅ Pass | Specificity as `(A,B,C)` tuple; `:is()`/`:not()`/`:has()` take max arg specificity (not sum); `:where()` = zero specificity always; stacking contexts: z-index is local not global, `isolation: isolate` as clean trigger, accidental triggers (`transform`, `opacity`); custom-property architecture: three levels (global tokens → component API with fallbacks → context overrides); `@property` for typed/non-inheriting/animatable vars. Profile-card exercise passed. |
 
 ---
 
@@ -59,6 +60,7 @@
 | 2026-06-17 | login-feature repo — 4-commit Conventional Commits history pushed to GitHub | 1.6 | ✅ Done |
 | 2026-06-17 | Blog-post page semantic markup — landmarks, outline, figure/time/address, nested-article comments | 2.1 | ✅ Done |
 | 2026-06-17 | Resolve the Cascade — rank 6 declarations across mixed `@layer`s + `!important` (F>C>E>A>D>B) | 2.2 | ✅ Done |
+| 2026-06-18 | Profile card — custom properties (component API + `--card-shadow` hover mutation), `isolation: isolate`, `:is()`/`:where()`/`:not()` selectors | 2.2 | ✅ Done |
 
 ---
 
@@ -126,6 +128,15 @@
 - Both inversions are the same rule — `!important` reverses priority order at every cascade level (origins and layers alike)
 - Specificity is the 3rd question, not the 1st: it only breaks ties within the same layer/importance — a weak unlayered selector beats a strong layered one for normal rules
 - `@layer` solves the design-system-vs-overrides battle structurally (no specificity arms race / `!important` wars); the important+layer inversion deliberately protects the foundational layer
+- Specificity is a three-column tuple `(A, B, C)`: A = ID count, B = class/attr/pseudo-class count, C = type/pseudo-element count; compare left-to-right, first column that differs decides the winner
+- `:is()`, `:not()`, `:has()` take the specificity of their **most specific argument** (not a sum); `:where()` always contributes zero specificity — the "zero-cost" targeting tool
+- Stacking contexts: z-index is local to its stacking context, not global — a child can never visually escape its parent context regardless of z-index value
+- What triggers a stacking context: `position` + non-`auto` `z-index`, `opacity < 1`, `transform`, `filter`, `will-change`, `isolation: isolate`, `position: fixed/sticky`
+- `isolation: isolate` is the clean explicit trigger — no side effects (no repaint promotion, no opacity change)
+- Common accidental triggers: `transform` and `opacity` — adding a CSS animation can silently trap child z-index
+- Custom-property architecture: three levels — global tokens (`:root`), component API vars (set on component root with fallbacks to tokens), context overrides (consumer sets vars from a parent)
+- Mutating a custom property on `:hover` is better than overriding the property directly — consumers who override the var still get correct hover behavior
+- `@property`: typed (`syntax`), non-inheriting (`inherits: false`), and animatable custom properties — required to transition or `@keyframes` a custom property
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -181,5 +192,11 @@
 ## 2026-06-17 (session 8)
 - Topic: 2.2 — CSS Fundamentals (cascade portion)
 - Covered: The cascade as a 4-step resolution algorithm (origin/importance → cascade layer → specificity → order of appearance); both `!important` inversions — origin order (UA/user beat author) and `@layer` order (earliest layer wins, unlayered drops to lowest); the unifying insight that `!important` reverses priority at every level; specificity is the 3rd question not the 1st (weak unlayered selector beats strong layered one for normal rules); `@layer` as a structural fix for the design-system-vs-overrides battle. Exercise: ranked 6 declarations across mixed layers + `!important` (F>C>E>A>D>B) — full ranking correct; gap was narrating the steps, now closed.
-- Outcome: In progress (cascade mastered; rest of 2.2 still to cover)
+- Outcome: Pass
 - Next: Continue 2.2 — specificity as a tuple `(id, class, type)`, `:is()`/`:where()`/`:not()` effects on the count, stacking contexts (z-index hierarchy), custom-property architecture, then the profile-card hands-on
+
+## 2026-06-18 (session 9)
+- Topic: 2.2 — CSS Fundamentals (complete)
+- Covered: Specificity as `(A,B,C)` tuple — first column that differs decides, never arithmetic; `:is()`/`:not()`/`:has()` take the max argument specificity (not a sum — common misconception corrected); `:where()` = always zero, the zero-cost targeting tool. Stacking contexts — z-index is local not global (Photoshop layer groups mental model); full list of triggers; `isolation: isolate` as the clean explicit trigger; accidental triggers (`transform`, `opacity`) as the common z-index bug root cause; DevTools Layers panel for diagnosis. Custom-property architecture — three levels (global tokens → component API with fallbacks → context overrides); hover-via-variable mutation vs direct property override; `@property` for typed/non-inheriting/animatable vars. Profile-card exercise: passed — `isolation: isolate`, `--card-shadow` component API, `:is()`/`:where()`/`:not()` selectors all correctly applied.
+- Outcome: Pass
+- Next: 2.3 — Layout: Flexbox & Grid
