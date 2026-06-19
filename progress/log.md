@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-19
-> Total Sessions: 10
+> Total Sessions: 11
 > Current Streak: 4 days
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 02 — HTML & CSS |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (3/6) |
-| **Next Topic** | 2.4 — Responsive Design |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (4/6) |
+| **Next Topic** | 2.5 — Accessibility Basics |
 
 ---
 
@@ -46,6 +46,7 @@
 | 8 | 2026-06-17 | 2.2 — CSS Fundamentals (cascade) | ✅ Pass | Cascade as 4-step algorithm (origin/importance → layer → specificity → order); both `!important` inversions (origin + `@layer`); specificity is the 3rd question not the 1st; 6-declaration ranking exercise (full ranking correct) |
 | 9 | 2026-06-18 | 2.2 — CSS Fundamentals (complete) | ✅ Pass | Specificity as `(A,B,C)` tuple; `:is()`/`:not()`/`:has()` take max arg specificity (not sum); `:where()` = zero specificity always; stacking contexts: z-index is local not global, `isolation: isolate` as clean trigger, accidental triggers (`transform`, `opacity`); custom-property architecture: three levels (global tokens → component API with fallbacks → context overrides); `@property` for typed/non-inheriting/animatable vars. Profile-card exercise passed. |
 | 10 | 2026-06-19 | 2.3 — Layout: Flexbox & Grid | ✅ Pass | Flexbox = 1D / Grid = 2D; `fr` as fraction of available space after fixed tracks + gaps; `min-height: auto` default overrides flexible track constraints — `min-height: 0` fix; fixed tracks don't need fix; CSS selector scope collision. App shell exercise passed — `min-height: 0` on `.body` + `main`, Flexbox header, 3-col card grid with internal scroll. |
+| 11 | 2026-06-19 | 2.4 — Responsive Design | ✅ Pass | Viewport meta tag; mobile-first as progressive enhancement; `auto-fit` + `minmax()` for breakpoint-free grids; `clamp()` for fluid sizing; sidebar `display: none` + grid track collapse on mobile. App shell made fully responsive — no horizontal scroll 320px–1440px. |
 
 ---
 
@@ -63,6 +64,7 @@
 | 2026-06-17 | Resolve the Cascade — rank 6 declarations across mixed `@layer`s + `!important` (F>C>E>A>D>B) | 2.2 | ✅ Done |
 | 2026-06-18 | Profile card — custom properties (component API + `--card-shadow` hover mutation), `isolation: isolate`, `:is()`/`:where()`/`:not()` selectors | 2.2 | ✅ Done |
 | 2026-06-19 | App shell — page shell Grid (60px + 1fr), Flexbox header, sidebar + main Grid, 3-col card grid with `min-height: 0` + `overflow-y: auto` internal scroll | 2.3 | ✅ Done |
+| 2026-06-19 | App shell responsive — viewport meta tag, sidebar `display: none` + grid track collapse on mobile, `auto-fit minmax(200px, 1fr)` card grid, `clamp(0.9rem, 2vw, 1.1rem)` font-size | 2.4 | ✅ Done |
 
 ---
 
@@ -145,6 +147,11 @@
 - `min-height: 0` on a grid item: overrides `auto`, lets the track constraint win — required before `overflow-y: auto` can trigger internal scroll
 - Fixed-size tracks (`px`, `rem`) enforce an absolute ceiling; `min-height: auto` cannot override them — only flexible tracks (`fr`, `auto`) are affected
 - CSS selector scope: when the same element type appears in multiple layout contexts (e.g., two `<nav>` elements), rules must be scoped with a parent qualifier or distinct class to prevent unintended bleed
+- Viewport meta tag: mobile browsers default to a fake 980px viewport — `width=device-width` makes them use the real pixel width; `initial-scale=1` prevents the browser from applying an initial zoom offset
+- Mobile-first as progressive enhancement: base CSS is the simplest (mobile) state; `min-width` media queries add complexity as the viewport grows — the opposite of desktop-first (graceful degradation)
+- `repeat(auto-fit, minmax(min, 1fr))`: creates as many columns as fit at the minimum width without going below it — no media queries needed; `auto-fit` collapses empty tracks so items stretch, `auto-fill` leaves ghost tracks
+- `clamp(min, preferred, max)`: value scales with the viewport (via `vw`) between a floor and ceiling; applies to font-size, padding, gap, or any length property
+- Hiding a sidebar on mobile requires both `display: none` on the element AND collapsing its grid track (`grid-template-columns: 1fr`) on the parent; a fixed track retains space even when its child is hidden
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -208,6 +215,12 @@
 - Covered: Specificity as `(A,B,C)` tuple — first column that differs decides, never arithmetic; `:is()`/`:not()`/`:has()` take the max argument specificity (not a sum — common misconception corrected); `:where()` = always zero, the zero-cost targeting tool. Stacking contexts — z-index is local not global (Photoshop layer groups mental model); full list of triggers; `isolation: isolate` as the clean explicit trigger; accidental triggers (`transform`, `opacity`) as the common z-index bug root cause; DevTools Layers panel for diagnosis. Custom-property architecture — three levels (global tokens → component API with fallbacks → context overrides); hover-via-variable mutation vs direct property override; `@property` for typed/non-inheriting/animatable vars. Profile-card exercise: passed — `isolation: isolate`, `--card-shadow` component API, `:is()`/`:where()`/`:not()` selectors all correctly applied.
 - Outcome: Pass
 - Next: 2.3 — Layout: Flexbox & Grid
+
+## 2026-06-19 (session 11)
+- Topic: 2.4 — Responsive Design
+- Covered: Viewport meta tag — why mobile browsers simulate 980px by default and what `width=device-width, initial-scale=1` overrides; mobile-first as progressive enhancement (base = simple, add via `min-width`); `auto-fit` vs `auto-fill` with `minmax()` for breakpoint-free responsive grids; `clamp(min, preferred, max)` for fluid font-size/spacing; sidebar `display: none` + collapsing the grid track on mobile with media-query restore at 768px
+- Outcome: Pass
+- Next: 2.5 — Accessibility Basics
 
 ## 2026-06-19 (session 10)
 - Topic: 2.3 — Layout: Flexbox & Grid
