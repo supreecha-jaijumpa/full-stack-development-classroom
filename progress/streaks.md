@@ -6,11 +6,11 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 2 days |
-| 🏆 **Best Streak Ever** | 2 days |
-| 📅 **Last Session** | 2026-06-17 |
-| 📊 **Total Sessions** | 8 |
-| ⏱️ **Total Study Time** | ~8 hours |
+| 🔥 **Current Streak** | 4 days |
+| 🏆 **Best Streak Ever** | 4 days |
+| 📅 **Last Session** | 2026-06-19 |
+| 📊 **Total Sessions** | 10 |
+| ⏱️ **Total Study Time** | ~10 hours |
 
 ---
 
@@ -22,7 +22,7 @@
 |-----|-----|-----|-----|-----|-----|-----|
 |  1  |  2  |  3  |  4  |  5  |  6  |  7  |
 |  8  |  9  | 10  | 11  | 12  | 13  | 14  |
-| 15  | 16 ✓| 17 ✓| 18  | 19  | 20  | 21  |
+| 15  | 16 ✓| 17 ✓| 18 ✓| 19 ✓| 20  | 21  |
 | 22  | 23  | 24  | 25  | 26  | 27  | 28  |
 | 29  | 30  |     |     |     |     |     |
 
@@ -33,14 +33,14 @@
 ### Sessions
 - [x] First session completed
 - [x] 5 sessions done
-- [ ] 10 sessions done
+- [x] 10 sessions done
 
 - [ ] 25 sessions done
 - [ ] 50 sessions done
 - [ ] 100 sessions done
 
 ### Streaks
-- [ ] 3-day streak
+- [x] 3-day streak
 - [ ] 7-day streak 🔥
 - [ ] 14-day streak
 - [ ] 30-day streak 🏆
@@ -77,3 +77,4 @@
 | Date | Achievement |
 |------|-------------|
 | 2026-06-16 | First session — unlocked "Can explain how the web works end-to-end" |
+| 2026-06-19 | Session 10 reached · 3-day streak milestone · built first standalone HTML/CSS page |

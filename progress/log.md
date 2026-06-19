@@ -1,7 +1,7 @@
 # Session Log
-> Last Updated: 2026-06-18
-> Total Sessions: 9
-> Current Streak: 3 days
+> Last Updated: 2026-06-19
+> Total Sessions: 10
+> Current Streak: 4 days
 
 ---
 
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 02 — HTML & CSS |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (2/6) |
-| **Next Topic** | 2.3 — Layout: Flexbox & Grid |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (3/6) |
+| **Next Topic** | 2.4 — Responsive Design |
 
 ---
 
@@ -45,6 +45,7 @@
 | 7 | 2026-06-17 | 2.1 — Semantic HTML | ✅ Pass | Markup as a11y/SEO contract, document outline (algorithm never implemented), landmarks need names, article syndication test (comments nest), nav vs aside by intent, alt="" rules, time/address/figure semantics, blog-post markup exercise |
 | 8 | 2026-06-17 | 2.2 — CSS Fundamentals (cascade) | ✅ Pass | Cascade as 4-step algorithm (origin/importance → layer → specificity → order); both `!important` inversions (origin + `@layer`); specificity is the 3rd question not the 1st; 6-declaration ranking exercise (full ranking correct) |
 | 9 | 2026-06-18 | 2.2 — CSS Fundamentals (complete) | ✅ Pass | Specificity as `(A,B,C)` tuple; `:is()`/`:not()`/`:has()` take max arg specificity (not sum); `:where()` = zero specificity always; stacking contexts: z-index is local not global, `isolation: isolate` as clean trigger, accidental triggers (`transform`, `opacity`); custom-property architecture: three levels (global tokens → component API with fallbacks → context overrides); `@property` for typed/non-inheriting/animatable vars. Profile-card exercise passed. |
+| 10 | 2026-06-19 | 2.3 — Layout: Flexbox & Grid | ✅ Pass | Flexbox = 1D / Grid = 2D; `fr` as fraction of available space after fixed tracks + gaps; `min-height: auto` default overrides flexible track constraints — `min-height: 0` fix; fixed tracks don't need fix; CSS selector scope collision. App shell exercise passed — `min-height: 0` on `.body` + `main`, Flexbox header, 3-col card grid with internal scroll. |
 
 ---
 
@@ -61,6 +62,7 @@
 | 2026-06-17 | Blog-post page semantic markup — landmarks, outline, figure/time/address, nested-article comments | 2.1 | ✅ Done |
 | 2026-06-17 | Resolve the Cascade — rank 6 declarations across mixed `@layer`s + `!important` (F>C>E>A>D>B) | 2.2 | ✅ Done |
 | 2026-06-18 | Profile card — custom properties (component API + `--card-shadow` hover mutation), `isolation: isolate`, `:is()`/`:where()`/`:not()` selectors | 2.2 | ✅ Done |
+| 2026-06-19 | App shell — page shell Grid (60px + 1fr), Flexbox header, sidebar + main Grid, 3-col card grid with `min-height: 0` + `overflow-y: auto` internal scroll | 2.3 | ✅ Done |
 
 ---
 
@@ -137,6 +139,12 @@
 - Custom-property architecture: three levels — global tokens (`:root`), component API vars (set on component root with fallbacks to tokens), context overrides (consumer sets vars from a parent)
 - Mutating a custom property on `:hover` is better than overriding the property directly — consumers who override the var still get correct hover behavior
 - `@property`: typed (`syntax`), non-inheriting (`inherits: false`), and animatable custom properties — required to transition or `@keyframes` a custom property
+- Flexbox = 1D layout (one axis); Grid = 2D layout (rows and columns simultaneously) — the axis count is the deciding factor, not "flexible vs fixed"
+- `fr` unit: fraction of available space after all fixed-size tracks and `gap` values are subtracted; `%` doesn't participate in gap arithmetic, `fr` does
+- `min-height: auto` default on grid items: items resist shrinking below their content size, which overrides `fr` track constraints and causes overflow past `100vh`
+- `min-height: 0` on a grid item: overrides `auto`, lets the track constraint win — required before `overflow-y: auto` can trigger internal scroll
+- Fixed-size tracks (`px`, `rem`) enforce an absolute ceiling; `min-height: auto` cannot override them — only flexible tracks (`fr`, `auto`) are affected
+- CSS selector scope: when the same element type appears in multiple layout contexts (e.g., two `<nav>` elements), rules must be scoped with a parent qualifier or distinct class to prevent unintended bleed
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -148,7 +156,7 @@
 - `git remote add origin` + `git push -u origin main` — connecting local repo to GitHub
 
 ### Things Built
-*(none yet)*
+- App shell page (2026-06-19) — full-viewport layout with Grid shell, Flexbox nav, sidebar, and scrollable card gallery
 
 ---
 
@@ -200,3 +208,9 @@
 - Covered: Specificity as `(A,B,C)` tuple — first column that differs decides, never arithmetic; `:is()`/`:not()`/`:has()` take the max argument specificity (not a sum — common misconception corrected); `:where()` = always zero, the zero-cost targeting tool. Stacking contexts — z-index is local not global (Photoshop layer groups mental model); full list of triggers; `isolation: isolate` as the clean explicit trigger; accidental triggers (`transform`, `opacity`) as the common z-index bug root cause; DevTools Layers panel for diagnosis. Custom-property architecture — three levels (global tokens → component API with fallbacks → context overrides); hover-via-variable mutation vs direct property override; `@property` for typed/non-inheriting/animatable vars. Profile-card exercise: passed — `isolation: isolate`, `--card-shadow` component API, `:is()`/`:where()`/`:not()` selectors all correctly applied.
 - Outcome: Pass
 - Next: 2.3 — Layout: Flexbox & Grid
+
+## 2026-06-19 (session 10)
+- Topic: 2.3 — Layout: Flexbox & Grid
+- Covered: Flexbox vs Grid as 1D vs 2D — the axis count is the deciding factor, not "flexible vs fixed"; `fr` as fraction of available space after fixed-size tracks and gaps are subtracted (vs `%` which doesn't account for gap); `min-height: auto` default on grid items — overrides flexible track constraints, causing content to blow past `100vh`; `min-height: 0` as the fix; fixed pixel tracks don't need it because they're absolute constraints regardless of item content; CSS selector scope — two selectors for the same element type in different contexts must be qualified or named to avoid unintended bleed. App shell exercise: Grid page shell (60px header / 1fr body), Flexbox header with `space-between`, sidebar + main two-column Grid, 3-column card grid, `min-height: 0` correctly applied on `.body` and `main`, `overflow-y: auto` for internal scroll.
+- Outcome: Pass
+- Next: 2.4 — Responsive Design
