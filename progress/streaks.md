@@ -6,11 +6,11 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 4 days |
+| 🔥 **Current Streak** | 1 day |
 | 🏆 **Best Streak Ever** | 4 days |
-| 📅 **Last Session** | 2026-06-19 |
-| 📊 **Total Sessions** | 10 |
-| ⏱️ **Total Study Time** | ~10 hours |
+| 📅 **Last Session** | 2026-06-21 |
+| 📊 **Total Sessions** | 12 |
+| ⏱️ **Total Study Time** | ~12 hours |
 
 ---
 
@@ -22,7 +22,7 @@
 |-----|-----|-----|-----|-----|-----|-----|
 |  1  |  2  |  3  |  4  |  5  |  6  |  7  |
 |  8  |  9  | 10  | 11  | 12  | 13  | 14  |
-| 15  | 16 ✓| 17 ✓| 18 ✓| 19 ✓| 20  | 21  |
+| 15  | 16 ✓| 17 ✓| 18 ✓| 19 ✓| 20  | 21 ✓|
 | 22  | 23  | 24  | 25  | 26  | 27  | 28  |
 | 29  | 30  |     |     |     |     |     |
 
@@ -46,7 +46,7 @@
 - [ ] 30-day streak 🏆
 
 ### Learning Progress
-- [ ] First exercise completed
+- [x] First exercise completed
 - [ ] First module unlocked
 - [ ] Phase 1 complete (Foundations)
 - [ ] Phase 2 complete (Frontend)

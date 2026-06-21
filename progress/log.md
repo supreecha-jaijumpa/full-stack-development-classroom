@@ -1,7 +1,7 @@
 # Session Log
-> Last Updated: 2026-06-19
-> Total Sessions: 11
-> Current Streak: 4 days
+> Last Updated: 2026-06-21
+> Total Sessions: 12
+> Current Streak: 1 day
 
 ---
 
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 02 — HTML & CSS |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (4/6) |
-| **Next Topic** | 2.5 — Accessibility Basics |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (5/6) |
+| **Next Topic** | 2.6 — Build a Responsive Landing Page |
 
 ---
 
@@ -47,6 +47,7 @@
 | 9 | 2026-06-18 | 2.2 — CSS Fundamentals (complete) | ✅ Pass | Specificity as `(A,B,C)` tuple; `:is()`/`:not()`/`:has()` take max arg specificity (not sum); `:where()` = zero specificity always; stacking contexts: z-index is local not global, `isolation: isolate` as clean trigger, accidental triggers (`transform`, `opacity`); custom-property architecture: three levels (global tokens → component API with fallbacks → context overrides); `@property` for typed/non-inheriting/animatable vars. Profile-card exercise passed. |
 | 10 | 2026-06-19 | 2.3 — Layout: Flexbox & Grid | ✅ Pass | Flexbox = 1D / Grid = 2D; `fr` as fraction of available space after fixed tracks + gaps; `min-height: auto` default overrides flexible track constraints — `min-height: 0` fix; fixed tracks don't need fix; CSS selector scope collision. App shell exercise passed — `min-height: 0` on `.body` + `main`, Flexbox header, 3-col card grid with internal scroll. |
 | 11 | 2026-06-19 | 2.4 — Responsive Design | ✅ Pass | Viewport meta tag; mobile-first as progressive enhancement; `auto-fit` + `minmax()` for breakpoint-free grids; `clamp()` for fluid sizing; sidebar `display: none` + grid track collapse on mobile. App shell made fully responsive — no horizontal scroll 320px–1440px. |
+| 12 | 2026-06-21 | 2.5 — Accessibility Basics | ✅ Pass | Accessibility tree (role/name/state); name resolution order; form labels; keyboard navigation; `:focus-visible`; contrast ratios (4.5:1 / 3:1); `aria-label`, `aria-hidden`, `aria-describedby`, `role`. App shell a11y updated. |
 
 ---
 
@@ -65,6 +66,7 @@
 | 2026-06-18 | Profile card — custom properties (component API + `--card-shadow` hover mutation), `isolation: isolate`, `:is()`/`:where()`/`:not()` selectors | 2.2 | ✅ Done |
 | 2026-06-19 | App shell — page shell Grid (60px + 1fr), Flexbox header, sidebar + main Grid, 3-col card grid with `min-height: 0` + `overflow-y: auto` internal scroll | 2.3 | ✅ Done |
 | 2026-06-19 | App shell responsive — viewport meta tag, sidebar `display: none` + grid track collapse on mobile, `auto-fit minmax(200px, 1fr)` card grid, `clamp(0.9rem, 2vw, 1.1rem)` font-size | 2.4 | ✅ Done |
+| 2026-06-21 | App shell a11y — `role="img"` + `aria-label` on avatar, `:focus-visible` focus ring, `aria-hidden` on emoji sidebar links, `aria-label` on nav link | 2.5 | ✅ Done |
 
 ---
 
@@ -152,6 +154,15 @@
 - `repeat(auto-fit, minmax(min, 1fr))`: creates as many columns as fit at the minimum width without going below it — no media queries needed; `auto-fit` collapses empty tracks so items stretch, `auto-fill` leaves ghost tracks
 - `clamp(min, preferred, max)`: value scales with the viewport (via `vw`) between a floor and ceiling; applies to font-size, padding, gap, or any length property
 - Hiding a sidebar on mobile requires both `display: none` on the element AND collapsing its grid track (`grid-template-columns: 1fr`) on the parent; a fixed track retains space even when its child is hidden
+- The browser builds two parallel trees: the DOM tree and the Accessibility Tree — assistive tech consumes the latter, which exposes only role, name, and state
+- Accessible name resolution order: `aria-labelledby` → `aria-label` → linked `<label>` → element text content → `alt` → `title`; `aria-label` replaces (not appends) the name
+- `placeholder` is not a label — it disappears on input and is not reliably announced; every input needs a programmatically associated `<label>` or `aria-label`
+- Native HTML is keyboard-focusable by default (`<a href>`, `<button>`, `<input>`, `<select>`); `<div onclick>` is an a11y bug — not in tab order, no keyboard events; fix with `<button>` or add `role="button" tabindex="0"` + keyboard handlers
+- `tabindex="0"` adds an element to the natural tab order; `tabindex="-1"` makes it focusable via JS `.focus()` only
+- `:focus-visible` fires only when focus arrived via keyboard — use it to show the focus ring to keyboard users without showing it on mouse clicks; `*:focus { outline: none }` globally is one of the most harmful a11y bugs in production
+- Color contrast: 4.5:1 minimum for normal text; 3:1 for large text and UI components; never communicate information through color alone — pair with icon, text, or pattern; `aria-describedby` wires error messages into the input's accessible description
+- The first rule of ARIA: don't use ARIA if native HTML can do it — `<nav>` beats `<div role="navigation">`, `<button>` beats `<div role="button">`
+- `aria-hidden="true"` removes an element and its children from the accessibility tree; use on decorative emoji and icon fonts to prevent verbose screen-reader announcements
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -227,3 +238,9 @@
 - Covered: Flexbox vs Grid as 1D vs 2D — the axis count is the deciding factor, not "flexible vs fixed"; `fr` as fraction of available space after fixed-size tracks and gaps are subtracted (vs `%` which doesn't account for gap); `min-height: auto` default on grid items — overrides flexible track constraints, causing content to blow past `100vh`; `min-height: 0` as the fix; fixed pixel tracks don't need it because they're absolute constraints regardless of item content; CSS selector scope — two selectors for the same element type in different contexts must be qualified or named to avoid unintended bleed. App shell exercise: Grid page shell (60px header / 1fr body), Flexbox header with `space-between`, sidebar + main two-column Grid, 3-column card grid, `min-height: 0` correctly applied on `.body` and `main`, `overflow-y: auto` for internal scroll.
 - Outcome: Pass
 - Next: 2.4 — Responsive Design
+
+## 2026-06-21 (session 12)
+- Topic: 2.5 — Accessibility Basics
+- Covered: The accessibility tree (role/name/state as a parallel structure to the DOM); accessible name resolution order (aria-labelledby → aria-label → label → text content → alt → title); form labels — explicit `for/id`, wrapped, `aria-label`; why `placeholder` is not a label; keyboard navigation — native focusable elements, `tabindex="0"` for custom elements, `<div onclick>` as a keyboard a11y bug; `:focus-visible` vs `:focus` — preserving the focus ring for keyboard users only; color contrast — 4.5:1 for normal text, 3:1 for large text and UI components, `aria-describedby` for error messages; ARIA first rule (prefer native HTML); `aria-label`, `aria-hidden`, `aria-describedby`, `role`. App shell exercise: `role="img"` + `aria-label` on avatar, `:focus-visible` focus ring, `aria-hidden` on emoji sidebar links.
+- Outcome: Pass
+- Next: 2.6 — Build a Responsive Landing Page (Module 02 milestone)
