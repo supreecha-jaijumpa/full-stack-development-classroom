@@ -18,5 +18,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 02 — HTML & CSS | Layout: Flexbox & Grid | [2.3-layout-flexbox-grid.md](02-html-css/2.3-layout-flexbox-grid.md) | 2026-06-19 |
 | 02 — HTML & CSS | Responsive Design | [2.4-responsive-design.md](02-html-css/2.4-responsive-design.md) | 2026-06-19 |
 | 02 — HTML & CSS | Accessibility Basics | [2.5-accessibility-basics.md](02-html-css/2.5-accessibility-basics.md) | 2026-06-21 |
+| 03 — JavaScript Fundamentals | Variables, Types & Operators | [3.1-variables-types-operators.md](03-javascript-fundamentals/3.1-variables-types-operators.md) | 2026-06-22 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).

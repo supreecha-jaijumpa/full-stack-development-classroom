@@ -6,11 +6,11 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 1 day |
+| 🔥 **Current Streak** | 2 days |
 | 🏆 **Best Streak Ever** | 4 days |
-| 📅 **Last Session** | 2026-06-21 |
-| 📊 **Total Sessions** | 12 |
-| ⏱️ **Total Study Time** | ~12 hours |
+| 📅 **Last Session** | 2026-06-22 |
+| 📊 **Total Sessions** | 14 |
+| ⏱️ **Total Study Time** | ~16 hours |
 
 ---
 
@@ -23,7 +23,7 @@
 |  1  |  2  |  3  |  4  |  5  |  6  |  7  |
 |  8  |  9  | 10  | 11  | 12  | 13  | 14  |
 | 15  | 16 ✓| 17 ✓| 18 ✓| 19 ✓| 20  | 21 ✓|
-| 22  | 23  | 24  | 25  | 26  | 27  | 28  |
+| 22 ✓| 23  | 24  | 25  | 26  | 27  | 28  |
 | 29  | 30  |     |     |     |     |     |
 
 ---
@@ -57,7 +57,7 @@
 
 ### Knowledge Milestones
 - [x] Can explain how the web works end-to-end
-- [ ] Can build a responsive, accessible web page
+- [x] Can build a responsive, accessible web page
 - [ ] Can build an interactive app in vanilla JavaScript
 - [ ] Can build a React + TypeScript SPA
 - [ ] Can test a frontend (unit + component + E2E)

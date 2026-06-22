@@ -6,10 +6,10 @@
 | **Profile** | Senior frontend dev (6 yrs, React/Next) → goal: Software Architect |
 | **Current Phase** | Phase 1 — Foundations |
 | **Current Module** | Module 03 — JavaScript Fundamentals |
-| **Status** | Module 02 complete ✅ (6/6); Module 03 in progress — 0/8 topics done |
-| **Week Goal** | Start Module 03 — JavaScript Fundamentals; target 3.1–3.2 this week |
+| **Status** | Module 02 complete ✅ (6/6); Module 03 in progress — 1/8 topics done |
+| **Week Goal** | Continue Module 03 — JavaScript Fundamentals; target 3.2–3.3 this week |
 | **Last Session Date** | 2026-06-22 |
-| **Last Session Summary** | Completed Module 02 milestone (2.6) — built and deployed Streamify landing page with semantic HTML, Flexbox/Grid layout, mobile-first responsive design, fluid clamp() type scale, CSS custom properties, animated CTA wave bars, and accessibility throughout. Fixed role="listitem" on anchor bug, removed !important from nav, cleaned unused wrapper div. Module 02 signed off. |
+| **Last Session Summary** | Completed 3.1 — Variables, Types & Operators. Covered `==` vs `===` coercion algorithm, `null` arithmetic (coerces to 0) vs equality spec inconsistency (`null >= 0` true but `null == 0` false), `+` vs `-` asymmetry with strings, truthy/falsy values, and `||` vs `??`. |
 | **Homework** | None assigned |
 | **Homework Status** | — |
-| **Next Action** | Start 3.1 — Variables, Types & Operators |
+| **Next Action** | Start 3.2 — Functions & Scope |

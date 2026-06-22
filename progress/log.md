@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-22
-> Total Sessions: 13
+> Total Sessions: 14
 > Current Streak: 2 days
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 03 — JavaScript Fundamentals |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (0/8) |
-| **Next Topic** | 3.1 — Variables, Types & Operators |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (1/8) |
+| **Next Topic** | 3.2 — Functions & Scope |
 
 ---
 
@@ -49,6 +49,7 @@
 | 11 | 2026-06-19 | 2.4 — Responsive Design | ✅ Pass | Viewport meta tag; mobile-first as progressive enhancement; `auto-fit` + `minmax()` for breakpoint-free grids; `clamp()` for fluid sizing; sidebar `display: none` + grid track collapse on mobile. App shell made fully responsive — no horizontal scroll 320px–1440px. |
 | 12 | 2026-06-21 | 2.5 — Accessibility Basics | ✅ Pass | Accessibility tree (role/name/state); name resolution order; form labels; keyboard navigation; `:focus-visible`; contrast ratios (4.5:1 / 3:1); `aria-label`, `aria-hidden`, `aria-describedby`, `role`. App shell a11y updated. |
 | 13 | 2026-06-22 | 2.6 — Build a Responsive Landing Page | ✅ Pass | Streamify landing page built and deployed to GitHub Pages. All sections: nav + hamburger menu, hero with player card mockup, 6-card feature grid, horizontal-scroll testimonials, CTA banner with animated wave bars, 4-column footer. Mobile-first, accessible, fluid type scale with `clamp()`. Fixed `role="listitem"` on anchor a11y bug, removed `!important` from nav, cleaned unused wrapper. Module 02 complete. |
+| 14 | 2026-06-22 | 3.1 — Variables, Types & Operators | ✅ Pass | `==` vs `===` coercion algorithm; null arithmetic (coerces to 0) vs null equality spec inconsistency (`null == 0` false, `null >= 0` true); `+` concatenates vs `-` coerces; truthy/falsy table; `||` vs `??`. |
 
 ---
 
@@ -69,6 +70,7 @@
 | 2026-06-19 | App shell responsive — viewport meta tag, sidebar `display: none` + grid track collapse on mobile, `auto-fit minmax(200px, 1fr)` card grid, `clamp(0.9rem, 2vw, 1.1rem)` font-size | 2.4 | ✅ Done |
 | 2026-06-21 | App shell a11y — `role="img"` + `aria-label` on avatar, `:focus-visible` focus ring, `aria-hidden` on emoji sidebar links, `aria-label` on nav link | 2.5 | ✅ Done |
 | 2026-06-22 | Streamify landing page — full multi-section page built and deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/spotify-landing/) | 2.6 | ✅ Done |
+| 2026-06-22 | coercion.js — predict then run 7 `==` / arithmetic expressions; caught `"5" - 3 = 2` and `null == 0 = false` as surprises | 3.1 | ✅ Done |
 
 ---
 
@@ -165,6 +167,12 @@
 - Color contrast: 4.5:1 minimum for normal text; 3:1 for large text and UI components; never communicate information through color alone — pair with icon, text, or pattern; `aria-describedby` wires error messages into the input's accessible description
 - The first rule of ARIA: don't use ARIA if native HTML can do it — `<nav>` beats `<div role="navigation">`, `<button>` beats `<div role="button">`
 - `aria-hidden="true"` removes an element and its children from the accessibility tree; use on decorative emoji and icon fonts to prevent verbose screen-reader announcements
+- `===` checks value and type with no coercion; `==` runs a type-coercion algorithm — use `===` everywhere except the intentional `x == null` null-check pattern (which catches both `null` and `undefined`)
+- `null` coerces to `0` in numeric operations; `undefined` coerces to `NaN`; but `null == 0` is `false` — the `==` operator has a spec carve-out where `null` only equals `null` or `undefined`
+- `null >= 0` is `true` (comparison uses numeric path: `0 >= 0`) while `null == 0` is `false` — a genuine spec inconsistency
+- `+` is overloaded: if either operand is a string, it concatenates (`"5" + 3 = "53"`); `-`, `*`, `/` always coerce both sides to numbers (`"5" - 3 = 2`)
+- Six falsy values: `false`, `0`, `-0`, `""`, `null`, `undefined`, `NaN` — everything else is truthy, including `"0"` and `[]`
+- `||` uses the right operand when the left is falsy (includes `0` and `""`); `??` uses the right operand only when the left is `null` or `undefined`
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -253,3 +261,9 @@
 - Covered: Code review of submitted Streamify landing page — semantic landmark structure, accessible hamburger nav (`aria-expanded` + JS toggle), `role="list"` on unstyled `<ul>`, `aria-labelledby` on sections, `blockquote`/`footer` for testimonials. CSS: fluid `clamp()` type scale (`--step-0` through `--step-4`), CSS custom property design system (global tokens → component API → context overrides), mobile-first breakpoints, `scroll-padding-top` for fixed nav offset, `width: max-content` + `overflow-x: auto` for horizontal scroll track, horizontal-scroll-to-grid pattern at 1024px, `@keyframes wave-bounce` with `--delay` CSS var for staggered animation, `prefers-reduced-motion` coverage. Issues found and fixed by student: `role="listitem"` on `<a>` (replaced link semantics — fixed to `ul/li/a`), `!important` on desktop nav (inverted media query logic), unused `player-card__album` wrapper div. Review questions passed: `aria-labelledby` vs `aria-label`, flex nowrap + overflow-x scroll mechanism, `clamp()` three arguments. Reflection: admitted overestimating HTML/CSS at 9/10 — key fundamentals (a11y, semantic HTML, CSS cascade) were untouched despite 6 years of experience.
 - Outcome: Pass — live URL confirmed: https://supreecha-jaijumpa.github.io/spotify-landing/
 - Next: Module 03 — JavaScript Fundamentals, starting with 3.1 — Variables, Types & Operators
+
+## 2026-06-22 (session 14)
+- Topic: 3.1 — Variables, Types & Operators
+- Covered: Calibration via live coercion predictions. `==` vs `===` algorithm — `==` runs type coercion steps (e.g., `[] == false` chain: `false→0`, `[]→""`, `""→0`, `0==0→true`). `null` arithmetic (coerces to 0, so `null + 1 = 1`) vs `null == 0` (false — spec carve-out: null only equals null/undefined). `null >= 0` is true (numeric path: `0 >= 0`) — the famous spec inconsistency. `+` operator overloaded for concatenation when either operand is a string; `-`/`*`/`/` always coerce to numbers. Six falsy values. `||` vs `??`: falsy check vs null/undefined check.
+- Outcome: Pass
+- Next: 3.2 — Functions & Scope
