@@ -1,7 +1,7 @@
 # Session Log
-> Last Updated: 2026-06-21
-> Total Sessions: 12
-> Current Streak: 1 day
+> Last Updated: 2026-06-22
+> Total Sessions: 13
+> Current Streak: 2 days
 
 ---
 
@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Current Module** | Module 02 — HTML & CSS |
+| **Current Module** | Module 03 — JavaScript Fundamentals |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 in progress (5/6) |
-| **Next Topic** | 2.6 — Build a Responsive Landing Page |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (0/8) |
+| **Next Topic** | 3.1 — Variables, Types & Operators |
 
 ---
 
@@ -48,6 +48,7 @@
 | 10 | 2026-06-19 | 2.3 — Layout: Flexbox & Grid | ✅ Pass | Flexbox = 1D / Grid = 2D; `fr` as fraction of available space after fixed tracks + gaps; `min-height: auto` default overrides flexible track constraints — `min-height: 0` fix; fixed tracks don't need fix; CSS selector scope collision. App shell exercise passed — `min-height: 0` on `.body` + `main`, Flexbox header, 3-col card grid with internal scroll. |
 | 11 | 2026-06-19 | 2.4 — Responsive Design | ✅ Pass | Viewport meta tag; mobile-first as progressive enhancement; `auto-fit` + `minmax()` for breakpoint-free grids; `clamp()` for fluid sizing; sidebar `display: none` + grid track collapse on mobile. App shell made fully responsive — no horizontal scroll 320px–1440px. |
 | 12 | 2026-06-21 | 2.5 — Accessibility Basics | ✅ Pass | Accessibility tree (role/name/state); name resolution order; form labels; keyboard navigation; `:focus-visible`; contrast ratios (4.5:1 / 3:1); `aria-label`, `aria-hidden`, `aria-describedby`, `role`. App shell a11y updated. |
+| 13 | 2026-06-22 | 2.6 — Build a Responsive Landing Page | ✅ Pass | Streamify landing page built and deployed to GitHub Pages. All sections: nav + hamburger menu, hero with player card mockup, 6-card feature grid, horizontal-scroll testimonials, CTA banner with animated wave bars, 4-column footer. Mobile-first, accessible, fluid type scale with `clamp()`. Fixed `role="listitem"` on anchor a11y bug, removed `!important` from nav, cleaned unused wrapper. Module 02 complete. |
 
 ---
 
@@ -67,6 +68,7 @@
 | 2026-06-19 | App shell — page shell Grid (60px + 1fr), Flexbox header, sidebar + main Grid, 3-col card grid with `min-height: 0` + `overflow-y: auto` internal scroll | 2.3 | ✅ Done |
 | 2026-06-19 | App shell responsive — viewport meta tag, sidebar `display: none` + grid track collapse on mobile, `auto-fit minmax(200px, 1fr)` card grid, `clamp(0.9rem, 2vw, 1.1rem)` font-size | 2.4 | ✅ Done |
 | 2026-06-21 | App shell a11y — `role="img"` + `aria-label` on avatar, `:focus-visible` focus ring, `aria-hidden` on emoji sidebar links, `aria-label` on nav link | 2.5 | ✅ Done |
+| 2026-06-22 | Streamify landing page — full multi-section page built and deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/spotify-landing/) | 2.6 | ✅ Done |
 
 ---
 
@@ -175,6 +177,7 @@
 
 ### Things Built
 - App shell page (2026-06-19) — full-viewport layout with Grid shell, Flexbox nav, sidebar, and scrollable card gallery
+- Streamify landing page (2026-06-22) — multi-section responsive landing page deployed to GitHub Pages; fluid type scale, CSS custom property design system, animated CTA wave bars, accessible hamburger nav
 
 ---
 
@@ -244,3 +247,9 @@
 - Covered: The accessibility tree (role/name/state as a parallel structure to the DOM); accessible name resolution order (aria-labelledby → aria-label → label → text content → alt → title); form labels — explicit `for/id`, wrapped, `aria-label`; why `placeholder` is not a label; keyboard navigation — native focusable elements, `tabindex="0"` for custom elements, `<div onclick>` as a keyboard a11y bug; `:focus-visible` vs `:focus` — preserving the focus ring for keyboard users only; color contrast — 4.5:1 for normal text, 3:1 for large text and UI components, `aria-describedby` for error messages; ARIA first rule (prefer native HTML); `aria-label`, `aria-hidden`, `aria-describedby`, `role`. App shell exercise: `role="img"` + `aria-label` on avatar, `:focus-visible` focus ring, `aria-hidden` on emoji sidebar links.
 - Outcome: Pass
 - Next: 2.6 — Build a Responsive Landing Page (Module 02 milestone)
+
+## 2026-06-22 (session 13)
+- Topic: 2.6 — Build a Responsive Landing Page (Module 02 milestone)
+- Covered: Code review of submitted Streamify landing page — semantic landmark structure, accessible hamburger nav (`aria-expanded` + JS toggle), `role="list"` on unstyled `<ul>`, `aria-labelledby` on sections, `blockquote`/`footer` for testimonials. CSS: fluid `clamp()` type scale (`--step-0` through `--step-4`), CSS custom property design system (global tokens → component API → context overrides), mobile-first breakpoints, `scroll-padding-top` for fixed nav offset, `width: max-content` + `overflow-x: auto` for horizontal scroll track, horizontal-scroll-to-grid pattern at 1024px, `@keyframes wave-bounce` with `--delay` CSS var for staggered animation, `prefers-reduced-motion` coverage. Issues found and fixed by student: `role="listitem"` on `<a>` (replaced link semantics — fixed to `ul/li/a`), `!important` on desktop nav (inverted media query logic), unused `player-card__album` wrapper div. Review questions passed: `aria-labelledby` vs `aria-label`, flex nowrap + overflow-x scroll mechanism, `clamp()` three arguments. Reflection: admitted overestimating HTML/CSS at 9/10 — key fundamentals (a11y, semantic HTML, CSS cascade) were untouched despite 6 years of experience.
+- Outcome: Pass — live URL confirmed: https://supreecha-jaijumpa.github.io/spotify-landing/
+- Next: Module 03 — JavaScript Fundamentals, starting with 3.1 — Variables, Types & Operators
