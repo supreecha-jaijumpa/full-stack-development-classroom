@@ -6,10 +6,10 @@
 | **Profile** | Senior frontend dev (6 yrs, React/Next) → goal: Software Architect |
 | **Current Phase** | Phase 1 — Foundations |
 | **Current Module** | Module 03 — JavaScript Fundamentals |
-| **Status** | Module 02 complete ✅ (6/6); Module 03 in progress — 5/8 topics done |
-| **Week Goal** | Continue Module 03 — JavaScript Fundamentals; target 3.6 this week |
+| **Status** | Module 02 complete ✅ (6/6); Module 03 in progress — 6/8 topics done |
+| **Week Goal** | Continue Module 03 — JavaScript Fundamentals; target 3.7 this week |
 | **Last Session Date** | 2026-06-23 |
-| **Last Session Summary** | Completed 3.5 — Events. Covered addEventListener/removeEventListener, the Event object (target vs currentTarget), common events (click, input, submit, keydown), event bubbling, stopPropagation, preventDefault, and event delegation with closest(). Connected to React: React uses delegation at #root — one listener per event type handles all component onClick props via bubbling. Built a delegated list + form-submit exercise. |
+| **Last Session Summary** | Completed 3.6 — Async, Promises & fetch. Covered the event loop (single-threaded JS, why blocking I/O freezes the UI), callbacks and callback hell, Promise states (pending/fulfilled/rejected), .then/.catch/.finally chaining, async/await as syntax sugar over Promises, fetch two-step (await response headers + await .json() body), response.ok check (fetch doesn't throw on 4xx/5xx). Built a GitHub user summary fetcher using Promise.all to fire user + repos requests in parallel, sorted repos by star count, printed top 3. |
 | **Homework** | None assigned |
 | **Homework Status** | — |
-| **Next Action** | Start 3.6 — Async JavaScript (callbacks, promises, async/await) |
+| **Next Action** | Start 3.7 — ES Modules (named/default exports, import paths, module scope, how Vite uses modules) |

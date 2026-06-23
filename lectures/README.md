@@ -22,5 +22,7 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 03 — JavaScript Fundamentals | Functions & Scope | [3.2-functions-and-scope.md](03-javascript-fundamentals/3.2-functions-and-scope.md) | 2026-06-23 |
 | 03 — JavaScript Fundamentals | Arrays & Objects | [3.3-arrays-and-objects.md](03-javascript-fundamentals/3.3-arrays-and-objects.md) | 2026-06-23 |
 | 03 — JavaScript Fundamentals | DOM Manipulation | [3.4-dom-manipulation.md](03-javascript-fundamentals/3.4-dom-manipulation.md) | 2026-06-23 |
+| 03 — JavaScript Fundamentals | Events | [3.5-events.md](03-javascript-fundamentals/3.5-events.md) | 2026-06-23 |
+| 03 — JavaScript Fundamentals | Async, Promises & fetch | [3.6-async-promises-fetch.md](03-javascript-fundamentals/3.6-async-promises-fetch.md) | 2026-06-23 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).

@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-23
-> Total Sessions: 17
+> Total Sessions: 19
 > Current Streak: 3 days
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 03 — JavaScript Fundamentals |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (5/8) |
-| **Next Topic** | 3.6 — Async JavaScript |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (6/8) |
+| **Next Topic** | 3.7 — ES Modules |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 19 | 2026-06-23 | 3.6 — Async, Promises & fetch | ✅ Pass | Event loop, callbacks, Promise states/chaining, async/await, fetch two-step (response + .json()), response.ok check, Promise.all for parallel requests |
 | 18 | 2026-06-23 | 3.5 — Events | ✅ Pass | addEventListener, Event object (target vs currentTarget), bubbling, stopPropagation, preventDefault, event delegation with closest(); connected to React's root-level delegation pattern |
 | 1 | 2026-06-16 | 1.1 — How the Web Works | ✅ Pass | DNS chain, TCP/TLS handshakes, CRP, SSR vs CSR via DevTools |
 | 2 | 2026-06-16 | 1.2 — HTTP Fundamentals | ✅ Pass | Request/response shape, methods, status codes, headers, caching security bug, statelessness |
@@ -78,6 +79,7 @@
 | 2026-06-23 | GitHub repos chain — filter(archived + language) → map(label string) + reduce(language frequency map) + users filter/sort/map pipeline | 3.3 | ✅ Done |
 | 2026-06-23 | To-do list — array as source of truth, DocumentFragment for batch rendering, remove-by-splice + re-render pattern | 3.4 | ✅ Done |
 | 2026-06-23 | Delegated list + form submit — one click listener on `<ul>` with `closest('li')`, form preventDefault + display email in `<p>` via textContent | 3.5 | ✅ Done |
+| 2026-06-23 | GitHub user summary — parallel fetch via `Promise.all`, `response.ok` guards, top-3 repos sorted by `stargazers_count` | 3.6 | ✅ Done |
 
 ---
 
@@ -201,6 +203,16 @@
 - Every DOM write may trigger a reflow (layout recalculation) and repaint; `innerHTML +=` in a loop reads and destroys all children on every iteration — N rewrites instead of 1
 - React's virtual DOM diffs a lightweight in-memory tree, computes the minimum set of real DOM changes, and applies them in one batch — this is the structural solution to the repeated-DOM-write problem
 - The `key` prop gives React's differ a stable identity across renders; index-as-key breaks diffing when items reorder because index and identity no longer match
+- `addEventListener(type, handler)` attaches a handler; `removeEventListener` requires the exact same function reference — anonymous functions cannot be removed
+- `event.target` is the element that triggered the event; `event.currentTarget` is the element the listener is attached to — they differ during bubbling
+- Event bubbling: events propagate up the DOM tree through all ancestors; `stopPropagation()` halts bubbling; `preventDefault()` blocks the browser's default action (form submit, link navigation) — the two are independent
+- Event delegation: one listener on a parent handles events for all matching children via `event.target.closest(selector)` — handles dynamic elements and is more efficient than per-child listeners; React uses delegation at `#root` for all `onClick`/`onChange` props
+- JavaScript is single-threaded — blocking I/O would freeze the entire browser UI; async delegates waiting to the runtime's I/O threads and calls back via the event queue (event loop)
+- A Promise is an object representing a future value: pending (in progress) → fulfilled (resolved) or rejected (failed); `.then()` handles fulfillment, `.catch()` rejection, `.finally()` always runs; a single `.catch()` at the end of a chain handles any failure in the chain
+- `async` before a function makes it always return a Promise; `await` pauses that function's execution until the Promise settles — it does not block the thread; `await` can only appear inside an `async` function
+- `fetch` does NOT throw on 4xx/5xx responses — only on network failure; always check `response.ok` before calling `.json()`
+- `fetch` requires two awaits: `await fetch(url)` gives the Response object (headers arrived), `await response.json()` parses the body (body arrived separately)
+- `Promise.all([p1, p2])` fires all Promises simultaneously and resolves when all settle; sequential `await`s for independent requests double wall-clock time
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -223,12 +235,6 @@
 ---
 
 ## Session Detail
-
-## 2026-06-17 (session 4)
-- Topic: 1.4 — Dev Environment Setup
-- Covered: Node Current vs LTS distinction; fnm for cross-project version management; package.json fields (type, engines, exports, scripts convention); ESLint + Prettier separation of concerns; baseline flat config (eslint.config.mjs + .prettierrc + .vscode/settings.json); lint verification exercise
-- Outcome: Pass
-- Next: 1.5 — Command Line Basics
 
 ## 2026-06-17 (session 5)
 - Topic: 1.5 — Command Line Basics
@@ -307,3 +313,15 @@
 - Covered: DOM as a tree of node objects built from HTML; `document` as root entry point. `querySelector` (first match or null) vs `querySelectorAll` (NodeList — not an array, spread to use `.map`). Reading/writing `textContent` (safe) vs `innerHTML` (XSS risk with user input); `getAttribute`/`setAttribute`. `classList.add/remove/toggle/contains`. `createElement`/`appendChild`/`prepend`/`remove`. `DocumentFragment` as an in-memory container — appends inside it cost nothing, one `appendChild(fragment)` flushes to DOM in one write. Why minimizing DOM writes matters (reflow/repaint cost); `innerHTML +=` in a loop as the canonical bad pattern. React's virtual DOM as a structural solution: diffs old/new virtual tree, patches minimum real DOM changes. The `key` prop as a stable node identity for the differ — same role as `data-id` in vanilla diffing; index-as-key breaks reordering. Built a to-do list: `tasks` array as source of truth, `render()` rebuilds from array, remove via `splice(index, 1)` + re-render. Discussed ID-based diffing as the manual equivalent of React's reconciliation.
 - Outcome: Pass
 - Next: 3.5 — Events
+
+## 2026-06-23 (session 18)
+- Topic: 3.5 — Events
+- Covered: `addEventListener(type, handler)` / `removeEventListener` (requires exact same function reference); Event object properties — `target` (element that triggered) vs `currentTarget` (element with the listener); common event types (click, input, submit, keydown). Event bubbling — events propagate up through all DOM ancestors; `stopPropagation()` halts bubbling; `preventDefault()` blocks browser default actions (form submit, link navigation) — the two are independent. Event delegation: one listener on a parent, `event.target.closest(selector)` to identify which child triggered it — efficient and handles dynamically added elements. Connected to React: React attaches one listener per event type at `#root` and dispatches to the right component via bubbling.
+- Outcome: Pass
+- Next: 3.6 — Async, Promises & fetch
+
+## 2026-06-23 (session 19)
+- Topic: 3.6 — Async, Promises & fetch
+- Covered: Single-threaded JS — blocking I/O would freeze the browser UI; the event loop delegates waiting to runtime I/O threads and calls back when done. Callbacks as the original async mechanism; callback hell as the sequential-steps problem. Promise states (pending/fulfilled/rejected); `.then`/`.catch`/`.finally` chaining; one `.catch` handles any failure in the chain. `async/await` as syntax sugar over Promises — `async` functions always return a Promise; `await` pauses the function without blocking the thread. `fetch` two-step: `await fetch(url)` gives Response headers, `await response.json()` parses body; `response.ok` check required because `fetch` does not throw on 4xx/5xx. `Promise.all` for parallel independent requests — cuts wall-clock time to the slowest request. Built a GitHub user summary: parallel user + repos fetch via `Promise.all`, `response.ok` guards on both, top-3 repos sorted by `stargazers_count`, `main().catch()` error handler.
+- Outcome: Pass
+- Next: 3.7 — ES Modules
