@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-23
-> Total Sessions: 19
+> Total Sessions: 20
 > Current Streak: 3 days
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 03 — JavaScript Fundamentals |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (6/8) |
-| **Next Topic** | 3.7 — ES Modules |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (7/8) |
+| **Next Topic** | 3.8 — Build an Interactive App (Module 03 capstone) |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 20 | 2026-06-23 | 3.7 — ES Modules | ✅ Pass | Named vs default vs namespace imports, module paths (bare = node_modules vs ./ = relative), module scope (no global leakage), singleton rule (module runs once), Vite dev vs prod handling, refactored script into data.js/ui.js/main.js |
 | 19 | 2026-06-23 | 3.6 — Async, Promises & fetch | ✅ Pass | Event loop, callbacks, Promise states/chaining, async/await, fetch two-step (response + .json()), response.ok check, Promise.all for parallel requests |
 | 18 | 2026-06-23 | 3.5 — Events | ✅ Pass | addEventListener, Event object (target vs currentTarget), bubbling, stopPropagation, preventDefault, event delegation with closest(); connected to React's root-level delegation pattern |
 | 1 | 2026-06-16 | 1.1 — How the Web Works | ✅ Pass | DNS chain, TCP/TLS handshakes, CRP, SSR vs CSR via DevTools |
@@ -213,6 +214,12 @@
 - `fetch` does NOT throw on 4xx/5xx responses — only on network failure; always check `response.ok` before calling `.json()`
 - `fetch` requires two awaits: `await fetch(url)` gives the Response object (headers arrived), `await response.json()` parses the body (body arrived separately)
 - `Promise.all([p1, p2])` fires all Promises simultaneously and resolves when all settle; sequential `await`s for independent requests double wall-clock time
+- Three import forms: named (`import { foo }`) picks a specific named export and must match the export name; default (`import Foo`) picks the single default export and can be named freely by the consumer; namespace (`import * as Foo`) collects all named exports under one object
+- A file can have many named exports but only one default export
+- Module paths: bare names (no dot prefix) resolve to node_modules packages; paths starting with `./` or `../` resolve to files on disk
+- Module scope: each file has its own scope — nothing leaks to `window` unless explicitly assigned; requires `<script type="module">` in HTML
+- Module singleton rule: a module's top-level code runs exactly once, regardless of how many files import it — all importers share the same instance, making module-level variables a shared singleton store
+- Vite in development serves native ES modules directly to the browser (no bundling); in production it bundles the full import graph into a small number of optimized chunks
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -235,12 +242,6 @@
 ---
 
 ## Session Detail
-
-## 2026-06-17 (session 5)
-- Topic: 1.5 — Command Line Basics
-- Covered: Exit codes (0=success, non-zero=failure); $? shell variable; CI/CD exit code usage (GitHub Actions); && and || as exit-code branching; process.exit() in Node.js; piping | (stdout→stdin without disk); three I/O streams (stdin/stdout/stderr); redirection >, >>, 2>, 2>&1; Git Bash as Unix shell on Windows; grep pipeline exercise
-- Outcome: Pass
-- Next: 1.6 — Git & GitHub
 
 ## 2026-06-17 (session 6)
 - Topic: 1.6 — Git & GitHub
@@ -325,3 +326,9 @@
 - Covered: Single-threaded JS — blocking I/O would freeze the browser UI; the event loop delegates waiting to runtime I/O threads and calls back when done. Callbacks as the original async mechanism; callback hell as the sequential-steps problem. Promise states (pending/fulfilled/rejected); `.then`/`.catch`/`.finally` chaining; one `.catch` handles any failure in the chain. `async/await` as syntax sugar over Promises — `async` functions always return a Promise; `await` pauses the function without blocking the thread. `fetch` two-step: `await fetch(url)` gives Response headers, `await response.json()` parses body; `response.ok` check required because `fetch` does not throw on 4xx/5xx. `Promise.all` for parallel independent requests — cuts wall-clock time to the slowest request. Built a GitHub user summary: parallel user + repos fetch via `Promise.all`, `response.ok` guards on both, top-3 repos sorted by `stargazers_count`, `main().catch()` error handler.
 - Outcome: Pass
 - Next: 3.7 — ES Modules
+
+## 2026-06-23 (session 20)
+- Topic: 3.7 — ES Modules
+- Covered: Three import forms — named (`{ foo }`), default (no braces, any local name), namespace (`* as Foo`); corrected misconception that `import React from 'react'` imports "everything" (it's a default import of one export object, not a namespace import). Named vs default exports — many named allowed, only one default per file. Module paths — bare name resolves to node_modules, `./` resolves to a relative file on disk. Module scope — each file has its own scope, nothing leaks to `window`. Singleton rule — a module runs once regardless of how many importers; all share the same instance. Vite's approach — native ES modules served directly to the browser in dev, bundled into optimized chunks in prod. Exercise: refactored single-file script into `data.js` (users array + getTopUser), `ui.js` (renderUser), and `main.js` (entry point with no exports) — correct on first attempt.
+- Outcome: Pass
+- Next: 3.8 — Build an Interactive App (Module 03 capstone)

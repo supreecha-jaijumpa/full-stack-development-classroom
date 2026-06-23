@@ -6,10 +6,10 @@
 | **Profile** | Senior frontend dev (6 yrs, React/Next) → goal: Software Architect |
 | **Current Phase** | Phase 1 — Foundations |
 | **Current Module** | Module 03 — JavaScript Fundamentals |
-| **Status** | Module 02 complete ✅ (6/6); Module 03 in progress — 6/8 topics done |
-| **Week Goal** | Continue Module 03 — JavaScript Fundamentals; target 3.7 this week |
+| **Status** | Module 02 complete ✅ (6/6); Module 03 in progress — 7/8 topics done |
+| **Week Goal** | Complete Module 03 — finish 3.8 capstone exercise |
 | **Last Session Date** | 2026-06-23 |
-| **Last Session Summary** | Completed 3.6 — Async, Promises & fetch. Covered the event loop (single-threaded JS, why blocking I/O freezes the UI), callbacks and callback hell, Promise states (pending/fulfilled/rejected), .then/.catch/.finally chaining, async/await as syntax sugar over Promises, fetch two-step (await response headers + await .json() body), response.ok check (fetch doesn't throw on 4xx/5xx). Built a GitHub user summary fetcher using Promise.all to fire user + repos requests in parallel, sorted repos by star count, printed top 3. |
+| **Last Session Summary** | Completed 3.7 — ES Modules. Covered named vs default vs namespace imports, module scope (no global leakage), the singleton rule (a module runs once — all importers share the same instance), module paths (bare name = node_modules, `./` = relative file), and how Vite serves native ES modules in dev and bundles in prod. Refactored a single script into data.js / ui.js / main.js with named exports. |
 | **Homework** | None assigned |
 | **Homework Status** | — |
-| **Next Action** | Start 3.7 — ES Modules (named/default exports, import paths, module scope, how Vite uses modules) |
+| **Next Action** | Start 3.8 — Build an Interactive App (Module 03 capstone) |

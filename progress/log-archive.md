@@ -16,3 +16,9 @@
 - Covered: Node Current vs LTS distinction; fnm for cross-project version management; package.json fields (type, engines, exports, scripts convention); ESLint + Prettier separation of concerns; baseline flat config (eslint.config.mjs + .prettierrc + .vscode/settings.json); lint verification exercise
 - Outcome: Pass
 - Next: 1.5 — Command Line Basics
+
+## 2026-06-17 (session 5)
+- Topic: 1.5 — Command Line Basics
+- Covered: Exit codes (0=success, non-zero=failure); $? shell variable; CI/CD exit code usage (GitHub Actions); && and || as exit-code branching; process.exit() in Node.js; piping | (stdout→stdin without disk); three I/O streams (stdin/stdout/stderr); redirection >, >>, 2>, 2>&1; Git Bash as Unix shell on Windows; grep pipeline exercise
+- Outcome: Pass
+- Next: 1.6 — Git & GitHub
