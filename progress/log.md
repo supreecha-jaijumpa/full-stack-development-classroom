@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 03 — JavaScript Fundamentals |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (4/8) |
-| **Next Topic** | 3.5 — Events |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (5/8) |
+| **Next Topic** | 3.6 — Async JavaScript |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 18 | 2026-06-23 | 3.5 — Events | ✅ Pass | addEventListener, Event object (target vs currentTarget), bubbling, stopPropagation, preventDefault, event delegation with closest(); connected to React's root-level delegation pattern |
 | 1 | 2026-06-16 | 1.1 — How the Web Works | ✅ Pass | DNS chain, TCP/TLS handshakes, CRP, SSR vs CSR via DevTools |
 | 2 | 2026-06-16 | 1.2 — HTTP Fundamentals | ✅ Pass | Request/response shape, methods, status codes, headers, caching security bug, statelessness |
 | 3 | 2026-06-17 | 1.3 — Client, Server & the Browser | ✅ Pass | Placement axes, browser runtime, SSG/SSR/CSR decision tree, state location, DevTools Console exercise |
@@ -76,6 +77,7 @@
 | 2026-06-22 | coercion.js — predict then run 7 `==` / arithmetic expressions; caught `"5" - 3 = 2` and `null == 0 = false` as surprises | 3.1 | ✅ Done |
 | 2026-06-23 | GitHub repos chain — filter(archived + language) → map(label string) + reduce(language frequency map) + users filter/sort/map pipeline | 3.3 | ✅ Done |
 | 2026-06-23 | To-do list — array as source of truth, DocumentFragment for batch rendering, remove-by-splice + re-render pattern | 3.4 | ✅ Done |
+| 2026-06-23 | Delegated list + form submit — one click listener on `<ul>` with `closest('li')`, form preventDefault + display email in `<p>` via textContent | 3.5 | ✅ Done |
 
 ---
 
