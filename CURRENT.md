@@ -5,11 +5,11 @@
 |-------|-------|
 | **Profile** | Senior frontend dev (6 yrs, React/Next) → goal: Software Architect |
 | **Current Phase** | Phase 1 — Foundations |
-| **Current Module** | Module 03 — JavaScript Fundamentals |
-| **Status** | Module 02 complete ✅ (6/6); Module 03 in progress — 7/8 topics done |
-| **Week Goal** | Complete Module 03 — finish 3.8 capstone exercise |
+| **Current Module** | Module 04 — Modern JS & TypeScript |
+| **Status** | Module 02 complete ✅ (6/6); Module 03 complete ✅ (8/8); Module 04 not started |
+| **Week Goal** | Start Module 04 — complete 4.1 Modern JavaScript (ES2015+) |
 | **Last Session Date** | 2026-06-23 |
-| **Last Session Summary** | Completed 3.7 — ES Modules. Covered named vs default vs namespace imports, module scope (no global leakage), the singleton rule (a module runs once — all importers share the same instance), module paths (bare name = node_modules, `./` = relative file), and how Vite serves native ES modules in dev and bundles in prod. Refactored a single script into data.js / ui.js / main.js with named exports. |
+| **Last Session Summary** | Completed 3.8 — Module 03 capstone. Built and deployed GitHub Repo Explorer: fetches top-30 starred JS repos from the GitHub API, renders cards with name/description/stars/language, real-time search + language dropdown filtering in memory. Code organized into 4 ES modules (api.js, ui.js, filters.js, main.js). Review flagged XSS risk in innerHTML with external data — fix: use textContent for text-only fields. |
 | **Homework** | None assigned |
 | **Homework Status** | — |
-| **Next Action** | Start 3.8 — Build an Interactive App (Module 03 capstone) |
+| **Next Action** | Start 4.1 — Modern JavaScript (ES2015+) |

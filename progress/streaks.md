@@ -9,8 +9,8 @@
 | 🔥 **Current Streak** | 3 days |
 | 🏆 **Best Streak Ever** | 4 days |
 | 📅 **Last Session** | 2026-06-23 |
-| 📊 **Total Sessions** | 19 |
-| ⏱️ **Total Study Time** | ~24 hours |
+| 📊 **Total Sessions** | 21 |
+| ⏱️ **Total Study Time** | ~26 hours |
 
 ---
 
@@ -52,13 +52,13 @@
 - [ ] Phase 2 complete (Frontend)
 - [ ] Phase 3 complete (Backend)
 - [ ] Phase 4 complete (Full-Stack & DevOps)
-- [ ] First app deployed live
+- [x] First app deployed live
 - [ ] Capstone shipped
 
 ### Knowledge Milestones
 - [x] Can explain how the web works end-to-end
 - [x] Can build a responsive, accessible web page
-- [ ] Can build an interactive app in vanilla JavaScript
+- [x] Can build an interactive app in vanilla JavaScript
 - [ ] Can build a React + TypeScript SPA
 - [ ] Can test a frontend (unit + component + E2E)
 - [ ] Can build a REST API with a database
@@ -78,3 +78,4 @@
 |------|-------------|
 | 2026-06-16 | First session — unlocked "Can explain how the web works end-to-end" |
 | 2026-06-19 | Session 10 reached · 3-day streak milestone · built first standalone HTML/CSS page |
+| 2026-06-23 | Module 03 complete — built and deployed GitHub Repo Explorer · unlocked "Can build an interactive app in vanilla JavaScript" |

@@ -17,6 +17,12 @@
 - Outcome: Pass
 - Next: 1.5 — Command Line Basics
 
+## 2026-06-17 (session 6)
+- Topic: 1.6 — Git & GitHub
+- Covered: 3-area Git model (working tree/staging/history); HEAD as a movable pointer; branches as labels on commits; Conventional Commits format and why commit messages are machine-readable; Feature Branch vs Gitflow vs Trunk-Based strategies; why Trunk-Based + Feature Flags is right for web products; how branch protection rules + CI enforce strategy at infrastructure level; clean commit history exercise (login-feature repo pushed to GitHub)
+- Outcome: Pass
+- Next: Module 02 — HTML & CSS (likely fast-track given 9/10 level)
+
 ## 2026-06-17 (session 5)
 - Topic: 1.5 — Command Line Basics
 - Covered: Exit codes (0=success, non-zero=failure); $? shell variable; CI/CD exit code usage (GitHub Actions); && and || as exit-code branching; process.exit() in Node.js; piping | (stdout→stdin without disk); three I/O streams (stdin/stdout/stderr); redirection >, >>, 2>, 2>&1; Git Bash as Unix shell on Windows; grep pipeline exercise

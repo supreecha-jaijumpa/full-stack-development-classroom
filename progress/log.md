@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-23
-> Total Sessions: 20
+> Total Sessions: 21
 > Current Streak: 3 days
 
 ---
@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Current Module** | Module 03 — JavaScript Fundamentals |
+| **Current Module** | Module 04 — Modern JS & TypeScript |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (7/8) |
-| **Next Topic** | 3.8 — Build an Interactive App (Module 03 capstone) |
+| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) |
+| **Next Topic** | 4.1 — Modern JavaScript (ES2015+) |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 21 | 2026-06-23 | 3.8 — Build an Interactive App (Module 03 capstone) | ✅ Pass | Built GitHub Repo Explorer: 4 ES modules (api/ui/filters/main), async fetch + in-memory filtering (search + language dropdown), deployed to GitHub Pages; code review flagged XSS risk in innerHTML with external API data |
 | 20 | 2026-06-23 | 3.7 — ES Modules | ✅ Pass | Named vs default vs namespace imports, module paths (bare = node_modules vs ./ = relative), module scope (no global leakage), singleton rule (module runs once), Vite dev vs prod handling, refactored script into data.js/ui.js/main.js |
 | 19 | 2026-06-23 | 3.6 — Async, Promises & fetch | ✅ Pass | Event loop, callbacks, Promise states/chaining, async/await, fetch two-step (response + .json()), response.ok check, Promise.all for parallel requests |
 | 18 | 2026-06-23 | 3.5 — Events | ✅ Pass | addEventListener, Event object (target vs currentTarget), bubbling, stopPropagation, preventDefault, event delegation with closest(); connected to React's root-level delegation pattern |
@@ -81,6 +82,7 @@
 | 2026-06-23 | To-do list — array as source of truth, DocumentFragment for batch rendering, remove-by-splice + re-render pattern | 3.4 | ✅ Done |
 | 2026-06-23 | Delegated list + form submit — one click listener on `<ul>` with `closest('li')`, form preventDefault + display email in `<p>` via textContent | 3.5 | ✅ Done |
 | 2026-06-23 | GitHub user summary — parallel fetch via `Promise.all`, `response.ok` guards, top-3 repos sorted by `stargazers_count` | 3.6 | ✅ Done |
+| 2026-06-23 | GitHub Repo Explorer — solo capstone build; fetch, render, in-memory filter (search + language), 4 ES modules, deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/github-repo-explorer/) | 3.8 | ✅ Done |
 
 ---
 
@@ -233,6 +235,7 @@
 ### Things Built
 - App shell page (2026-06-19) — full-viewport layout with Grid shell, Flexbox nav, sidebar, and scrollable card gallery
 - Streamify landing page (2026-06-22) — multi-section responsive landing page deployed to GitHub Pages; fluid type scale, CSS custom property design system, animated CTA wave bars, accessible hamburger nav
+- GitHub Repo Explorer (2026-06-23) — vanilla JS app deployed to GitHub Pages; GitHub Search API, in-memory filtering (search + language), 4-module ES module architecture
 
 ---
 
@@ -242,12 +245,6 @@
 ---
 
 ## Session Detail
-
-## 2026-06-17 (session 6)
-- Topic: 1.6 — Git & GitHub
-- Covered: 3-area Git model (working tree/staging/history); HEAD as a movable pointer; branches as labels on commits; Conventional Commits format and why commit messages are machine-readable; Feature Branch vs Gitflow vs Trunk-Based strategies; why Trunk-Based + Feature Flags is right for web products; how branch protection rules + CI enforce strategy at infrastructure level; clean commit history exercise (login-feature repo pushed to GitHub)
-- Outcome: Pass
-- Next: Module 02 — HTML & CSS (likely fast-track given 9/10 level)
 
 ## 2026-06-17 (session 7)
 - Topic: 2.1 — Semantic HTML
@@ -326,6 +323,12 @@
 - Covered: Single-threaded JS — blocking I/O would freeze the browser UI; the event loop delegates waiting to runtime I/O threads and calls back when done. Callbacks as the original async mechanism; callback hell as the sequential-steps problem. Promise states (pending/fulfilled/rejected); `.then`/`.catch`/`.finally` chaining; one `.catch` handles any failure in the chain. `async/await` as syntax sugar over Promises — `async` functions always return a Promise; `await` pauses the function without blocking the thread. `fetch` two-step: `await fetch(url)` gives Response headers, `await response.json()` parses body; `response.ok` check required because `fetch` does not throw on 4xx/5xx. `Promise.all` for parallel independent requests — cuts wall-clock time to the slowest request. Built a GitHub user summary: parallel user + repos fetch via `Promise.all`, `response.ok` guards on both, top-3 repos sorted by `stargazers_count`, `main().catch()` error handler.
 - Outcome: Pass
 - Next: 3.7 — ES Modules
+
+## 2026-06-23 (session 21)
+- Topic: 3.8 — Build an Interactive App (Module 03 capstone)
+- Covered: Solo capstone build — GitHub Repo Explorer. Architecture: api.js (fetch + error handling), ui.js (renderCards, showLoading, showError, populateLanguageDropdown), filters.js (pure filterRepos function), main.js (state + event wiring). In-memory filtering: allRepos fetched once, searchTerm and selectedLanguage variables updated on each event, single applyFilters() function called by both handlers. Deployment to GitHub Pages. Code review findings: correct module split, pure filterRepos function, response.ok check, toLocaleString() for numbers, nullish coalescing on description — clean. Issue flagged: repo.description injected directly into innerHTML (XSS risk); fix is textContent or DOMPurify for external data. Module 03 complete.
+- Outcome: Pass — live URL: https://supreecha-jaijumpa.github.io/github-repo-explorer/
+- Next: Module 04 — Modern JS & TypeScript, starting with 4.1 — Modern JavaScript (ES2015+)
 
 ## 2026-06-23 (session 20)
 - Topic: 3.7 — ES Modules
