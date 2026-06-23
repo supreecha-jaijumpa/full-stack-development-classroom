@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-23
-> Total Sessions: 16
+> Total Sessions: 17
 > Current Streak: 3 days
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 03 — JavaScript Fundamentals |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (3/8) |
-| **Next Topic** | 3.4 — DOM Manipulation |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (4/8) |
+| **Next Topic** | 3.5 — Events |
 
 ---
 
@@ -52,6 +52,7 @@
 | 14 | 2026-06-22 | 3.1 — Variables, Types & Operators | ✅ Pass | `==` vs `===` coercion algorithm; null arithmetic (coerces to 0) vs null equality spec inconsistency (`null == 0` false, `null >= 0` true); `+` concatenates vs `-` coerces; truthy/falsy table; `||` vs `??`. |
 | 15 | 2026-06-23 | 3.2 — Functions & Scope | ✅ Pass | Scope chain (global/function/block, `var` leak); closures as live binding references; factory functions as independent instances; `this` — call-site in regular functions, lexical in arrow functions; built `makeCounter(start)` factory. |
 | 16 | 2026-06-23 | 3.3 — Arrays & Objects | ✅ Pass | Mutating vs non-mutating, React reference equality, filter/map/reduce chains, reduce-to-object reshape, Object.entries tuples, array/object spread, sort-mutates habit |
+| 17 | 2026-06-23 | 3.4 — DOM Manipulation | ✅ Pass | DOM tree, querySelector/querySelectorAll (NodeList vs array), textContent/classList/createElement/remove, DocumentFragment batch write, React virtual DOM + key connection, to-do list exercise |
 
 ---
 
@@ -74,6 +75,7 @@
 | 2026-06-22 | Streamify landing page — full multi-section page built and deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/spotify-landing/) | 2.6 | ✅ Done |
 | 2026-06-22 | coercion.js — predict then run 7 `==` / arithmetic expressions; caught `"5" - 3 = 2` and `null == 0 = false` as surprises | 3.1 | ✅ Done |
 | 2026-06-23 | GitHub repos chain — filter(archived + language) → map(label string) + reduce(language frequency map) + users filter/sort/map pipeline | 3.3 | ✅ Done |
+| 2026-06-23 | To-do list — array as source of truth, DocumentFragment for batch rendering, remove-by-splice + re-render pattern | 3.4 | ✅ Done |
 
 ---
 
@@ -188,6 +190,15 @@
 - `(acc[key] || 0) + 1` idiom in reduce frequency counters — guards against `undefined` on first encounter and the falsy-zero trap (checking `if (acc[key])` fails when count is `0`)
 - `Object.entries(obj)` returns `[[key, value], ...]` tuples — own enumerable properties only; prefer over `for...in` which also iterates inherited prototype properties
 - Object spread: later properties overwrite earlier ones on key conflict (last-wins rule); standard React state update pattern: `{ ...prevState, field: newValue }`
+- The DOM is a tree of node objects the browser builds from HTML; `document` is the JavaScript entry point to this tree
+- `querySelector(sel)` returns the first matching element or `null`; `querySelectorAll(sel)` returns a NodeList — not an array, so `.map`/`.filter` throw; spread with `[...list]` to get a real array
+- `textContent` reads/writes plain text safely; `innerHTML` parses HTML — XSS risk when set from user input; `getAttribute`/`setAttribute` for arbitrary attributes
+- `classList.add/remove/toggle/contains` cover all common class manipulation needs
+- `createElement` creates an in-memory node; `appendChild`/`prepend` attach it to a parent; `.remove()` removes a node from the DOM
+- `DocumentFragment` is an in-memory container node — appending children to it costs zero reflow; one `parent.appendChild(fragment)` flushes everything to the live DOM in a single write
+- Every DOM write may trigger a reflow (layout recalculation) and repaint; `innerHTML +=` in a loop reads and destroys all children on every iteration — N rewrites instead of 1
+- React's virtual DOM diffs a lightweight in-memory tree, computes the minimum set of real DOM changes, and applies them in one batch — this is the structural solution to the repeated-DOM-write problem
+- The `key` prop gives React's differ a stable identity across renders; index-as-key breaks diffing when items reorder because index and identity no longer match
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -288,3 +299,9 @@
 - Covered: Mutating vs non-mutating distinction — mutating methods change the original array in place (push/pop/splice/sort/reverse); non-mutating return new values (map/filter/reduce/find); React's re-render check compares object references, not contents — mutating state and returning the same reference skips re-render. Chained filter + map on a GitHub repos dataset (filter archived + language, map to label string). reduce for frequency counting (language count per repo) using `(acc[key] || 0) + 1` to guard the falsy-zero trap; reduce for object reshaping (array-to-lookup by id). Object spread — last property wins on key conflict; standard React state update pattern. Array spread — combine and insert items. Destructuring — already used daily in React, learned the term. `Object.entries` returns `[[key, value], ...]` tuples (not `{key, value}` objects); prefer over `for...in` to avoid inherited prototype properties. `[...arr].sort(...)` habit — sort mutates in place; always spread first when sorting state directly.
 - Outcome: Pass
 - Next: 3.4 — DOM Manipulation
+
+## 2026-06-23 (session 17)
+- Topic: 3.4 — DOM Manipulation
+- Covered: DOM as a tree of node objects built from HTML; `document` as root entry point. `querySelector` (first match or null) vs `querySelectorAll` (NodeList — not an array, spread to use `.map`). Reading/writing `textContent` (safe) vs `innerHTML` (XSS risk with user input); `getAttribute`/`setAttribute`. `classList.add/remove/toggle/contains`. `createElement`/`appendChild`/`prepend`/`remove`. `DocumentFragment` as an in-memory container — appends inside it cost nothing, one `appendChild(fragment)` flushes to DOM in one write. Why minimizing DOM writes matters (reflow/repaint cost); `innerHTML +=` in a loop as the canonical bad pattern. React's virtual DOM as a structural solution: diffs old/new virtual tree, patches minimum real DOM changes. The `key` prop as a stable node identity for the differ — same role as `data-id` in vanilla diffing; index-as-key breaks reordering. Built a to-do list: `tasks` array as source of truth, `render()` rebuilds from array, remove via `splice(index, 1)` + re-render. Discussed ID-based diffing as the manual equivalent of React's reconciliation.
+- Outcome: Pass
+- Next: 3.5 — Events
