@@ -1,7 +1,7 @@
 # Session Log
-> Last Updated: 2026-06-22
-> Total Sessions: 14
-> Current Streak: 2 days
+> Last Updated: 2026-06-23
+> Total Sessions: 15
+> Current Streak: 3 days
 
 ---
 
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 03 — JavaScript Fundamentals |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (1/8) |
-| **Next Topic** | 3.2 — Functions & Scope |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (2/8) |
+| **Next Topic** | 3.3 — Arrays & Array Methods |
 
 ---
 
@@ -50,6 +50,7 @@
 | 12 | 2026-06-21 | 2.5 — Accessibility Basics | ✅ Pass | Accessibility tree (role/name/state); name resolution order; form labels; keyboard navigation; `:focus-visible`; contrast ratios (4.5:1 / 3:1); `aria-label`, `aria-hidden`, `aria-describedby`, `role`. App shell a11y updated. |
 | 13 | 2026-06-22 | 2.6 — Build a Responsive Landing Page | ✅ Pass | Streamify landing page built and deployed to GitHub Pages. All sections: nav + hamburger menu, hero with player card mockup, 6-card feature grid, horizontal-scroll testimonials, CTA banner with animated wave bars, 4-column footer. Mobile-first, accessible, fluid type scale with `clamp()`. Fixed `role="listitem"` on anchor a11y bug, removed `!important` from nav, cleaned unused wrapper. Module 02 complete. |
 | 14 | 2026-06-22 | 3.1 — Variables, Types & Operators | ✅ Pass | `==` vs `===` coercion algorithm; null arithmetic (coerces to 0) vs null equality spec inconsistency (`null == 0` false, `null >= 0` true); `+` concatenates vs `-` coerces; truthy/falsy table; `||` vs `??`. |
+| 15 | 2026-06-23 | 3.2 — Functions & Scope | ✅ Pass | Scope chain (global/function/block, `var` leak); closures as live binding references; factory functions as independent instances; `this` — call-site in regular functions, lexical in arrow functions; built `makeCounter(start)` factory. |
 
 ---
 
@@ -173,6 +174,11 @@
 - `+` is overloaded: if either operand is a string, it concatenates (`"5" + 3 = "53"`); `-`, `*`, `/` always coerce both sides to numbers (`"5" - 3 = 2`)
 - Six falsy values: `false`, `0`, `-0`, `""`, `null`, `undefined`, `NaN` — everything else is truthy, including `"0"` and `[]`
 - `||` uses the right operand when the left is falsy (includes `0` and `""`); `??` uses the right operand only when the left is `null` or `undefined`
+- Three scope levels: global (everywhere), function (created by a function call), block (`let`/`const` only — `var` ignores block boundaries and hoists to the enclosing function)
+- A closure is a function bundled with a live reference to the scope it was created in; the scope is kept alive by the reference even after the outer function returns
+- Closures capture the binding (variable slot), not a snapshot of the value — mutations are visible through the closure after creation
+- Each call to a factory function creates an independent scope; two counters returned from two calls have entirely separate state
+- `this` in regular functions is determined at the call site — bare calls lose the object context; `this` in arrow functions is inherited lexically from the enclosing scope at definition time
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -267,3 +273,9 @@
 - Covered: Calibration via live coercion predictions. `==` vs `===` algorithm — `==` runs type coercion steps (e.g., `[] == false` chain: `false→0`, `[]→""`, `""→0`, `0==0→true`). `null` arithmetic (coerces to 0, so `null + 1 = 1`) vs `null == 0` (false — spec carve-out: null only equals null/undefined). `null >= 0` is true (numeric path: `0 >= 0`) — the famous spec inconsistency. `+` operator overloaded for concatenation when either operand is a string; `-`/`*`/`/` always coerce to numbers. Six falsy values. `||` vs `??`: falsy check vs null/undefined check.
 - Outcome: Pass
 - Next: 3.2 — Functions & Scope
+
+## 2026-06-23 (session 15)
+- Topic: 3.2 — Functions & Scope
+- Covered: Scope chain — global, function, and block scope; `var` is function-scoped and leaks out of `if`/`for` blocks, `let`/`const` are block-scoped. Closure as a function retaining a live reference to its outer scope's binding (not a snapshot of the value); two factory-function calls create two independent scopes — same mechanism as React's per-component `useState`. `this` in regular functions is call-site determined (bare call loses object context); arrow functions have no own `this`, they inherit it lexically from the enclosing scope. Exercise: built `makeCounter(start = 0)` returning `{increment, decrement, value}` — caught reserved-keyword bug (`default` cannot be used as a parameter name).
+- Outcome: Pass
+- Next: 3.3 — Arrays & Array Methods
