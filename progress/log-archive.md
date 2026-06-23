@@ -5,4 +5,8 @@
 
 ---
 
-*(Empty — archive entries will appear here after your first 20 sessions)*
+## 2026-06-16
+- Topic: 1.1 — How the Web Works
+- Covered: DNS resolution chain, TCP 3-way handshake, TLS handshake, HTTP request/response cycle, Critical Rendering Path, SSR vs CSR identification via DevTools
+- Outcome: Pass
+- Next: 1.2 — HTTP in Depth (methods, status codes, headers, REST basics)

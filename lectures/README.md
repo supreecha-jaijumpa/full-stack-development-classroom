@@ -20,5 +20,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 02 — HTML & CSS | Accessibility Basics | [2.5-accessibility-basics.md](02-html-css/2.5-accessibility-basics.md) | 2026-06-21 |
 | 03 — JavaScript Fundamentals | Variables, Types & Operators | [3.1-variables-types-operators.md](03-javascript-fundamentals/3.1-variables-types-operators.md) | 2026-06-22 |
 | 03 — JavaScript Fundamentals | Functions & Scope | [3.2-functions-and-scope.md](03-javascript-fundamentals/3.2-functions-and-scope.md) | 2026-06-23 |
+| 03 — JavaScript Fundamentals | Arrays & Objects | [3.3-arrays-and-objects.md](03-javascript-fundamentals/3.3-arrays-and-objects.md) | 2026-06-23 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).

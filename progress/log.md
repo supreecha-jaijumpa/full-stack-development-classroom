@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-23
-> Total Sessions: 15
+> Total Sessions: 16
 > Current Streak: 3 days
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 03 — JavaScript Fundamentals |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (2/8) |
-| **Next Topic** | 3.3 — Arrays & Array Methods |
+| **Overall Progress** | Module 01 complete (6/6) · Module 02 complete ✅ (6/6) · Module 03 in progress (3/8) |
+| **Next Topic** | 3.4 — DOM Manipulation |
 
 ---
 
@@ -51,6 +51,7 @@
 | 13 | 2026-06-22 | 2.6 — Build a Responsive Landing Page | ✅ Pass | Streamify landing page built and deployed to GitHub Pages. All sections: nav + hamburger menu, hero with player card mockup, 6-card feature grid, horizontal-scroll testimonials, CTA banner with animated wave bars, 4-column footer. Mobile-first, accessible, fluid type scale with `clamp()`. Fixed `role="listitem"` on anchor a11y bug, removed `!important` from nav, cleaned unused wrapper. Module 02 complete. |
 | 14 | 2026-06-22 | 3.1 — Variables, Types & Operators | ✅ Pass | `==` vs `===` coercion algorithm; null arithmetic (coerces to 0) vs null equality spec inconsistency (`null == 0` false, `null >= 0` true); `+` concatenates vs `-` coerces; truthy/falsy table; `||` vs `??`. |
 | 15 | 2026-06-23 | 3.2 — Functions & Scope | ✅ Pass | Scope chain (global/function/block, `var` leak); closures as live binding references; factory functions as independent instances; `this` — call-site in regular functions, lexical in arrow functions; built `makeCounter(start)` factory. |
+| 16 | 2026-06-23 | 3.3 — Arrays & Objects | ✅ Pass | Mutating vs non-mutating, React reference equality, filter/map/reduce chains, reduce-to-object reshape, Object.entries tuples, array/object spread, sort-mutates habit |
 
 ---
 
@@ -72,6 +73,7 @@
 | 2026-06-21 | App shell a11y — `role="img"` + `aria-label` on avatar, `:focus-visible` focus ring, `aria-hidden` on emoji sidebar links, `aria-label` on nav link | 2.5 | ✅ Done |
 | 2026-06-22 | Streamify landing page — full multi-section page built and deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/spotify-landing/) | 2.6 | ✅ Done |
 | 2026-06-22 | coercion.js — predict then run 7 `==` / arithmetic expressions; caught `"5" - 3 = 2` and `null == 0 = false` as surprises | 3.1 | ✅ Done |
+| 2026-06-23 | GitHub repos chain — filter(archived + language) → map(label string) + reduce(language frequency map) + users filter/sort/map pipeline | 3.3 | ✅ Done |
 
 ---
 
@@ -179,6 +181,13 @@
 - Closures capture the binding (variable slot), not a snapshot of the value — mutations are visible through the closure after creation
 - Each call to a factory function creates an independent scope; two counters returned from two calls have entirely separate state
 - `this` in regular functions is determined at the call site — bare calls lose the object context; `this` in arrow functions is inherited lexically from the enclosing scope at definition time
+- Mutating array methods change the original array in place (push, pop, splice, sort, reverse); non-mutating methods return new arrays/values (map, filter, reduce, find, slice)
+- React's re-render check compares object references, not contents — mutating state and returning the same reference causes React to skip re-render; new reference (via spread or non-mutating method) triggers it
+- `sort()` is mutating — always spread first (`[...arr].sort(...)`) to avoid mutating the original, especially when sorting React state
+- `reduce(callback, initialValue)` — accumulates across all items; the callback receives `(acc, currentItem)` and must return `acc` each iteration; used for sums, frequency maps, and array-to-object reshaping
+- `(acc[key] || 0) + 1` idiom in reduce frequency counters — guards against `undefined` on first encounter and the falsy-zero trap (checking `if (acc[key])` fails when count is `0`)
+- `Object.entries(obj)` returns `[[key, value], ...]` tuples — own enumerable properties only; prefer over `for...in` which also iterates inherited prototype properties
+- Object spread: later properties overwrite earlier ones on key conflict (last-wins rule); standard React state update pattern: `{ ...prevState, field: newValue }`
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -201,12 +210,6 @@
 ---
 
 ## Session Detail
-
-## 2026-06-16
-- Topic: 1.1 — How the Web Works
-- Covered: DNS resolution chain, TCP 3-way handshake, TLS handshake, HTTP request/response cycle, Critical Rendering Path, SSR vs CSR identification via DevTools
-- Outcome: Pass
-- Next: 1.2 — HTTP in Depth (methods, status codes, headers, REST basics)
 
 ## 2026-06-17 (session 4)
 - Topic: 1.4 — Dev Environment Setup
@@ -279,3 +282,9 @@
 - Covered: Scope chain — global, function, and block scope; `var` is function-scoped and leaks out of `if`/`for` blocks, `let`/`const` are block-scoped. Closure as a function retaining a live reference to its outer scope's binding (not a snapshot of the value); two factory-function calls create two independent scopes — same mechanism as React's per-component `useState`. `this` in regular functions is call-site determined (bare call loses object context); arrow functions have no own `this`, they inherit it lexically from the enclosing scope. Exercise: built `makeCounter(start = 0)` returning `{increment, decrement, value}` — caught reserved-keyword bug (`default` cannot be used as a parameter name).
 - Outcome: Pass
 - Next: 3.3 — Arrays & Array Methods
+
+## 2026-06-23 (session 16)
+- Topic: 3.3 — Arrays & Objects
+- Covered: Mutating vs non-mutating distinction — mutating methods change the original array in place (push/pop/splice/sort/reverse); non-mutating return new values (map/filter/reduce/find); React's re-render check compares object references, not contents — mutating state and returning the same reference skips re-render. Chained filter + map on a GitHub repos dataset (filter archived + language, map to label string). reduce for frequency counting (language count per repo) using `(acc[key] || 0) + 1` to guard the falsy-zero trap; reduce for object reshaping (array-to-lookup by id). Object spread — last property wins on key conflict; standard React state update pattern. Array spread — combine and insert items. Destructuring — already used daily in React, learned the term. `Object.entries` returns `[[key, value], ...]` tuples (not `{key, value}` objects); prefer over `for...in` to avoid inherited prototype properties. `[...arr].sort(...)` habit — sort mutates in place; always spread first when sorting state directly.
+- Outcome: Pass
+- Next: 3.4 — DOM Manipulation

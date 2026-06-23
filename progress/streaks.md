@@ -9,8 +9,8 @@
 | 🔥 **Current Streak** | 3 days |
 | 🏆 **Best Streak Ever** | 4 days |
 | 📅 **Last Session** | 2026-06-23 |
-| 📊 **Total Sessions** | 15 |
-| ⏱️ **Total Study Time** | ~18 hours |
+| 📊 **Total Sessions** | 16 |
+| ⏱️ **Total Study Time** | ~20 hours |
 
 ---
 
