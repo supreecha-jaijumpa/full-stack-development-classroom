@@ -1,7 +1,7 @@
 # Session Log
-> Last Updated: 2026-06-23
-> Total Sessions: 21
-> Current Streak: 3 days
+> Last Updated: 2026-06-24
+> Total Sessions: 22
+> Current Streak: 4 days
 
 ---
 
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 04 — Modern JS & TypeScript |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) |
-| **Next Topic** | 4.1 — Modern JavaScript (ES2015+) |
+| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · 4.1 ✅ |
+| **Next Topic** | 4.2 — TypeScript Basics |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 22 | 2026-06-24 | 4.1 — Modern JavaScript (ES2015+) | ✅ Pass | Block scoping + TDZ, lexical this, tree-shaking; exercise: 2-file async/await module (api.mjs + main.mjs) — caught error-swallowing antipattern + missing response.ok |
 | 21 | 2026-06-23 | 3.8 — Build an Interactive App (Module 03 capstone) | ✅ Pass | Built GitHub Repo Explorer: 4 ES modules (api/ui/filters/main), async fetch + in-memory filtering (search + language dropdown), deployed to GitHub Pages; code review flagged XSS risk in innerHTML with external API data |
 | 20 | 2026-06-23 | 3.7 — ES Modules | ✅ Pass | Named vs default vs namespace imports, module paths (bare = node_modules vs ./ = relative), module scope (no global leakage), singleton rule (module runs once), Vite dev vs prod handling, refactored script into data.js/ui.js/main.js |
 | 19 | 2026-06-23 | 3.6 — Async, Promises & fetch | ✅ Pass | Event loop, callbacks, Promise states/chaining, async/await, fetch two-step (response + .json()), response.ok check, Promise.all for parallel requests |
@@ -83,6 +84,7 @@
 | 2026-06-23 | Delegated list + form submit — one click listener on `<ul>` with `closest('li')`, form preventDefault + display email in `<p>` via textContent | 3.5 | ✅ Done |
 | 2026-06-23 | GitHub user summary — parallel fetch via `Promise.all`, `response.ok` guards, top-3 repos sorted by `stargazers_count` | 3.6 | ✅ Done |
 | 2026-06-23 | GitHub Repo Explorer — solo capstone build; fetch, render, in-memory filter (search + language), 4 ES modules, deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/github-repo-explorer/) | 3.8 | ✅ Done |
+| 2026-06-24 | GitHub user fetch — rewrote `.then()` callback-style script into 2-file async/await modules (api.mjs + main.mjs); named exports, destructuring, `response.ok` guard, error re-throw pattern | 4.1 | ✅ Done |
 
 ---
 
@@ -222,6 +224,10 @@
 - Module scope: each file has its own scope — nothing leaks to `window` unless explicitly assigned; requires `<script type="module">` in HTML
 - Module singleton rule: a module's top-level code runs exactly once, regardless of how many files import it — all importers share the same instance, making module-level variables a shared singleton store
 - Vite in development serves native ES modules directly to the browser (no bundling); in production it bundles the full import graph into a small number of optimized chunks
+- `var` hoists the declaration to the top of the enclosing function (reads as `undefined` before initialization); `let`/`const` also hoist but land in the Temporal Dead Zone — any read before the declaration line throws `ReferenceError`; TDZ exists to surface bugs that `var`'s silent `undefined` would hide
+- `const` locks the binding (variable), not the value — objects and arrays behind a `const` can be mutated; only the variable itself cannot be reassigned
+- Tree-shaking: bundlers statically analyze named imports at build time to eliminate unused exports; `export default` ships an opaque object whose properties cannot be analyzed until runtime, blocking removal (lodash-es named exports vs lodash default as the canonical example)
+- Error-swallowing antipattern: a `catch` block that logs and returns implicitly (no `throw`, no `return`) causes the caller to receive `undefined` and crash on destructuring with a confusing TypeError — either re-throw or handle at the call site
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -245,12 +251,6 @@
 ---
 
 ## Session Detail
-
-## 2026-06-17 (session 7)
-- Topic: 2.1 — Semantic HTML
-- Covered: Markup as an API contract for the a11y tree/crawlers/next dev; document-outline model and that the HTML5 outline algorithm was never implemented (manual heading levels, no skipping); landmarks and the rule that duplicates need accessible names; the `<article>` syndication test → comments as nested articles; `<nav>` vs `<aside>` by intent not appearance; `alt=""` vs descriptive vs missing; `<time datetime>` with offset, `<address>`, `<figure>`/`<figcaption>`, `<figure>`+`<blockquote>`+`<cite>`; `<a>` needs `href` to be a link. Exercise: full blog-post page markup — passed after fixing a `<main>`-inside-`<header>` nesting bug and three completeness gaps (footer, pull-quote attribution, avatar `alt`).
-- Outcome: Pass
-- Next: 2.2 — CSS Fundamentals (skip box-model basics; cascade/specificity as an algorithm, stacking contexts, custom-property architecture)
 
 ## 2026-06-17 (session 8)
 - Topic: 2.2 — CSS Fundamentals (cascade portion)
@@ -335,3 +335,9 @@
 - Covered: Three import forms — named (`{ foo }`), default (no braces, any local name), namespace (`* as Foo`); corrected misconception that `import React from 'react'` imports "everything" (it's a default import of one export object, not a namespace import). Named vs default exports — many named allowed, only one default per file. Module paths — bare name resolves to node_modules, `./` resolves to a relative file on disk. Module scope — each file has its own scope, nothing leaks to `window`. Singleton rule — a module runs once regardless of how many importers; all share the same instance. Vite's approach — native ES modules served directly to the browser in dev, bundled into optimized chunks in prod. Exercise: refactored single-file script into `data.js` (users array + getTopUser), `ui.js` (renderUser), and `main.js` (entry point with no exports) — correct on first attempt.
 - Outcome: Pass
 - Next: 3.8 — Build an Interactive App (Module 03 capstone)
+
+## 2026-06-24 (session 22)
+- Topic: 4.1 — Modern JavaScript (ES2015+)
+- Covered: Block scoping — `var` hoisting vs `let`/`const` Temporal Dead Zone; TDZ as a loud failure that surfaces bugs `var`'s silent `undefined` would hide; `const` locks the binding not the object value. `this` in regular functions is call-site determined — `setTimeout` callback loses object context; arrow functions have no own `this` and inherit it lexically from the enclosing scope at definition time. Tree-shaking — bundler statically analyzes named imports at build time to eliminate unused exports; default exports ship an opaque object that blocks static analysis (`lodash` vs `lodash-es` as the concrete example). Exercise: rewrote a `.then()` callback-style GitHub user fetch into 2-file module structure (api.mjs + main.mjs) using `async/await`, destructuring, template literals, named exports; caught and fixed: (1) `err` variable name mismatch in `catch (error)` block, (2) missing `response.ok` check, (3) debug `console.log` left in. Final review added: error-swallowing antipattern — `catch` that logs and returns `undefined` implicitly causes the caller to crash on destructuring with a confusing TypeError; fix is to re-throw or handle at the call site.
+- Outcome: Pass
+- Next: 4.2 — TypeScript Basics

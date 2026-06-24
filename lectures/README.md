@@ -26,5 +26,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 03 — JavaScript Fundamentals | Async, Promises & fetch | [3.6-async-promises-fetch.md](03-javascript-fundamentals/3.6-async-promises-fetch.md) | 2026-06-23 |
 | 03 — JavaScript Fundamentals | ES Modules | [3.7-es-modules.md](03-javascript-fundamentals/3.7-es-modules.md) | 2026-06-23 |
 | 03 — JavaScript Fundamentals | Build an Interactive App (capstone) | [3.8-build-an-interactive-app.md](03-javascript-fundamentals/3.8-build-an-interactive-app.md) | 2026-06-23 |
+| 04 — Modern JS & TypeScript | Modern JavaScript (ES2015+) | [4.1-modern-javascript-es2015.md](04-modern-js-typescript/4.1-modern-javascript-es2015.md) | 2026-06-24 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).
