@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 04 — Modern JS & TypeScript |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · 4.1 ✅ · 4.2 ✅ |
-| **Next Topic** | 4.3 — TypeScript Types Deep Dive |
+| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · 4.1 ✅ · 4.2 ✅ · 4.3 ✅ |
+| **Next Topic** | 4.4 — TypeScript with React |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 24 | 2026-06-25 | 4.3 — TypeScript Types Deep Dive | ✅ Pass | Generics as type variables; `Result<T>` discriminated union; discriminant-field narrowing; corrected string-union vs object-shape-union mistake; `Partial<Pick<T,K>>` for patch payloads; utility types; `unknown` vs `any`; computed-vs-stored-value design note; shopping cart domain exercise |
 | 23 | 2026-06-25 | 4.2 — TypeScript Basics | ✅ Pass | Cleared React StrictMode vs TS `strict` confusion; `strictNullChecks`/`noImplicitAny`/`strictFunctionTypes`; `interface` vs `type` by rule (unions→type, shapes→interface); key tsconfig fields; exercise: typed users.ts, handled `find()` returning `User | undefined` via type narrowing guard |
 | 22 | 2026-06-24 | 4.1 — Modern JavaScript (ES2015+) | ✅ Pass | Block scoping + TDZ, lexical this, tree-shaking; exercise: 2-file async/await module (api.mjs + main.mjs) — caught error-swallowing antipattern + missing response.ok |
 | 21 | 2026-06-23 | 3.8 — Build an Interactive App (Module 03 capstone) | ✅ Pass | Built GitHub Repo Explorer: 4 ES modules (api/ui/filters/main), async fetch + in-memory filtering (search + language dropdown), deployed to GitHub Pages; code review flagged XSS risk in innerHTML with external API data |
