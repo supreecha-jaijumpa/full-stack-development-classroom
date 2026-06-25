@@ -1,7 +1,7 @@
 # Session Log
-> Last Updated: 2026-06-24
-> Total Sessions: 22
-> Current Streak: 4 days
+> Last Updated: 2026-06-25
+> Total Sessions: 23
+> Current Streak: 5 days
 
 ---
 
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 04 — Modern JS & TypeScript |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · 4.1 ✅ |
-| **Next Topic** | 4.2 — TypeScript Basics |
+| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · 4.1 ✅ · 4.2 ✅ |
+| **Next Topic** | 4.3 — TypeScript Types Deep Dive |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 23 | 2026-06-25 | 4.2 — TypeScript Basics | ✅ Pass | Cleared React StrictMode vs TS `strict` confusion; `strictNullChecks`/`noImplicitAny`/`strictFunctionTypes`; `interface` vs `type` by rule (unions→type, shapes→interface); key tsconfig fields; exercise: typed users.ts, handled `find()` returning `User | undefined` via type narrowing guard |
 | 22 | 2026-06-24 | 4.1 — Modern JavaScript (ES2015+) | ✅ Pass | Block scoping + TDZ, lexical this, tree-shaking; exercise: 2-file async/await module (api.mjs + main.mjs) — caught error-swallowing antipattern + missing response.ok |
 | 21 | 2026-06-23 | 3.8 — Build an Interactive App (Module 03 capstone) | ✅ Pass | Built GitHub Repo Explorer: 4 ES modules (api/ui/filters/main), async fetch + in-memory filtering (search + language dropdown), deployed to GitHub Pages; code review flagged XSS risk in innerHTML with external API data |
 | 20 | 2026-06-23 | 3.7 — ES Modules | ✅ Pass | Named vs default vs namespace imports, module paths (bare = node_modules vs ./ = relative), module scope (no global leakage), singleton rule (module runs once), Vite dev vs prod handling, refactored script into data.js/ui.js/main.js |
@@ -84,6 +85,7 @@
 | 2026-06-23 | Delegated list + form submit — one click listener on `<ul>` with `closest('li')`, form preventDefault + display email in `<p>` via textContent | 3.5 | ✅ Done |
 | 2026-06-23 | GitHub user summary — parallel fetch via `Promise.all`, `response.ok` guards, top-3 repos sorted by `stargazers_count` | 3.6 | ✅ Done |
 | 2026-06-23 | GitHub Repo Explorer — solo capstone build; fetch, render, in-memory filter (search + language), 4 ES modules, deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/github-repo-explorer/) | 3.8 | ✅ Done |
+| 2026-06-25 | TypeScript users utility — `tsc --init`, `strict` mode enabled, typed `getUser(id: number): User | undefined` and `formatGreeting(user: User): string`, handled `find()` undefined via narrowing guard in `main.ts` | 4.2 | ✅ Done |
 | 2026-06-24 | GitHub user fetch — rewrote `.then()` callback-style script into 2-file async/await modules (api.mjs + main.mjs); named exports, destructuring, `response.ok` guard, error re-throw pattern | 4.1 | ✅ Done |
 
 ---

@@ -6,10 +6,10 @@
 | **Profile** | Senior frontend dev (6 yrs, React/Next) → goal: Software Architect |
 | **Current Phase** | Phase 1 — Foundations |
 | **Current Module** | Module 04 — Modern JS & TypeScript |
-| **Status** | Module 02 complete ✅ (6/6); Module 03 complete ✅ (8/8); 4.1 complete ✅ |
-| **Week Goal** | Complete 4.2 TypeScript Basics |
-| **Last Session Date** | 2026-06-24 |
-| **Last Session Summary** | Completed 4.1 — Modern JavaScript (ES2015+). Covered block scoping + TDZ (`var` hoisting vs `let`/`const` loud failure), lexical `this` in arrow functions vs call-site `this` in regular functions, and tree-shaking via named vs default exports. Exercise: rewrote callback-style GitHub fetch into 2-file async/await module structure (api.mjs + main.mjs); caught error-swallowing antipattern (catch + implicit undefined return → caller crashes on destructuring) and missing `response.ok` check. |
+| **Status** | Module 02 complete ✅ (6/6); Module 03 complete ✅ (8/8); 4.1 complete ✅; 4.2 complete ✅ |
+| **Week Goal** | Complete 4.3 TypeScript Types Deep Dive |
+| **Last Session Date** | 2026-06-25 |
+| **Last Session Summary** | Completed 4.2 — TypeScript Basics. Cleared up React StrictMode vs TS `strict` flag confusion. Covered the 3 most important strict flags (`strictNullChecks`, `noImplicitAny`, `strictFunctionTypes`), deliberate `interface` vs `type` choice (unions → `type`, object shapes → `interface`), and key `tsconfig.json` fields (`target`, `module`, `outDir`, `rootDir`, `strict`, `esModuleInterop`). Exercise: typed a `users.ts` utility from scratch, added explicit return types, and handled `find()` returning `User | undefined` using type narrowing (`if (user)` guard) rather than `!` or `as`. |
 | **Homework** | None assigned |
 | **Homework Status** | — |
-| **Next Action** | Start 4.2 — TypeScript Basics |
+| **Next Action** | Start 4.3 — TypeScript Types Deep Dive |
