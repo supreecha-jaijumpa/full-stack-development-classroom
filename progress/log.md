@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 04 — Modern JS & TypeScript |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · 4.1 ✅ · 4.2 ✅ · 4.3 ✅ · 4.4 ✅ |
-| **Next Topic** | 4.5 — Bundlers & Tooling (Vite) |
+| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · Module 04 complete ✅ (5/5) |
+| **Next Topic** | Module 05 — start next session |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 26 | 2026-06-26 | 4.5 — Bundlers & Tooling (Vite) | ✅ Pass | Vite dev = native ESM, no bundle, instant cold start + per-module HMR; prod = Rollup bundles → hashed chunks; `@/` alias via `fileURLToPath` + `import.meta.url` (fixed `__dirname` not defined in ESM); `VITE_` prefix for browser env vars; `import.meta.env`; vite build → dist/ with content hashes |
 | 25 | 2026-06-26 | 4.4 — npm & Package Management | ✅ Pass | `dependencies` vs `devDependencies` — convention only in Vite SPAs; semver `^` minor+patch, `~` patch only; package-lock.json belongs in git; corrected lockfile gitignore misconception; `npm ci` for CI; `npx`; `npm audit`; npm-practice exercise |
 | 24 | 2026-06-25 | 4.3 — TypeScript Types Deep Dive | ✅ Pass | Generics as type variables; `Result<T>` discriminated union; discriminant-field narrowing; corrected string-union vs object-shape-union mistake; `Partial<Pick<T,K>>` for patch payloads; utility types; `unknown` vs `any`; computed-vs-stored-value design note; shopping cart domain exercise |
 | 23 | 2026-06-25 | 4.2 — TypeScript Basics | ✅ Pass | Cleared React StrictMode vs TS `strict` confusion; `strictNullChecks`/`noImplicitAny`/`strictFunctionTypes`; `interface` vs `type` by rule (unions→type, shapes→interface); key tsconfig fields; exercise: typed users.ts, handled `find()` returning `User | undefined` via type narrowing guard |
@@ -87,6 +88,7 @@
 | 2026-06-23 | Delegated list + form submit — one click listener on `<ul>` with `closest('li')`, form preventDefault + display email in `<p>` via textContent | 3.5 | ✅ Done |
 | 2026-06-23 | GitHub user summary — parallel fetch via `Promise.all`, `response.ok` guards, top-3 repos sorted by `stargazers_count` | 3.6 | ✅ Done |
 | 2026-06-23 | GitHub Repo Explorer — solo capstone build; fetch, render, in-memory filter (search + language), 4 ES modules, deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/github-repo-explorer/) | 3.8 | ✅ Done |
+| 2026-06-26 | Vite + React + TS scaffold — `@/` alias via `fileURLToPath`, `VITE_APP_TITLE` env var, `vite build` + `vite preview` | 4.5 | ✅ Done |
 | 2026-06-25 | TypeScript users utility — `tsc --init`, `strict` mode enabled, typed `getUser(id: number): User | undefined` and `formatGreeting(user: User): string`, handled `find()` undefined via narrowing guard in `main.ts` | 4.2 | ✅ Done |
 | 2026-06-24 | GitHub user fetch — rewrote `.then()` callback-style script into 2-file async/await modules (api.mjs + main.mjs); named exports, destructuring, `response.ok` guard, error re-throw pattern | 4.1 | ✅ Done |
 
@@ -339,6 +341,12 @@
 - Covered: Block scoping — `var` hoisting vs `let`/`const` Temporal Dead Zone; TDZ as a loud failure that surfaces bugs `var`'s silent `undefined` would hide; `const` locks the binding not the object value. `this` in regular functions is call-site determined — `setTimeout` callback loses object context; arrow functions have no own `this` and inherit it lexically from the enclosing scope at definition time. Tree-shaking — bundler statically analyzes named imports at build time to eliminate unused exports; default exports ship an opaque object that blocks static analysis (`lodash` vs `lodash-es` as the concrete example). Exercise: rewrote a `.then()` callback-style GitHub user fetch into 2-file module structure (api.mjs + main.mjs) using `async/await`, destructuring, template literals, named exports; caught and fixed: (1) `err` variable name mismatch in `catch (error)` block, (2) missing `response.ok` check, (3) debug `console.log` left in. Final review added: error-swallowing antipattern — `catch` that logs and returns `undefined` implicitly causes the caller to crash on destructuring with a confusing TypeError; fix is to re-throw or handle at the call site.
 - Outcome: Pass
 - Next: 4.2 — TypeScript Basics
+
+## 2026-06-26 (session 26)
+- Topic: 4.5 — Bundlers & Tooling (Vite)
+- Covered: Why browsers need bundling (modules, transpilation, assets). Webpack vs Vite core difference — Webpack bundles everything before serving; Vite serves native ES modules directly to the browser, no bundling step. Two speed wins: instant cold start (nothing to bundle) and per-module HMR (only the changed file invalidated). Why production still needs bundling — unbundled ESM = hundreds of network requests; Rollup bundles into optimized chunks with tree-shaking and minification. Content-hashed filenames — hash derived from content, changes on file change, enables automatic cache busting. Scaffolded `vite + react + typescript` app; configured `@/` alias in `vite.config.ts` using ESM-native `fileURLToPath` + `import.meta.url` (corrected ReferenceError: `path is not defined` and `__dirname is not defined in ESM` errors); synced `tsconfig.app.json` `paths`; read `VITE_APP_TITLE` via `import.meta.env`; ran `vite build` and inspected `dist/` content-hashed output; confirmed with `vite preview`. Module 04 complete.
+- Outcome: Pass
+- Next: Module 05
 
 ## 2026-06-26 (session 25)
 - Topic: 4.4 — npm & Package Management
