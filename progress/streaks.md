@@ -6,11 +6,11 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 4 days |
-| 🏆 **Best Streak Ever** | 4 days |
-| 📅 **Last Session** | 2026-06-24 |
-| 📊 **Total Sessions** | 22 |
-| ⏱️ **Total Study Time** | ~28 hours |
+| 🔥 **Current Streak** | 6 days |
+| 🏆 **Best Streak Ever** | 6 days |
+| 📅 **Last Session** | 2026-06-26 |
+| 📊 **Total Sessions** | 25 |
+| ⏱️ **Total Study Time** | ~30 hours |
 
 ---
 
@@ -23,7 +23,7 @@
 |  1  |  2  |  3  |  4  |  5  |  6  |  7  |
 |  8  |  9  | 10  | 11  | 12  | 13  | 14  |
 | 15  | 16 ✓| 17 ✓| 18 ✓| 19 ✓| 20  | 21 ✓|
-| 22 ✓| 23 ✓| 24 ✓| 25  | 26  | 27  | 28  |
+| 22 ✓| 23 ✓| 24 ✓| 25 ✓| 26 ✓| 27  | 28  |
 | 29  | 30  |     |     |     |     |     |
 
 ---
@@ -34,8 +34,7 @@
 - [x] First session completed
 - [x] 5 sessions done
 - [x] 10 sessions done
-
-- [ ] 25 sessions done
+- [x] 25 sessions done
 - [ ] 50 sessions done
 - [ ] 100 sessions done
 
@@ -79,3 +78,4 @@
 | 2026-06-16 | First session — unlocked "Can explain how the web works end-to-end" |
 | 2026-06-19 | Session 10 reached · 3-day streak milestone · built first standalone HTML/CSS page |
 | 2026-06-23 | Module 03 complete — built and deployed GitHub Repo Explorer · unlocked "Can build an interactive app in vanilla JavaScript" |
+| 2026-06-26 | 25 sessions milestone · 6-day streak (new best) |

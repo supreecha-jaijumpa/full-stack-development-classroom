@@ -1,7 +1,7 @@
 # Session Log
-> Last Updated: 2026-06-25
-> Total Sessions: 23
-> Current Streak: 5 days
+> Last Updated: 2026-06-26
+> Total Sessions: 25
+> Current Streak: 6 days
 
 ---
 
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 04 — Modern JS & TypeScript |
 | **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · 4.1 ✅ · 4.2 ✅ · 4.3 ✅ |
-| **Next Topic** | 4.4 — TypeScript with React |
+| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · 4.1 ✅ · 4.2 ✅ · 4.3 ✅ · 4.4 ✅ |
+| **Next Topic** | 4.5 — Bundlers & Tooling (Vite) |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 25 | 2026-06-26 | 4.4 — npm & Package Management | ✅ Pass | `dependencies` vs `devDependencies` — convention only in Vite SPAs; semver `^` minor+patch, `~` patch only; package-lock.json belongs in git; corrected lockfile gitignore misconception; `npm ci` for CI; `npx`; `npm audit`; npm-practice exercise |
 | 24 | 2026-06-25 | 4.3 — TypeScript Types Deep Dive | ✅ Pass | Generics as type variables; `Result<T>` discriminated union; discriminant-field narrowing; corrected string-union vs object-shape-union mistake; `Partial<Pick<T,K>>` for patch payloads; utility types; `unknown` vs `any`; computed-vs-stored-value design note; shopping cart domain exercise |
 | 23 | 2026-06-25 | 4.2 — TypeScript Basics | ✅ Pass | Cleared React StrictMode vs TS `strict` confusion; `strictNullChecks`/`noImplicitAny`/`strictFunctionTypes`; `interface` vs `type` by rule (unions→type, shapes→interface); key tsconfig fields; exercise: typed users.ts, handled `find()` returning `User | undefined` via type narrowing guard |
 | 22 | 2026-06-24 | 4.1 — Modern JavaScript (ES2015+) | ✅ Pass | Block scoping + TDZ, lexical this, tree-shaking; exercise: 2-file async/await module (api.mjs + main.mjs) — caught error-swallowing antipattern + missing response.ok |
@@ -255,12 +256,6 @@
 
 ## Session Detail
 
-## 2026-06-17 (session 8)
-- Topic: 2.2 — CSS Fundamentals (cascade portion)
-- Covered: The cascade as a 4-step resolution algorithm (origin/importance → cascade layer → specificity → order of appearance); both `!important` inversions — origin order (UA/user beat author) and `@layer` order (earliest layer wins, unlayered drops to lowest); the unifying insight that `!important` reverses priority at every level; specificity is the 3rd question not the 1st (weak unlayered selector beats strong layered one for normal rules); `@layer` as a structural fix for the design-system-vs-overrides battle. Exercise: ranked 6 declarations across mixed layers + `!important` (F>C>E>A>D>B) — full ranking correct; gap was narrating the steps, now closed.
-- Outcome: Pass
-- Next: Continue 2.2 — specificity as a tuple `(id, class, type)`, `:is()`/`:where()`/`:not()` effects on the count, stacking contexts (z-index hierarchy), custom-property architecture, then the profile-card hands-on
-
 ## 2026-06-18 (session 9)
 - Topic: 2.2 — CSS Fundamentals (complete)
 - Covered: Specificity as `(A,B,C)` tuple — first column that differs decides, never arithmetic; `:is()`/`:not()`/`:has()` take the max argument specificity (not a sum — common misconception corrected); `:where()` = always zero, the zero-cost targeting tool. Stacking contexts — z-index is local not global (Photoshop layer groups mental model); full list of triggers; `isolation: isolate` as the clean explicit trigger; accidental triggers (`transform`, `opacity`) as the common z-index bug root cause; DevTools Layers panel for diagnosis. Custom-property architecture — three levels (global tokens → component API with fallbacks → context overrides); hover-via-variable mutation vs direct property override; `@property` for typed/non-inheriting/animatable vars. Profile-card exercise: passed — `isolation: isolate`, `--card-shadow` component API, `:is()`/`:where()`/`:not()` selectors all correctly applied.
@@ -344,3 +339,9 @@
 - Covered: Block scoping — `var` hoisting vs `let`/`const` Temporal Dead Zone; TDZ as a loud failure that surfaces bugs `var`'s silent `undefined` would hide; `const` locks the binding not the object value. `this` in regular functions is call-site determined — `setTimeout` callback loses object context; arrow functions have no own `this` and inherit it lexically from the enclosing scope at definition time. Tree-shaking — bundler statically analyzes named imports at build time to eliminate unused exports; default exports ship an opaque object that blocks static analysis (`lodash` vs `lodash-es` as the concrete example). Exercise: rewrote a `.then()` callback-style GitHub user fetch into 2-file module structure (api.mjs + main.mjs) using `async/await`, destructuring, template literals, named exports; caught and fixed: (1) `err` variable name mismatch in `catch (error)` block, (2) missing `response.ok` check, (3) debug `console.log` left in. Final review added: error-swallowing antipattern — `catch` that logs and returns `undefined` implicitly causes the caller to crash on destructuring with a confusing TypeError; fix is to re-throw or handle at the call site.
 - Outcome: Pass
 - Next: 4.2 — TypeScript Basics
+
+## 2026-06-26 (session 25)
+- Topic: 4.4 — npm & Package Management
+- Covered: `dependencies` vs `devDependencies` — nuance that in Vite/React SPAs the distinction is convention only (Vite bundles both regardless); semver ranges — `^` allows minor + patch but never major, `~` allows patch only, exact pin locks to one version; package-lock.json should always be committed in apps (not libraries) — ensures reproducible installs across developers and CI; corrected common misconception about gitignoring the lockfile; `npm ci` vs `npm install` — `npm ci` reads lockfile only, fails on mismatch, use in CI pipelines; `npx` for running binaries without global install; `npm audit` / `npm audit fix` / `npm audit fix --force` for vulnerability scanning; exercise: initialized npm project, installed dayjs + prettier, created dev/format/check-format scripts, correctly identified node_modules as the only thing to gitignore.
+- Outcome: Pass
+- Next: 4.5 — Bundlers & Tooling (Vite)
