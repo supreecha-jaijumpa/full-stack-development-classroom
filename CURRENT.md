@@ -5,11 +5,11 @@
 |-------|-------|
 | **Profile** | Senior frontend dev (6 yrs, React/Next) → goal: Software Architect |
 | **Current Phase** | Phase 1 — Foundations |
-| **Current Module** | Module 04 — Modern JS & TypeScript |
-| **Status** | Module 02 complete ✅ (6/6); Module 03 complete ✅ (8/8); 4.1 complete ✅; 4.2 complete ✅; 4.3 complete ✅; 4.4 complete ✅; 4.5 complete ✅ |
-| **Week Goal** | Complete Module 04 — Modern JS & TypeScript |
+| **Current Module** | Module 05 — React Fundamentals |
+| **Status** | Module 02 complete ✅ (6/6); Module 03 complete ✅ (8/8); Module 04 complete ✅ (6/6) |
+| **Week Goal** | Start Module 05 — React Fundamentals |
 | **Last Session Date** | 2026-06-26 |
-| **Last Session Summary** | Completed 4.5 — Bundlers & Tooling (Vite). Core insight: Vite dev server serves native ES modules directly to the browser (no bundling), making cold start and HMR near-instant; production build uses Rollup to bundle into hashed chunks. Configured `vite.config.ts` with ESM-native `@/` path alias using `fileURLToPath` + `import.meta.url` (corrected `__dirname` is not defined in ESM error); wired `tsconfig.app.json` `paths` for TypeScript; read env vars via `import.meta.env.VITE_*`; ran `vite build` and observed content-hashed output in `dist/`. |
+| **Last Session Summary** | Completed 4.6 — Linting & Formatting (ESLint + Prettier). Key distinctions: `@typescript-eslint/parser` replaces ESLint's JS parser to read TS syntax; `@typescript-eslint/eslint-plugin` replaces JS rules with TS-aware versions (e.g. `no-unused-vars` understands type-only imports). `eslint-config-prettier` disables all ESLint formatting rules so Prettier owns style — must be last in config. All three scripts passed: `npm run lint`, `npm run format`, `npm run format:check`. Note: CJS projects use `require()` in `eslint.config.js`; ESM projects (`"type": "module"`) must use `import`. |
 | **Homework** | None assigned |
 | **Homework Status** | — |
-| **Next Action** | Module 04 complete — start Module 05 |
+| **Next Action** | Start Module 05 — React Fundamentals |
