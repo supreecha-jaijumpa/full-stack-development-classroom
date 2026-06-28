@@ -29,5 +29,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 04 — Modern JS & TypeScript | Modern JavaScript (ES2015+) | [4.1-modern-javascript-es2015.md](04-modern-js-typescript/4.1-modern-javascript-es2015.md) | 2026-06-24 |
 | 04 — Modern JS & TypeScript | npm & Package Management | [4.4-npm-and-package-management.md](04-modern-js-typescript/4.4-npm-and-package-management.md) | 2026-06-26 |
 | 04 — Modern JS & TypeScript | Bundlers & Tooling (Vite) | [4.5-bundlers-and-tooling-vite.md](04-modern-js-typescript/4.5-bundlers-and-tooling-vite.md) | 2026-06-26 |
+| 05 — React Fundamentals | React Mental Model & JSX | [5.1-react-mental-model-jsx.md](05-react-fundamentals/5.1-react-mental-model-jsx.md) | 2026-06-28 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).

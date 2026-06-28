@@ -1,7 +1,7 @@
 # Session Log
-> Last Updated: 2026-06-26
-> Total Sessions: 25
-> Current Streak: 6 days
+> Last Updated: 2026-06-28
+> Total Sessions: 27
+> Current Streak: 1 day (6-day streak broke — no session on 2026-06-27)
 
 ---
 
@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Current Module** | Module 04 — Modern JS & TypeScript |
-| **Current Phase** | Phase 1 — Foundations |
-| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · Module 04 complete ✅ (5/5) |
-| **Next Topic** | Module 05 — start next session |
+| **Current Module** | Module 05 — React Fundamentals |
+| **Current Phase** | Phase 2 — Frontend Development |
+| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · Module 04 complete ✅ (6/6) · Module 05 in progress (5.1 ✅) |
+| **Next Topic** | 5.2 — Components & Props |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 27 | 2026-06-28 | 5.1 — React Mental Model & JSX | ✅ Pass | Taught with architect lens (student strong in React). UI = f(state) declarative contract; JSX → `createElement` → plain-object element tree (elements are data); component element (`type`=function ref) vs host element (`type`=string) is how React decides recurse-vs-emit-DOM; re-render cost = heavy work in render OR large subtree cascade, NOT rendering itself (fixes: useMemo / memo / move state down). Exercise: YouTube VideoCard HTML→JSX 9/10 — all gotchas caught, fixed reuse bug with `useId`. Reflection: content easy, English articulation is the real challenge → now giving "say it in a review" English phrasings (saved to memory) |
 | 26 | 2026-06-26 | 4.5 — Bundlers & Tooling (Vite) | ✅ Pass | Vite dev = native ESM, no bundle, instant cold start + per-module HMR; prod = Rollup bundles → hashed chunks; `@/` alias via `fileURLToPath` + `import.meta.url` (fixed `__dirname` not defined in ESM); `VITE_` prefix for browser env vars; `import.meta.env`; vite build → dist/ with content hashes |
 | 25 | 2026-06-26 | 4.4 — npm & Package Management | ✅ Pass | `dependencies` vs `devDependencies` — convention only in Vite SPAs; semver `^` minor+patch, `~` patch only; package-lock.json belongs in git; corrected lockfile gitignore misconception; `npm ci` for CI; `npx`; `npm audit`; npm-practice exercise |
 | 24 | 2026-06-25 | 4.3 — TypeScript Types Deep Dive | ✅ Pass | Generics as type variables; `Result<T>` discriminated union; discriminant-field narrowing; corrected string-union vs object-shape-union mistake; `Partial<Pick<T,K>>` for patch payloads; utility types; `unknown` vs `any`; computed-vs-stored-value design note; shopping cart domain exercise |
@@ -89,6 +90,7 @@
 | 2026-06-23 | GitHub user summary — parallel fetch via `Promise.all`, `response.ok` guards, top-3 repos sorted by `stargazers_count` | 3.6 | ✅ Done |
 | 2026-06-23 | GitHub Repo Explorer — solo capstone build; fetch, render, in-memory filter (search + language), 4 ES modules, deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/github-repo-explorer/) | 3.8 | ✅ Done |
 | 2026-06-26 | Vite + React + TS scaffold — `@/` alias via `fileURLToPath`, `VITE_APP_TITLE` env var, `vite build` + `vite preview` | 4.5 | ✅ Done |
+| 2026-06-28 | YouTube VideoCard — convert static HTML→JSX, typed reusable props, `console.log` element to inspect `type`, fixed duplicate-`id` reuse bug with `useId` | 5.1 | ✅ Done |
 | 2026-06-25 | TypeScript users utility — `tsc --init`, `strict` mode enabled, typed `getUser(id: number): User | undefined` and `formatGreeting(user: User): string`, handled `find()` undefined via narrowing guard in `main.ts` | 4.2 | ✅ Done |
 | 2026-06-24 | GitHub user fetch — rewrote `.then()` callback-style script into 2-file async/await modules (api.mjs + main.mjs); named exports, destructuring, `response.ok` guard, error re-throw pattern | 4.1 | ✅ Done |
 
@@ -257,6 +259,12 @@
 ---
 
 ## Session Detail
+
+## 2026-06-28 (session 27)
+- Topic: 5.1 — React Mental Model & JSX
+- Covered: Taught with an architect lens since the student is strong in React — focus on the "why" behind intuitive patterns. (1) Declarative contract `UI = f(state)` — you surrender control of *when/how* the DOM mutates and instead write a pure function returning a *description*. (2) JSX is not HTML — it compiles to `createElement(type, props, ...children)` which evaluates to a plain JS object; a React element is data, not a DOM node. This single fact explains the single-root rule (a function returns one value), `className`/`htmlFor` (reserved words / JS object keys), and why elements can be stored in variables and mapped. (3) The render → reconcile → commit pipeline: state change re-runs the component fn → returns a new element tree → React diffs vs previous (virtual DOM = that in-memory tree) → commits only minimal real-DOM mutations. Re-rendering ≠ touching the DOM. (4) Where re-render cost actually lives — NOT rendering itself, but heavy work *inside* render (→ `useMemo`), the render cascade over a large subtree (→ `React.memo`, component boundaries), or unnecessary DOM commits; the most architectural fix is moving state *down* (colocation). (5) Component element (`type` = function reference) vs host element (`type` = string like `'div'`) is literally how React decides whether to recurse into your code or emit a DOM node. Exercise: YouTube VideoCard HTML→JSX — typed reusable props, inspected the logged element's `type`, caught+fixed a duplicate-`id` reuse bug with `useId` (SSR-safe, purpose-built for label↔input association). Scored 9/10. Reflection: student knows the React content well; the genuine challenge is explaining concepts in English — reframed as core architect skill, now providing reusable English "say it in a design review" phrasings alongside each concept (saved to memory).
+- Outcome: Pass
+- Next: 5.2 — Components & Props
 
 ## 2026-06-18 (session 9)
 - Topic: 2.2 — CSS Fundamentals (complete)
