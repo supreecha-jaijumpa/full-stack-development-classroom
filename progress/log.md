@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-06-28
-> Total Sessions: 27
+> Total Sessions: 28
 > Current Streak: 1 day (6-day streak broke — no session on 2026-06-27)
 
 ---
@@ -11,8 +11,8 @@
 |-------|-------|
 | **Current Module** | Module 05 — React Fundamentals |
 | **Current Phase** | Phase 2 — Frontend Development |
-| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · Module 04 complete ✅ (6/6) · Module 05 in progress (5.1 ✅) |
-| **Next Topic** | 5.2 — Components & Props |
+| **Overall Progress** | Module 01 complete ✅ (6/6) · Module 02 complete ✅ (6/6) · Module 03 complete ✅ (8/8) · Module 04 complete ✅ (6/6) · Module 05 in progress (5.1 ✅, 5.2 ✅) |
+| **Next Topic** | 5.3 — State & Events |
 
 ---
 
@@ -36,6 +36,7 @@
 
 | # | Date | Topic | Outcome | Notes |
 |---|------|-------|---------|-------|
+| 28 | 2026-06-28 | 5.2 — Components & Props | ✅ Pass | Architect lens: props as a public API/contract, not function args — smallest hardest-to-misuse surface, one-way data flow, composition over configuration. (1) "Make everything optional" doesn't add flexibility — it pushes defensive cost into the component; required things stay required. (2) Make illegal states unrepresentable: one `VideoBadge` discriminated union instead of 3 mutually-exclusive booleans; `premiere` forces `startsAt` to travel with it. (3) Prop vs children = interpret vs place (prop when component formats/branches on the value, children when it only positions it). Exercise: typed prop contract for YouTube `<CommentItem>` — clean `TopLevelComment \| ReplyComment` union over shared `CommentBase`, pin/reply-count on the top-level arm only so a reply can't be constructed with them. 9/10. English articulation jumped — delivered a textbook spoken review defense (names mechanism → states rejected alternative → lands payoff). Coaching: optional-boolean smell (`likedByCreator?: boolean`) |
 | 27 | 2026-06-28 | 5.1 — React Mental Model & JSX | ✅ Pass | Taught with architect lens (student strong in React). UI = f(state) declarative contract; JSX → `createElement` → plain-object element tree (elements are data); component element (`type`=function ref) vs host element (`type`=string) is how React decides recurse-vs-emit-DOM; re-render cost = heavy work in render OR large subtree cascade, NOT rendering itself (fixes: useMemo / memo / move state down). Exercise: YouTube VideoCard HTML→JSX 9/10 — all gotchas caught, fixed reuse bug with `useId`. Reflection: content easy, English articulation is the real challenge → now giving "say it in a review" English phrasings (saved to memory) |
 | 26 | 2026-06-26 | 4.5 — Bundlers & Tooling (Vite) | ✅ Pass | Vite dev = native ESM, no bundle, instant cold start + per-module HMR; prod = Rollup bundles → hashed chunks; `@/` alias via `fileURLToPath` + `import.meta.url` (fixed `__dirname` not defined in ESM); `VITE_` prefix for browser env vars; `import.meta.env`; vite build → dist/ with content hashes |
 | 25 | 2026-06-26 | 4.4 — npm & Package Management | ✅ Pass | `dependencies` vs `devDependencies` — convention only in Vite SPAs; semver `^` minor+patch, `~` patch only; package-lock.json belongs in git; corrected lockfile gitignore misconception; `npm ci` for CI; `npx`; `npm audit`; npm-practice exercise |
@@ -91,6 +92,7 @@
 | 2026-06-23 | GitHub Repo Explorer — solo capstone build; fetch, render, in-memory filter (search + language), 4 ES modules, deployed to GitHub Pages (https://supreecha-jaijumpa.github.io/github-repo-explorer/) | 3.8 | ✅ Done |
 | 2026-06-26 | Vite + React + TS scaffold — `@/` alias via `fileURLToPath`, `VITE_APP_TITLE` env var, `vite build` + `vite preview` | 4.5 | ✅ Done |
 | 2026-06-28 | YouTube VideoCard — convert static HTML→JSX, typed reusable props, `console.log` element to inspect `type`, fixed duplicate-`id` reuse bug with `useId` | 5.1 | ✅ Done |
+| 2026-06-28 | YouTube `<CommentItem>` prop contract — `TopLevelComment \| ReplyComment` discriminated union over shared `CommentBase`; pin/reply-count fields on top-level arm only (illegal states unrepresentable); ISO timestamp formatted at render | 5.2 | ✅ Done |
 | 2026-06-25 | TypeScript users utility — `tsc --init`, `strict` mode enabled, typed `getUser(id: number): User | undefined` and `formatGreeting(user: User): string`, handled `find()` undefined via narrowing guard in `main.ts` | 4.2 | ✅ Done |
 | 2026-06-24 | GitHub user fetch — rewrote `.then()` callback-style script into 2-file async/await modules (api.mjs + main.mjs); named exports, destructuring, `response.ok` guard, error re-throw pattern | 4.1 | ✅ Done |
 
@@ -236,6 +238,14 @@
 - `const` locks the binding (variable), not the value — objects and arrays behind a `const` can be mutated; only the variable itself cannot be reassigned
 - Tree-shaking: bundlers statically analyze named imports at build time to eliminate unused exports; `export default` ships an opaque object whose properties cannot be analyzed until runtime, blocking removal (lodash-es named exports vs lodash default as the canonical example)
 - Error-swallowing antipattern: a `catch` block that logs and returns implicitly (no `throw`, no `return`) causes the caller to receive `undefined` and crash on destructuring with a confusing TypeError — either re-throw or handle at the call site
+- A component's prop interface is a public API/contract, not function arguments — design for the smallest, hardest-to-misuse surface; every prop is a promise you keep forever
+- One-way data flow: props go down and are read-only; events go up — a child mutating a prop is like a function editing its caller's variables
+- "Make every prop optional for flexibility" is a false economy: optional props push defensive branching into the component for states that should be impossible; a contract is made flexible by being correct, not weak — required things stay required
+- Make illegal states unrepresentable: replace N mutually-exclusive boolean props with a single discriminated union (`{ kind: ... }`); a variant arm can carry its own required fields (e.g. `premiere` forces `startsAt`), enforced by the type checker at every call site
+- Variant-only fields belong on the variant arm of a union, not on a shared base with a runtime "ignore if wrong variant" rule — the leaf variant then cannot be constructed with fields it shouldn't have (compiler enforces the invariant, not a comment)
+- Prop vs children = interpret vs place: use a prop when the component must understand the value (format, branch, style it); use `children` when it only positions the content in a slot — this is composition over configuration in practice
+- Optional-boolean smell: `flag?: boolean` has three states (`true`/`false`/`undefined`) where `false` and `undefined` usually collapse to one meaning; prefer required-with-default-`false` or presence-only
+- Pass raw data in props and format at render (e.g. ISO timestamp string, raw count) so the component owns presentation — don't pre-stringify
 
 ### Tools Practiced
 - Chrome DevTools → Network tab (Timing breakdown: DNS, Initial connection, SSL, TTFB, Content Download)
@@ -260,29 +270,17 @@
 
 ## Session Detail
 
+## 2026-06-28 (session 28)
+- Topic: 5.2 — Components & Props
+- Covered: Taught with an architect lens — reframed a component's prop interface as a **public API / contract**, not a bag of function arguments: the design question is "what is the smallest, hardest-to-misuse surface that still does the job?" Three principles: one-way data flow (props down, events up; props read-only), make illegal states unrepresentable, composition over configuration. (1) **Who pays for flexibility** — making every prop optional doesn't add flexibility, it pushes defensive branching into the component for states that should be impossible; a contract is made flexible by being *correct*, not *weak*; if a component can't render without a value, the type should require it. (2) **Illegal states unrepresentable** — replaced three mutually-exclusive badge booleans (`isLive`/`isPremiere`/`isMembersOnly`) with one `VideoBadge` discriminated union; the `premiere` arm carries `startsAt`, so the type checker forces the start time to travel only with the premiere case. (3) **Lift shared fields to a base, variant-only fields to the variant arm** — pin/reply data lives on the `TopLevelComment` arm, so a `ReplyComment` cannot be constructed with them; the invariant is enforced by the compiler at every call site, not a comment + code review. (4) **Prop vs children = interpret vs place** — prop when the component must understand the value (format `1.2M`, branch, style), children when it only positions it in a slot. (5) Optional-boolean smell — `flag?: boolean` has three states where `false`/`undefined` collapse; prefer required-with-default or presence-only. Exercise: design a typed prop contract for YouTube `<CommentItem>` — student produced a clean `TopLevelComment | ReplyComment` discriminated union over a shared `CommentBase`, pin/reply-count fields scoped to the top-level arm, `replies` bundling `count` + loaded `items` (so "View N replies" renders before fetch), ISO timestamp formatted at render. 9/10. Articulation note: English jumped noticeably — the spoken review-defense sentence named the mechanism, stated the rejected alternative, and landed the static-guarantee payoff (textbook delivery). Coaching: didn't explicitly label prop-vs-children per field (implied); `likedByCreator?: boolean` optional-boolean smell.
+- Outcome: Pass
+- Next: 5.3 — State & Events
+
 ## 2026-06-28 (session 27)
 - Topic: 5.1 — React Mental Model & JSX
 - Covered: Taught with an architect lens since the student is strong in React — focus on the "why" behind intuitive patterns. (1) Declarative contract `UI = f(state)` — you surrender control of *when/how* the DOM mutates and instead write a pure function returning a *description*. (2) JSX is not HTML — it compiles to `createElement(type, props, ...children)` which evaluates to a plain JS object; a React element is data, not a DOM node. This single fact explains the single-root rule (a function returns one value), `className`/`htmlFor` (reserved words / JS object keys), and why elements can be stored in variables and mapped. (3) The render → reconcile → commit pipeline: state change re-runs the component fn → returns a new element tree → React diffs vs previous (virtual DOM = that in-memory tree) → commits only minimal real-DOM mutations. Re-rendering ≠ touching the DOM. (4) Where re-render cost actually lives — NOT rendering itself, but heavy work *inside* render (→ `useMemo`), the render cascade over a large subtree (→ `React.memo`, component boundaries), or unnecessary DOM commits; the most architectural fix is moving state *down* (colocation). (5) Component element (`type` = function reference) vs host element (`type` = string like `'div'`) is literally how React decides whether to recurse into your code or emit a DOM node. Exercise: YouTube VideoCard HTML→JSX — typed reusable props, inspected the logged element's `type`, caught+fixed a duplicate-`id` reuse bug with `useId` (SSR-safe, purpose-built for label↔input association). Scored 9/10. Reflection: student knows the React content well; the genuine challenge is explaining concepts in English — reframed as core architect skill, now providing reusable English "say it in a design review" phrasings alongside each concept (saved to memory).
 - Outcome: Pass
 - Next: 5.2 — Components & Props
-
-## 2026-06-18 (session 9)
-- Topic: 2.2 — CSS Fundamentals (complete)
-- Covered: Specificity as `(A,B,C)` tuple — first column that differs decides, never arithmetic; `:is()`/`:not()`/`:has()` take the max argument specificity (not a sum — common misconception corrected); `:where()` = always zero, the zero-cost targeting tool. Stacking contexts — z-index is local not global (Photoshop layer groups mental model); full list of triggers; `isolation: isolate` as the clean explicit trigger; accidental triggers (`transform`, `opacity`) as the common z-index bug root cause; DevTools Layers panel for diagnosis. Custom-property architecture — three levels (global tokens → component API with fallbacks → context overrides); hover-via-variable mutation vs direct property override; `@property` for typed/non-inheriting/animatable vars. Profile-card exercise: passed — `isolation: isolate`, `--card-shadow` component API, `:is()`/`:where()`/`:not()` selectors all correctly applied.
-- Outcome: Pass
-- Next: 2.3 — Layout: Flexbox & Grid
-
-## 2026-06-19 (session 11)
-- Topic: 2.4 — Responsive Design
-- Covered: Viewport meta tag — why mobile browsers simulate 980px by default and what `width=device-width, initial-scale=1` overrides; mobile-first as progressive enhancement (base = simple, add via `min-width`); `auto-fit` vs `auto-fill` with `minmax()` for breakpoint-free responsive grids; `clamp(min, preferred, max)` for fluid font-size/spacing; sidebar `display: none` + collapsing the grid track on mobile with media-query restore at 768px
-- Outcome: Pass
-- Next: 2.5 — Accessibility Basics
-
-## 2026-06-19 (session 10)
-- Topic: 2.3 — Layout: Flexbox & Grid
-- Covered: Flexbox vs Grid as 1D vs 2D — the axis count is the deciding factor, not "flexible vs fixed"; `fr` as fraction of available space after fixed-size tracks and gaps are subtracted (vs `%` which doesn't account for gap); `min-height: auto` default on grid items — overrides flexible track constraints, causing content to blow past `100vh`; `min-height: 0` as the fix; fixed pixel tracks don't need it because they're absolute constraints regardless of item content; CSS selector scope — two selectors for the same element type in different contexts must be qualified or named to avoid unintended bleed. App shell exercise: Grid page shell (60px header / 1fr body), Flexbox header with `space-between`, sidebar + main two-column Grid, 3-column card grid, `min-height: 0` correctly applied on `.body` and `main`, `overflow-y: auto` for internal scroll.
-- Outcome: Pass
-- Next: 2.4 — Responsive Design
 
 ## 2026-06-21 (session 12)
 - Topic: 2.5 — Accessibility Basics
