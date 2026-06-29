@@ -31,5 +31,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 04 — Modern JS & TypeScript | Bundlers & Tooling (Vite) | [4.5-bundlers-and-tooling-vite.md](04-modern-js-typescript/4.5-bundlers-and-tooling-vite.md) | 2026-06-26 |
 | 05 — React Fundamentals | React Mental Model & JSX | [5.1-react-mental-model-jsx.md](05-react-fundamentals/5.1-react-mental-model-jsx.md) | 2026-06-28 |
 | 05 — React Fundamentals | Components & Props | [5.2-components-and-props.md](05-react-fundamentals/5.2-components-and-props.md) | 2026-06-28 |
+| 05 — React Fundamentals | State & Events | [5.3-state-and-events.md](05-react-fundamentals/5.3-state-and-events.md) | 2026-06-29 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).
