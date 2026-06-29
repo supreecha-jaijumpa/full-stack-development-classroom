@@ -33,5 +33,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 05 — React Fundamentals | Components & Props | [5.2-components-and-props.md](05-react-fundamentals/5.2-components-and-props.md) | 2026-06-28 |
 | 05 — React Fundamentals | State & Events | [5.3-state-and-events.md](05-react-fundamentals/5.3-state-and-events.md) | 2026-06-29 |
 | 05 — React Fundamentals | Hooks: useState & useEffect | [5.4-hooks-usestate-useeffect.md](05-react-fundamentals/5.4-hooks-usestate-useeffect.md) | 2026-06-29 |
+| 05 — React Fundamentals | Lists & Conditional Rendering | [5.5-lists-and-conditional-rendering.md](05-react-fundamentals/5.5-lists-and-conditional-rendering.md) | 2026-06-29 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).
