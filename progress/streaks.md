@@ -6,11 +6,11 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 2 days (2026-06-28 → 2026-06-29) |
+| 🔥 **Current Streak** | 1 day (2026-07-01) — prior 2-day streak broke on the 06-30 gap |
 | 🏆 **Best Streak Ever** | 6 days |
-| 📅 **Last Session** | 2026-06-29 |
-| 📊 **Total Sessions** | 31 |
-| ⏱️ **Total Study Time** | ~36 hours |
+| 📅 **Last Session** | 2026-07-01 |
+| 📊 **Total Sessions** | 32 |
+| ⏱️ **Total Study Time** | ~37 hours |
 
 ---
 
@@ -25,6 +25,18 @@
 | 15  | 16 ✓| 17 ✓| 18 ✓| 19 ✓| 20  | 21 ✓|
 | 22 ✓| 23 ✓| 24 ✓| 25 ✓| 26 ✓| 27  | 28 ✓|
 | 29 ✓| 30  |     |     |     |     |     |
+
+## This Month — July 2026
+
+> Mark each day you studied with ✓
+
+| Mon | Tue | Wed | Thu | Fri | Sat | Sun |
+|-----|-----|-----|-----|-----|-----|-----|
+|     |  1 ✓|  2  |  3  |  4  |  5  |  6  |
+|  7  |  8  |  9  | 10  | 11  | 12  | 13  |
+| 14  | 15  | 16  | 17  | 18  | 19  | 20  |
+| 21  | 22  | 23  | 24  | 25  | 26  | 27  |
+| 28  | 29  | 30  | 31  |     |     |     |
 
 ---
 
