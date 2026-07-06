@@ -19,7 +19,11 @@
 
 ## Corrections
 
-### 2026-06-22 — Self-assessment calibration (Module 02 reflection)
+### 2026-07-06 — Global State Management (6.2)
+- **Misconception:** `useMemo` on a Context `value` is unnecessary — "when the theme changes we re-render everyone anyway, so there's no re-render to prevent." (Also, earlier in the session: reaching straight for a global store as the *second* option, skipping lift-state-up.)
+- **Correction:** The `useMemo` does not guard against the value changing (those changes *should* re-render every consumer). It guards against **cause #2 of a re-render**: a component re-renders when its own state/props change *or when its parent re-renders*. When the provider's parent re-renders for any unrelated reason, the provider re-renders and rebuilds the `{ ... }` object literal → new reference → Context compares by reference → **every consumer re-renders even though the value's contents are identical**. `useMemo` (plus stable `useCallback` callbacks) pins the reference so consumers only re-render on real changes.
+- **Why it matters:** On a small theme context the waste is invisible; on an auth/cart context with many consumers and a chatty parent, an un-memoized `value` causes real, hard-to-spot jank from a single-line object literal. Missing "parent re-render" as a re-render cause is the root gap.
+- **Revisit:** During the 6.2 hands-on and again in 6.3 (styling) / any future Context work — confirm the provider memoizes its value and stabilizes callbacks, and that the student can state *which* re-render the memo prevents.
 - **Misconception:** HTML/CSS skill is ~9/10 because of 6 years of professional frontend experience.
 - **Correction:** Professional experience builds pattern fluency but skips fundamentals never needed on the job. The gaps were: semantic HTML (landmark rules, `<article>` syndication test), the cascade as a resolution algorithm (`@layer`, `!important` inversions), stacking contexts, ARIA and the accessibility tree, and keyboard navigation. These are 9/10 skills — they were just never encountered in typical React/Next.js work.
 - **Why it matters:** Overestimating a skill area leads to skipping fundamentals that become visible gaps in system design and code review. The areas most likely to have hidden gaps are ones where frameworks did the heavy lifting (React handles a11y and DOM structure; Tailwind handles cascade specificity conflicts).

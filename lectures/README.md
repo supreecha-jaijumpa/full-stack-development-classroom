@@ -37,5 +37,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 05 — React Fundamentals | Routing (React Router) | [5.6-routing-react-router.md](05-react-fundamentals/5.6-routing-react-router.md) | 2026-07-01 |
 | 05 — React Fundamentals | Build a Multi-Page SPA (capstone) | [5.7-build-a-multi-page-spa.md](05-react-fundamentals/5.7-build-a-multi-page-spa.md) | 2026-07-06 |
 | 06 — Frontend Data, State & Styling | Data Fetching (TanStack Query) | [6.1-data-fetching-tanstack-query.md](06-frontend-data-state-styling/6.1-data-fetching-tanstack-query.md) | 2026-07-06 |
+| 06 — Frontend Data, State & Styling | Global State Management | [6.2-global-state-management.md](06-frontend-data-state-styling/6.2-global-state-management.md) | 2026-07-06 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).
