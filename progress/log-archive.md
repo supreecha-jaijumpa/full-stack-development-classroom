@@ -5,6 +5,12 @@
 
 ---
 
+## 2026-06-23 (session 16)
+- Topic: 3.3 — Arrays & Objects
+- Covered: Mutating vs non-mutating distinction — mutating methods change the original array in place (push/pop/splice/sort/reverse); non-mutating return new values (map/filter/reduce/find); React's re-render check compares object references, not contents — mutating state and returning the same reference skips re-render. Chained filter + map on a GitHub repos dataset (filter archived + language, map to label string). reduce for frequency counting (language count per repo) using `(acc[key] || 0) + 1` to guard the falsy-zero trap; reduce for object reshaping (array-to-lookup by id). Object spread — last property wins on key conflict; standard React state update pattern. Array spread — combine and insert items. Destructuring — already used daily in React, learned the term. `Object.entries` returns `[[key, value], ...]` tuples (not `{key, value}` objects); prefer over `for...in` to avoid inherited prototype properties. `[...arr].sort(...)` habit — sort mutates in place; always spread first when sorting state directly.
+- Outcome: Pass
+- Next: 3.4 — DOM Manipulation
+
 ## 2026-06-23 (session 15)
 - Topic: 3.2 — Functions & Scope
 - Covered: Scope chain — global, function, and block scope; `var` is function-scoped and leaks out of `if`/`for` blocks, `let`/`const` are block-scoped. Closure as a function retaining a live reference to its outer scope's binding (not a snapshot of the value); two factory-function calls create two independent scopes — same mechanism as React's per-component `useState`. `this` in regular functions is call-site determined (bare call loses object context); arrow functions have no own `this`, they inherit it lexically from the enclosing scope. Exercise: built `makeCounter(start = 0)` returning `{increment, decrement, value}` — caught reserved-keyword bug (`default` cannot be used as a parameter name).

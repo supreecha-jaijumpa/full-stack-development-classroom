@@ -6,11 +6,11 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 1 day (2026-07-01) — prior 2-day streak broke on the 06-30 gap |
+| 🔥 **Current Streak** | 1 day (2026-07-06) — prior 1-day streak broke on the 07-02→07-05 gap |
 | 🏆 **Best Streak Ever** | 6 days |
-| 📅 **Last Session** | 2026-07-01 |
-| 📊 **Total Sessions** | 32 |
-| ⏱️ **Total Study Time** | ~37 hours |
+| 📅 **Last Session** | 2026-07-06 |
+| 📊 **Total Sessions** | 33 |
+| ⏱️ **Total Study Time** | ~39 hours |
 
 ---
 
@@ -32,7 +32,7 @@
 
 | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |-----|-----|-----|-----|-----|-----|-----|
-|     |  1 ✓|  2  |  3  |  4  |  5  |  6  |
+|     |  1 ✓|  2  |  3  |  4  |  5  |  6 ✓|
 |  7  |  8  |  9  | 10  | 11  | 12  | 13  |
 | 14  | 15  | 16  | 17  | 18  | 19  | 20  |
 | 21  | 22  | 23  | 24  | 25  | 26  | 27  |
@@ -70,7 +70,7 @@
 - [x] Can explain how the web works end-to-end
 - [x] Can build a responsive, accessible web page
 - [x] Can build an interactive app in vanilla JavaScript
-- [ ] Can build a React + TypeScript SPA
+- [x] Can build a React + TypeScript SPA
 - [ ] Can test a frontend (unit + component + E2E)
 - [ ] Can build a REST API with a database
 - [ ] Can secure an app with auth and authorization
@@ -91,3 +91,4 @@
 | 2026-06-19 | Session 10 reached · 3-day streak milestone · built first standalone HTML/CSS page |
 | 2026-06-23 | Module 03 complete — built and deployed GitHub Repo Explorer · unlocked "Can build an interactive app in vanilla JavaScript" |
 | 2026-06-26 | 25 sessions milestone · 6-day streak (new best) |
+| 2026-07-06 | Module 05 (React Fundamentals) complete — built & self-reviewed a Product Catalog SPA (routing + Zustand + four async states) · unlocked "Can build a React + TypeScript SPA" |
