@@ -9,8 +9,8 @@
 | 🔥 **Current Streak** | 1 day (2026-07-06) — prior 1-day streak broke on the 07-02→07-05 gap |
 | 🏆 **Best Streak Ever** | 6 days |
 | 📅 **Last Session** | 2026-07-06 |
-| 📊 **Total Sessions** | 33 |
-| ⏱️ **Total Study Time** | ~39 hours |
+| 📊 **Total Sessions** | 34 |
+| ⏱️ **Total Study Time** | ~41 hours |
 
 ---
 
