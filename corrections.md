@@ -19,6 +19,17 @@
 
 ## Corrections
 
+### 2026-07-07 — Forms & Validation (6.3)
+- **Misconception:** In a controlled input the value lives in "RHF form values," and in an uncontrolled input it lives in "parent state" — with `Controller` as React Hook Form's core mechanism. (Value-ownership backwards, and the plain React/DOM concept conflated with RHF's API.)
+- **Correction:** Controlled = **React state owns the value** — the `value` prop makes the input a puppet, so every keystroke must round-trip event → setState → re-render before the character paints. Uncontrolled = **the DOM node owns the value** (native browser behavior); React reads it via a ref, and typing causes zero re-renders. RHF's default (`register`) is *uncontrolled* plus subscription-based re-renders (`formState`, `watch`) — a form-scoped store; `Controller` is the escape hatch for third-party components that must be controlled, not the core trick.
+- **Why it matters:** This ownership model is the entire reason RHF exists and the mechanism behind laggy typing in large fully-controlled forms (letters trailing keystrokes on slow devices). Without it, form-library choices and form-perf fixes are cargo-culted.
+- **Revisit:** During the 6.3 homework review and again in 6.7 (Frontend Performance) — ask who owns the value in each input of the submitted form and which components re-render on a keystroke.
+
+- **Misconception:** If a hand-written TS interface and the Zod schema drift apart (a field added to one but not the other), "it may error."
+- **Correction:** Nothing errors — that's the danger. TS treats the interface and the schema as unrelated declarations (the build passes), and `z.object` strips unknown keys by default (validation *succeeds* and silently deletes the field). The failure mode is **silent data loss**, discovered as unexplained nulls much later. Fix: one Zod schema as the single source of truth with `type X = z.infer<typeof schema>` and no hand-written interfaces; `.strict()` makes unknown keys a loud 400. Root gap filled: **type erasure** — types compile to zero bytes of JS, so derivation flows value → type (`z.infer`), never type → value.
+- **Why it matters:** Silent-drift bugs skip every alarm (no compile error, no runtime throw, no log line) and surface as corrupt or missing data weeks later — worse than a crash, which pages someone immediately.
+- **Revisit:** 6.3 homework review — confirm zero `interface`s and that the student can state the type-erasure reason for the derivation direction.
+
 ### 2026-07-06 — Global State Management (6.2)
 - **Misconception:** `useMemo` on a Context `value` is unnecessary — "when the theme changes we re-render everyone anyway, so there's no re-render to prevent." (Also, earlier in the session: reaching straight for a global store as the *second* option, skipping lift-state-up.)
 - **Correction:** The `useMemo` does not guard against the value changing (those changes *should* re-render every consumer). It guards against **cause #2 of a re-render**: a component re-renders when its own state/props change *or when its parent re-renders*. When the provider's parent re-renders for any unrelated reason, the provider re-renders and rebuilds the `{ ... }` object literal → new reference → Context compares by reference → **every consumer re-renders even though the value's contents are identical**. `useMemo` (plus stable `useCallback` callbacks) pins the reference so consumers only re-render on real changes.

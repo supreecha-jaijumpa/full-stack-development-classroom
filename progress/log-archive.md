@@ -5,6 +5,12 @@
 
 ---
 
+## 2026-06-23 (session 17)
+- Topic: 3.4 — DOM Manipulation
+- Covered: DOM as a tree of node objects built from HTML; `document` as root entry point. `querySelector` (first match or null) vs `querySelectorAll` (NodeList — not an array, spread to use `.map`). Reading/writing `textContent` (safe) vs `innerHTML` (XSS risk with user input); `getAttribute`/`setAttribute`. `classList.add/remove/toggle/contains`. `createElement`/`appendChild`/`prepend`/`remove`. `DocumentFragment` as an in-memory container — appends inside it cost nothing, one `appendChild(fragment)` flushes to DOM in one write. Why minimizing DOM writes matters (reflow/repaint cost); `innerHTML +=` in a loop as the canonical bad pattern. React's virtual DOM as a structural solution: diffs old/new virtual tree, patches minimum real DOM changes. The `key` prop as a stable node identity for the differ — same role as `data-id` in vanilla diffing; index-as-key breaks reordering. Built a to-do list: `tasks` array as source of truth, `render()` rebuilds from array, remove via `splice(index, 1)` + re-render. Discussed ID-based diffing as the manual equivalent of React's reconciliation.
+- Outcome: Pass
+- Next: 3.5 — Events
+
 ## 2026-06-23 (session 16)
 - Topic: 3.3 — Arrays & Objects
 - Covered: Mutating vs non-mutating distinction — mutating methods change the original array in place (push/pop/splice/sort/reverse); non-mutating return new values (map/filter/reduce/find); React's re-render check compares object references, not contents — mutating state and returning the same reference skips re-render. Chained filter + map on a GitHub repos dataset (filter archived + language, map to label string). reduce for frequency counting (language count per repo) using `(acc[key] || 0) + 1` to guard the falsy-zero trap; reduce for object reshaping (array-to-lookup by id). Object spread — last property wins on key conflict; standard React state update pattern. Array spread — combine and insert items. Destructuring — already used daily in React, learned the term. `Object.entries` returns `[[key, value], ...]` tuples (not `{key, value}` objects); prefer over `for...in` to avoid inherited prototype properties. `[...arr].sort(...)` habit — sort mutates in place; always spread first when sorting state directly.
