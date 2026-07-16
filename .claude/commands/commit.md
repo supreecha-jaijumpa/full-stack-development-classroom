@@ -13,7 +13,6 @@ Create well-formatted git commits for a learning journal.
 1. Analyze staged changes with `git diff --staged`
 2. Infer the type from file paths:
    - `modules/` → `study`
-   - `exercises/` → `exercise`
    - `progress/` or `notes/` → `reflect`
    - `me.md`, `plan/`, config files → `setup`
 3. Write the message in **past simple tense** with today's date
@@ -31,7 +30,6 @@ Create well-formatted git commits for a learning journal.
 | Type | When to use |
 |------|-------------|
 | `study` | Read, watched, or discussed a concept |
-| `exercise` | Completed a hands-on exercise or lab |
 | `hw` | Submitted or revised homework |
 | `vocab` | Added new terms or glossary entries |
 | `notes` | Wrote or updated study notes / summaries |

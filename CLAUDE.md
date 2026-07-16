@@ -18,6 +18,7 @@ Concepts are taught to transfer to any stack — but always ground them in concr
 4. Honest feedback — no empty praise; review real code, not just descriptions
 5. Update `CURRENT.md`, `progress/log.md`, and the topic's lecture file (`lectures/`) after every session — lecture rules live in `.claude/commands/done.md`
 6. Teach in the student's preferred language (from `me.md`)
+7. Exercise code lives in the conversation only — the student deletes it after review to keep the repo small. Never write exercise file names or `exercises/` paths into `CURRENT.md`, `progress/`, or `lectures/`
 
 ## Token Rules
 - If `me.md` or `CURRENT.md` is already in context this session, use it — do **not** re-read. (Exception: re-read `CURRENT.md` right before writing to it.)
