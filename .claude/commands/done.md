@@ -19,6 +19,10 @@ Close the session — summarize what was covered, update all progress files, and
 7. Write or extend the lecture file for this session's topic (see **Lecture File** below), and update the index table in `lectures/README.md`
 8. Sign off with an encouraging one-liner in the student's preferred language, and suggest starting the next session in a fresh conversation (keeps context small)
 
+## Hard Rule — no exercise references
+
+Exercise code lives in the conversation only and is deleted after review to keep the repo small. When wrapping up a session, **never** write exercise content, exercise file names, or `exercises/` paths into `CURRENT.md`, `progress/log.md`, `progress/streaks.md`, or `lectures/`. Record results at topic level only (e.g. "Outcome: pass") — no links or references to exercise files.
+
 ## Lecture File
 
 Path mirrors the module structure: `lectures/NN-module-name/N.M-topic-slug.md` (same numbering as `modules/`). Create the module subfolder if it doesn't exist. If the topic was taught before, **extend the existing file** (merge new concepts in, update "Last updated") — never create a second file for the same topic.
