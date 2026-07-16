@@ -34,15 +34,8 @@
 
 ## Session History
 
-| # | Date | Topic | Exercises Done | Score | Notes |
-|---|------|-------|----------------|-------|-------|
-
----
-
-## Exercise Log
-
-| Date | Exercise | Module | Result | Score |
-|------|----------|--------|--------|-------|
+| # | Date | Topic | Outcome | Score | Notes |
+|---|------|-------|---------|-------|-------|
 
 ---
 

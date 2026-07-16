@@ -44,7 +44,7 @@
 - [ ] 30-day streak 🏆
 
 ### Learning Progress
-- [ ] First exercise completed
+- [ ] First topic passed
 - [ ] First module unlocked
 - [ ] Phase 1 complete (Foundations)
 - [ ] Phase 2 complete (Frontend)
