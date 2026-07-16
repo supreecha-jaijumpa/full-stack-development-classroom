@@ -39,5 +39,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 06 — Frontend Data, State & Styling | Data Fetching (TanStack Query) | [6.1-data-fetching-tanstack-query.md](06-frontend-data-state-styling/6.1-data-fetching-tanstack-query.md) | 2026-07-06 |
 | 06 — Frontend Data, State & Styling | Global State Management | [6.2-global-state-management.md](06-frontend-data-state-styling/6.2-global-state-management.md) | 2026-07-06 |
 | 06 — Frontend Data, State & Styling | Forms & Validation | [6.3-forms-and-validation.md](06-frontend-data-state-styling/6.3-forms-and-validation.md) | 2026-07-07 |
+| 06 — Frontend Data, State & Styling | Styling Systems (Tailwind / CSS-in-JS) | [6.4-styling-systems.md](06-frontend-data-state-styling/6.4-styling-systems.md) | 2026-07-16 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).

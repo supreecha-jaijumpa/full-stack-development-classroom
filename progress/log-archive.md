@@ -5,6 +5,12 @@
 
 ---
 
+## 2026-06-23 (session 18)
+- Topic: 3.5 — Events
+- Covered: `addEventListener(type, handler)` / `removeEventListener` (requires exact same function reference); Event object properties — `target` (element that triggered) vs `currentTarget` (element with the listener); common event types (click, input, submit, keydown). Event bubbling — events propagate up through all DOM ancestors; `stopPropagation()` halts bubbling; `preventDefault()` blocks browser default actions (form submit, link navigation) — the two are independent. Event delegation: one listener on a parent, `event.target.closest(selector)` to identify which child triggered it — efficient and handles dynamically added elements. Connected to React: React attaches one listener per event type at `#root` and dispatches to the right component via bubbling.
+- Outcome: Pass
+- Next: 3.6 — Async, Promises & fetch
+
 ## 2026-06-23 (session 17)
 - Topic: 3.4 — DOM Manipulation
 - Covered: DOM as a tree of node objects built from HTML; `document` as root entry point. `querySelector` (first match or null) vs `querySelectorAll` (NodeList — not an array, spread to use `.map`). Reading/writing `textContent` (safe) vs `innerHTML` (XSS risk with user input); `getAttribute`/`setAttribute`. `classList.add/remove/toggle/contains`. `createElement`/`appendChild`/`prepend`/`remove`. `DocumentFragment` as an in-memory container — appends inside it cost nothing, one `appendChild(fragment)` flushes to DOM in one write. Why minimizing DOM writes matters (reflow/repaint cost); `innerHTML +=` in a loop as the canonical bad pattern. React's virtual DOM as a structural solution: diffs old/new virtual tree, patches minimum real DOM changes. The `key` prop as a stable node identity for the differ — same role as `data-id` in vanilla diffing; index-as-key breaks reordering. Built a to-do list: `tasks` array as source of truth, `render()` rebuilds from array, remove via `splice(index, 1)` + re-render. Discussed ID-based diffing as the manual equivalent of React's reconciliation.
