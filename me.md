@@ -26,7 +26,7 @@
 | System Design / Architecture | 0 |
 
 ## Learning Style
-- **Style:** Hands-on projects
+- **Style:** Concept-first, fast pace. I build React daily at work, so I don't need in-classroom mechanical build drills — teach the concept at architect altitude, then have me *say it back in my own words* (2–3 questions). The articulation is the practice. Keep the weekly homework as the one real-code checkpoint before a module unlocks. Only add build exercises if I explicitly ask. (Updated 2026-07-17 — see memory `skip-build-exercises`.)
 - **Time Per Week:** ~14 hrs/week (2 hrs/day)
 - **Real-world apps I use:** GitHub, Spotify, Netflix, YouTube, Facebook (use these for examples — feeds, recommendations, streaming, auth, real-time)
 
