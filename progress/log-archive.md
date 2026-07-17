@@ -5,6 +5,12 @@
 
 ---
 
+## 2026-06-23 (session 19)
+- Topic: 3.6 — Async, Promises & fetch
+- Covered: Single-threaded JS — blocking I/O would freeze the browser UI; the event loop delegates waiting to runtime I/O threads and calls back when done. Callbacks as the original async mechanism; callback hell as the sequential-steps problem. Promise states (pending/fulfilled/rejected); `.then`/`.catch`/`.finally` chaining; one `.catch` handles any failure in the chain. `async/await` as syntax sugar over Promises — `async` functions always return a Promise; `await` pauses the function without blocking the thread. `fetch` two-step: `await fetch(url)` gives Response headers, `await response.json()` parses body; `response.ok` check required because `fetch` does not throw on 4xx/5xx. `Promise.all` for parallel independent requests — cuts wall-clock time to the slowest request. Built a GitHub user summary: parallel user + repos fetch via `Promise.all`, `response.ok` guards on both, top-3 repos sorted by `stargazers_count`, `main().catch()` error handler.
+- Outcome: Pass
+- Next: 3.7 — ES Modules
+
 ## 2026-06-23 (session 18)
 - Topic: 3.5 — Events
 - Covered: `addEventListener(type, handler)` / `removeEventListener` (requires exact same function reference); Event object properties — `target` (element that triggered) vs `currentTarget` (element with the listener); common event types (click, input, submit, keydown). Event bubbling — events propagate up through all DOM ancestors; `stopPropagation()` halts bubbling; `preventDefault()` blocks browser default actions (form submit, link navigation) — the two are independent. Event delegation: one listener on a parent, `event.target.closest(selector)` to identify which child triggered it — efficient and handles dynamically added elements. Connected to React: React attaches one listener per event type at `#root` and dispatches to the right component via bubbling.
