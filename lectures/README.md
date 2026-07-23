@@ -42,5 +42,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 06 — Frontend Data, State & Styling | Styling Systems (Tailwind / CSS-in-JS) | [6.4-styling-systems.md](06-frontend-data-state-styling/6.4-styling-systems.md) | 2026-07-16 |
 | 06 — Frontend Data, State & Styling | Component Design & Reusability | [6.5-component-design-reusability.md](06-frontend-data-state-styling/6.5-component-design-reusability.md) | 2026-07-17 |
 | 06 — Frontend Data, State & Styling | Custom Hooks | [6.6-custom-hooks.md](06-frontend-data-state-styling/6.6-custom-hooks.md) | 2026-07-17 |
+| 06 — Frontend Data, State & Styling | Frontend Performance (memo, lazy, code-split) | [6.7-frontend-performance.md](06-frontend-data-state-styling/6.7-frontend-performance.md) | 2026-07-23 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).
