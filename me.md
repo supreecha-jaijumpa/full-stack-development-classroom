@@ -26,7 +26,8 @@
 | System Design / Architecture | 0 |
 
 ## Learning Style
-- **Style:** Concept-first, fast pace. I build React daily at work, so I don't need in-classroom mechanical build drills — teach the concept at architect altitude, then have me *say it back in my own words* (2–3 questions). The articulation is the practice. Keep the weekly homework as the one real-code checkpoint before a module unlocks. Only add build exercises if I explicitly ask. (Updated 2026-07-17 — see memory `skip-build-exercises`.)
+- **Style:** Concept-first, fast pace. I build React daily at work, so I don't need in-classroom mechanical build drills — teach the concept at architect altitude, then have me *say it back in my own words*. The articulation is the practice. Keep the weekly homework as the one real-code checkpoint before a module unlocks. Only add build exercises if I explicitly ask. (Updated 2026-07-17 — see memory `skip-build-exercises`.)
+- **Say-back cadence (updated 2026-07-23):** **2 questions per topic, not 3.** Answer in one messy pass — mentor hands back the tightened version, student repeats it once (**draft-then-polish**; don't make him grind for the right words unaided). Mentor supplies the **problem → consequence → who-pays** sentence skeleton up front rather than making him rediscover the shape each time; he fills the slots. Only the *last* question gets pushed for the who-pays ending — concept-only is a pass on the others.
 - **Time Per Week:** ~14 hrs/week (2 hrs/day)
 - **Real-world apps I use:** GitHub, Spotify, Netflix, YouTube, Facebook (use these for examples — feeds, recommendations, streaming, auth, real-time)
 
