@@ -38,9 +38,9 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 05 — React Fundamentals | Build a Multi-Page SPA (capstone) | [5.7-build-a-multi-page-spa.md](05-react-fundamentals/5.7-build-a-multi-page-spa.md) | 2026-07-06 |
 | 06 — Frontend Data, State & Styling | Data Fetching (TanStack Query) | [6.1-data-fetching-tanstack-query.md](06-frontend-data-state-styling/6.1-data-fetching-tanstack-query.md) | 2026-07-06 |
 | 06 — Frontend Data, State & Styling | Global State Management | [6.2-global-state-management.md](06-frontend-data-state-styling/6.2-global-state-management.md) | 2026-07-06 |
-| 06 — Frontend Data, State & Styling | Forms & Validation | [6.3-forms-and-validation.md](06-frontend-data-state-styling/6.3-forms-and-validation.md) | 2026-07-07 |
+| 06 — Frontend Data, State & Styling | Forms & Validation | [6.3-forms-and-validation.md](06-frontend-data-state-styling/6.3-forms-and-validation.md) | 2026-07-24 |
 | 06 — Frontend Data, State & Styling | Styling Systems (Tailwind / CSS-in-JS) | [6.4-styling-systems.md](06-frontend-data-state-styling/6.4-styling-systems.md) | 2026-07-16 |
-| 06 — Frontend Data, State & Styling | Component Design & Reusability | [6.5-component-design-reusability.md](06-frontend-data-state-styling/6.5-component-design-reusability.md) | 2026-07-17 |
+| 06 — Frontend Data, State & Styling | Component Design & Reusability | [6.5-component-design-reusability.md](06-frontend-data-state-styling/6.5-component-design-reusability.md) | 2026-07-24 |
 | 06 — Frontend Data, State & Styling | Custom Hooks | [6.6-custom-hooks.md](06-frontend-data-state-styling/6.6-custom-hooks.md) | 2026-07-17 |
 | 06 — Frontend Data, State & Styling | Frontend Performance (memo, lazy, code-split) | [6.7-frontend-performance.md](06-frontend-data-state-styling/6.7-frontend-performance.md) | 2026-07-23 |
 
