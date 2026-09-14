@@ -9,8 +9,8 @@
 | 🔥 **Current Streak** | 1 day (2026-09-14) — reset after a ~7-week break |
 | 🏆 **Best Streak Ever** | 6 days |
 | 📅 **Last Session** | 2026-09-14 |
-| 📊 **Total Sessions** | 42 |
-| ⏱️ **Total Study Time** | ~50 hours |
+| 📊 **Total Sessions** | 43 |
+| ⏱️ **Total Study Time** | ~52 hours |
 
 ---
 

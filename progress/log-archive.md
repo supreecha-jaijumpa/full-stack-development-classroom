@@ -5,6 +5,12 @@
 
 ---
 
+## 2026-06-23 (session 21)
+- Topic: 3.8 — Build an Interactive App (Module 03 capstone)
+- Covered: Solo capstone build — GitHub Repo Explorer. Architecture: api.js (fetch + error handling), ui.js (renderCards, showLoading, showError, populateLanguageDropdown), filters.js (pure filterRepos function), main.js (state + event wiring). In-memory filtering: allRepos fetched once, searchTerm and selectedLanguage variables updated on each event, single applyFilters() function called by both handlers. Deployment to GitHub Pages. Code review findings: correct module split, pure filterRepos function, response.ok check, toLocaleString() for numbers, nullish coalescing on description — clean. Issue flagged: repo.description injected directly into innerHTML (XSS risk); fix is textContent or DOMPurify for external data. Module 03 complete.
+- Outcome: Pass — live URL: https://supreecha-jaijumpa.github.io/github-repo-explorer/
+- Next: Module 04 — Modern JS & TypeScript, starting with 4.1 — Modern JavaScript (ES2015+)
+
 ## 2026-06-23 (session 20)
 - Topic: 3.7 — ES Modules
 - Covered: Three import forms — named (`{ foo }`), default (no braces, any local name), namespace (`* as Foo`); corrected misconception that `import React from 'react'` imports "everything" (it's a default import of one export object, not a namespace import). Named vs default exports — many named allowed, only one default per file. Module paths — bare name resolves to node_modules, `./` resolves to a relative file on disk. Module scope — each file has its own scope, nothing leaks to `window`. Singleton rule — a module runs once regardless of how many importers; all share the same instance. Vite's approach — native ES modules served directly to the browser in dev, bundled into optimized chunks in prod. Exercise: refactored single-file script into `data.js` (users array + getTopUser), `ui.js` (renderUser), and `main.js` (entry point with no exports) — correct on first attempt.
