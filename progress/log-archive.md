@@ -5,6 +5,12 @@
 
 ---
 
+## 2026-06-23 (session 20)
+- Topic: 3.7 — ES Modules
+- Covered: Three import forms — named (`{ foo }`), default (no braces, any local name), namespace (`* as Foo`); corrected misconception that `import React from 'react'` imports "everything" (it's a default import of one export object, not a namespace import). Named vs default exports — many named allowed, only one default per file. Module paths — bare name resolves to node_modules, `./` resolves to a relative file on disk. Module scope — each file has its own scope, nothing leaks to `window`. Singleton rule — a module runs once regardless of how many importers; all share the same instance. Vite's approach — native ES modules served directly to the browser in dev, bundled into optimized chunks in prod. Exercise: refactored single-file script into `data.js` (users array + getTopUser), `ui.js` (renderUser), and `main.js` (entry point with no exports) — correct on first attempt.
+- Outcome: Pass
+- Next: 3.8 — Build an Interactive App (Module 03 capstone)
+
 ## 2026-06-23 (session 19)
 - Topic: 3.6 — Async, Promises & fetch
 - Covered: Single-threaded JS — blocking I/O would freeze the browser UI; the event loop delegates waiting to runtime I/O threads and calls back when done. Callbacks as the original async mechanism; callback hell as the sequential-steps problem. Promise states (pending/fulfilled/rejected); `.then`/`.catch`/`.finally` chaining; one `.catch` handles any failure in the chain. `async/await` as syntax sugar over Promises — `async` functions always return a Promise; `await` pauses the function without blocking the thread. `fetch` two-step: `await fetch(url)` gives Response headers, `await response.json()` parses body; `response.ok` check required because `fetch` does not throw on 4xx/5xx. `Promise.all` for parallel independent requests — cuts wall-clock time to the slowest request. Built a GitHub user summary: parallel user + repos fetch via `Promise.all`, `response.ok` guards on both, top-3 repos sorted by `stargazers_count`, `main().catch()` error handler.

@@ -6,11 +6,11 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 2 days (2026-07-24) |
+| 🔥 **Current Streak** | 1 day (2026-09-14) — reset after a ~7-week break |
 | 🏆 **Best Streak Ever** | 6 days |
-| 📅 **Last Session** | 2026-07-24 |
-| 📊 **Total Sessions** | 41 |
-| ⏱️ **Total Study Time** | ~49 hours |
+| 📅 **Last Session** | 2026-09-14 |
+| 📊 **Total Sessions** | 42 |
+| ⏱️ **Total Study Time** | ~50 hours |
 
 ---
 
@@ -37,6 +37,18 @@
 | 14  | 15  | 16 ✓| 17 ✓| 18  | 19  | 20  |
 | 21  | 22  | 23 ✓| 24 ✓| 25  | 26  | 27  |
 | 28  | 29  | 30  | 31  |     |     |     |
+
+## This Month — September 2026
+
+> Mark each day you studied with ✓ · No sessions in August 2026 (break after the Module 06 milestone)
+
+| Mon | Tue | Wed | Thu | Fri | Sat | Sun |
+|-----|-----|-----|-----|-----|-----|-----|
+|     |  1  |  2  |  3  |  4  |  5  |  6  |
+|  7  |  8  |  9  | 10  | 11  | 12  | 13  |
+| 14 ✓| 15  | 16  | 17  | 18  | 19  | 20  |
+| 21  | 22  | 23  | 24  | 25  | 26  | 27  |
+| 28  | 29  | 30  |     |     |     |     |
 
 ---
 
@@ -94,3 +106,4 @@
 | 2026-07-06 | Module 05 (React Fundamentals) complete — built & self-reviewed a Product Catalog SPA (routing + Zustand + four async states) · unlocked "Can build a React + TypeScript SPA" |
 | 2026-07-23 | Module 06 — all 7 topics taught at architect altitude (data → state → forms → styling → components → hooks → performance). Whole module ran on concept say-back instead of build drills; the through-line held end-to-end: every topic is a **contract** — shape (Zod), look (tokens), behavior in one component (props), behavior across components (hooks), and cost (measure before you optimise). Milestone dashboard is the last gate to Module 07 |
 | 2026-07-24 | **Module 06 complete** — the milestone dashboard passed with zero code findings on a real, verified-live PR-style review (typecheck, build, and a headless-browser pass through both routes and both error states). First module-gate review with nothing to fix. Unlocked Module 07 (Frontend Testing & Quality) |
+| 2026-09-14 | **Module 07 started** after a ~7-week break — 7.1 Testing Fundamentals taught as genuine new ground. The problem → consequence → who-pays review comment landed in a single pass for the first time (previously always needed a second run), with the student asking for the multiple-choice scaffold by name |
