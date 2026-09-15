@@ -45,5 +45,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 06 — Frontend Data, State & Styling | Frontend Performance (memo, lazy, code-split) | [6.7-frontend-performance.md](06-frontend-data-state-styling/6.7-frontend-performance.md) | 2026-07-23 |
 | 07 — Frontend Testing & Quality | Testing Fundamentals | [7.1-testing-fundamentals.md](07-frontend-testing-quality/7.1-testing-fundamentals.md) | 2026-09-14 |
 | 07 — Frontend Testing & Quality | Unit Testing (Vitest) | [7.2-unit-testing-vitest.md](07-frontend-testing-quality/7.2-unit-testing-vitest.md) | 2026-09-14 |
+| 07 — Frontend Testing & Quality | Component Testing (React Testing Library) | [7.3-component-testing-rtl.md](07-frontend-testing-quality/7.3-component-testing-rtl.md) | 2026-09-15 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).

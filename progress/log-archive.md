@@ -5,6 +5,12 @@
 
 ---
 
+## 2026-06-24 (session 22)
+- Topic: 4.1 — Modern JavaScript (ES2015+)
+- Covered: Block scoping — `var` hoisting vs `let`/`const` Temporal Dead Zone; TDZ as a loud failure that surfaces bugs `var`'s silent `undefined` would hide; `const` locks the binding not the object value. `this` in regular functions is call-site determined — `setTimeout` callback loses object context; arrow functions have no own `this` and inherit it lexically from the enclosing scope at definition time. Tree-shaking — bundler statically analyzes named imports at build time to eliminate unused exports; default exports ship an opaque object that blocks static analysis (`lodash` vs `lodash-es` as the concrete example). Exercise: rewrote a `.then()` callback-style GitHub user fetch into 2-file module structure (api.mjs + main.mjs) using `async/await`, destructuring, template literals, named exports; caught and fixed: (1) `err` variable name mismatch in `catch (error)` block, (2) missing `response.ok` check, (3) debug `console.log` left in. Final review added: error-swallowing antipattern — `catch` that logs and returns `undefined` implicitly causes the caller to crash on destructuring with a confusing TypeError; fix is to re-throw or handle at the call site.
+- Outcome: Pass
+- Next: 4.2 — TypeScript Basics
+
 ## 2026-06-23 (session 21)
 - Topic: 3.8 — Build an Interactive App (Module 03 capstone)
 - Covered: Solo capstone build — GitHub Repo Explorer. Architecture: api.js (fetch + error handling), ui.js (renderCards, showLoading, showError, populateLanguageDropdown), filters.js (pure filterRepos function), main.js (state + event wiring). In-memory filtering: allRepos fetched once, searchTerm and selectedLanguage variables updated on each event, single applyFilters() function called by both handlers. Deployment to GitHub Pages. Code review findings: correct module split, pure filterRepos function, response.ok check, toLocaleString() for numbers, nullish coalescing on description — clean. Issue flagged: repo.description injected directly into innerHTML (XSS risk); fix is textContent or DOMPurify for external data. Module 03 complete.
