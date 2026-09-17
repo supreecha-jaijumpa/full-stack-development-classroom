@@ -1,6 +1,6 @@
 # Session Log
 > Last Updated: 2026-09-17
-> Total Sessions: 47
+> Total Sessions: 48
 > Current Streak: 1 day (2026-09-17)
 
 ---
@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Current Module** | Module 07 — Frontend Testing & Quality (6/6 topics taught — milestone open) |
-| **Current Phase** | Phase 2 — Frontend Development |
-| **Overall Progress** | Module 01 ✅ (6/6) · Module 02 ✅ (6/6) · Module 03 ✅ (8/8) · Module 04 ✅ (6/6) · Module 05 ✅ (7/7) · Module 06 ✅ (7/7 + milestone, 2026-07-24) · **Module 07: 6/6 taught, milestone open** |
-| **Next Topic** | Module 07 milestone review → Module 08 |
+| **Current Module** | Module 08 — Backend with Node.js (unlocked 2026-09-17; 0/7 topics) |
+| **Current Phase** | Phase 3 — Backend Development |
+| **Overall Progress** | Module 01 ✅ (6/6) · Module 02 ✅ (6/6) · Module 03 ✅ (8/8) · Module 04 ✅ (6/6) · Module 05 ✅ (7/7) · Module 06 ✅ (7/7 + milestone, 2026-07-24) · Module 07 ✅ (6/6 taught; milestone **skipped** by student choice, 2026-09-17) |
+| **Next Topic** | 8.1 — Node Runtime & the Event Loop |
 
 ---
 
@@ -324,6 +324,12 @@
 ---
 
 ## Session Detail
+
+## 2026-09-17 (session 48)
+- Topic: Module 07 milestone — **skipped (student's choice)**
+- Covered: The student asked to skip the Module 07 milestone. Mentor explained the trade-off: no test code was run anywhere in Module 07 (7.1/7.2 homework skipped, 7.3 never run, 7.4–7.6 concepts only). Mentor offered two lighter options: a 1–2 hr mini-milestone (one run test per layer) or a written strategy doc only. The student chose the full skip. No reason given.
+- Outcome: Module 07 closed on concepts only; milestone not collected. Module 08 unlocked (Phase 3 begins).
+- Next: 8.1 — Node Runtime & the Event Loop. Known gap: no hands-on testing. In Module 12 (Backend Testing), make running real tests a firm requirement.
 
 ## 2026-09-17 (session 47)
 - Topic: 7.6 — Web Performance & Core Web Vitals — **Module 07 all topics taught**
