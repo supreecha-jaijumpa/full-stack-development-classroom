@@ -5,6 +5,13 @@
 
 ---
 
+## 2026-06-26 (session 25)
+- Topic: 4.4 — npm & Package Management
+- Covered: `dependencies` vs `devDependencies` — nuance that in Vite/React SPAs the distinction is convention only (Vite bundles both regardless); semver ranges — `^` allows minor + patch but never major, `~` allows patch only, exact pin locks to one version; package-lock.json should always be committed in apps (not libraries) — ensures reproducible installs across developers and CI; corrected common misconception about gitignoring the lockfile; `npm ci` vs `npm install` — `npm ci` reads lockfile only, fails on mismatch, use in CI pipelines; `npx` for running binaries without global install; `npm audit` / `npm audit fix` / `npm audit fix --force` for vulnerability scanning; exercise: initialized npm project, installed dayjs + prettier, created dev/format/check-format scripts, correctly identified node_modules as the only thing to gitignore.
+- Outcome: Pass
+- Next: 4.5 — Bundlers & Tooling (Vite)
+
+
 ## 2026-06-24 (session 22)
 - Topic: 4.1 — Modern JavaScript (ES2015+)
 - Covered: Block scoping — `var` hoisting vs `let`/`const` Temporal Dead Zone; TDZ as a loud failure that surfaces bugs `var`'s silent `undefined` would hide; `const` locks the binding not the object value. `this` in regular functions is call-site determined — `setTimeout` callback loses object context; arrow functions have no own `this` and inherit it lexically from the enclosing scope at definition time. Tree-shaking — bundler statically analyzes named imports at build time to eliminate unused exports; default exports ship an opaque object that blocks static analysis (`lodash` vs `lodash-es` as the concrete example). Exercise: rewrote a `.then()` callback-style GitHub user fetch into 2-file module structure (api.mjs + main.mjs) using `async/await`, destructuring, template literals, named exports; caught and fixed: (1) `err` variable name mismatch in `catch (error)` block, (2) missing `response.ok` check, (3) debug `console.log` left in. Final review added: error-swallowing antipattern — `catch` that logs and returns `undefined` implicitly causes the caller to crash on destructuring with a confusing TypeError; fix is to re-throw or handle at the call site.
