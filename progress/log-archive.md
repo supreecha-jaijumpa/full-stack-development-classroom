@@ -5,6 +5,12 @@
 
 ---
 
+## 2026-06-26 (session 26)
+- Topic: 4.5 — Bundlers & Tooling (Vite)
+- Covered: Why browsers need bundling (modules, transpilation, assets). Webpack vs Vite core difference — Webpack bundles everything before serving; Vite serves native ES modules directly to the browser, no bundling step. Two speed wins: instant cold start (nothing to bundle) and per-module HMR (only the changed file invalidated). Why production still needs bundling — unbundled ESM = hundreds of network requests; Rollup bundles into optimized chunks with tree-shaking and minification. Content-hashed filenames — hash derived from content, changes on file change, enables automatic cache busting. Scaffolded `vite + react + typescript` app; configured `@/` alias in `vite.config.ts` using ESM-native `fileURLToPath` + `import.meta.url` (corrected ReferenceError: `path is not defined` and `__dirname is not defined in ESM` errors); synced `tsconfig.app.json` `paths`; read `VITE_APP_TITLE` via `import.meta.env`; ran `vite build` and inspected `dist/` content-hashed output; confirmed with `vite preview`. Module 04 complete.
+- Outcome: Pass
+- Next: Module 05
+
 ## 2026-06-26 (session 25)
 - Topic: 4.4 — npm & Package Management
 - Covered: `dependencies` vs `devDependencies` — nuance that in Vite/React SPAs the distinction is convention only (Vite bundles both regardless); semver ranges — `^` allows minor + patch but never major, `~` allows patch only, exact pin locks to one version; package-lock.json should always be committed in apps (not libraries) — ensures reproducible installs across developers and CI; corrected common misconception about gitignoring the lockfile; `npm ci` vs `npm install` — `npm ci` reads lockfile only, fails on mismatch, use in CI pipelines; `npx` for running binaries without global install; `npm audit` / `npm audit fix` / `npm audit fix --force` for vulnerability scanning; exercise: initialized npm project, installed dayjs + prettier, created dev/format/check-format scripts, correctly identified node_modules as the only thing to gitignore.

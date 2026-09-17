@@ -19,6 +19,12 @@
 
 ## Corrections
 
+### 2026-09-17 — Accessibility Testing (7.5)
+- **Misconception:** Disabling an axe rule globally (`disableRules(['color-contrast'])`) to hit a release date leaves CI red with lots of failures for the next maintainer, and is fine as a temporary measure to "come back to later".
+- **Correction:** A disabled rule doesn't run, so CI stays **green** — it goes blind, including for code written after the disable, and new violations ship silently. The "wall of red" is the no-baseline scenario, which is exactly why a ratchet exists. Scoped alternative: baseline the known violations (fail only on new ones), keep the rule on everywhere else, and fix the root cause at the design token.
+- **Why it matters:** A global disable turns a known, bounded debt into an unbounded, invisible one — low-vision users, the company (legal exposure), and the team (a bigger cleanup later) all pay.
+- **Revisit:** 7.6 (performance budgets have the same disable-vs-baseline shape) and the Module 07 milestone CI config — no rule disabled globally without a reason and a ticket.
+
 ### 2026-07-07 — Forms & Validation (6.3)
 - **Misconception:** In a controlled input the value lives in "RHF form values," and in an uncontrolled input it lives in "parent state" — with `Controller` as React Hook Form's core mechanism. (Value-ownership backwards, and the plain React/DOM concept conflated with RHF's API.)
 - **Correction:** Controlled = **React state owns the value** — the `value` prop makes the input a puppet, so every keystroke must round-trip event → setState → re-render before the character paints. Uncontrolled = **the DOM node owns the value** (native browser behavior); React reads it via a ref, and typing causes zero re-renders. RHF's default (`register`) is *uncontrolled* plus subscription-based re-renders (`formState`, `watch`) — a form-scoped store; `Controller` is the escape hatch for third-party components that must be controlled, not the core trick.

@@ -47,5 +47,6 @@ Organized to mirror `modules/` — one file per topic. Topics taught across mult
 | 07 — Frontend Testing & Quality | Unit Testing (Vitest) | [7.2-unit-testing-vitest.md](07-frontend-testing-quality/7.2-unit-testing-vitest.md) | 2026-09-14 |
 | 07 — Frontend Testing & Quality | Component Testing (React Testing Library) | [7.3-component-testing-rtl.md](07-frontend-testing-quality/7.3-component-testing-rtl.md) | 2026-09-15 |
 | 07 — Frontend Testing & Quality | E2E Testing (Playwright) | [7.4-e2e-testing-playwright.md](07-frontend-testing-quality/7.4-e2e-testing-playwright.md) | 2026-09-17 |
+| 07 — Frontend Testing & Quality | Accessibility Testing | [7.5-accessibility-testing.md](07-frontend-testing-quality/7.5-accessibility-testing.md) | 2026-09-17 |
 
 > Rule: lectures contain **knowledge only** — concepts, code examples, diagrams, pitfalls, recall questions. No student names, scores, or personal progress (that lives in `progress/`).
