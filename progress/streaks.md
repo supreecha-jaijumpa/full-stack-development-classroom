@@ -9,8 +9,8 @@
 | 🔥 **Current Streak** | 1 day (2026-09-17) |
 | 🏆 **Best Streak Ever** | 6 days |
 | 📅 **Last Session** | 2026-09-17 |
-| 📊 **Total Sessions** | 46 |
-| ⏱️ **Total Study Time** | ~58 hours |
+| 📊 **Total Sessions** | 47 |
+| ⏱️ **Total Study Time** | ~60 hours |
 
 ---
 
@@ -107,3 +107,4 @@
 | 2026-07-23 | Module 06 — all 7 topics taught at architect altitude (data → state → forms → styling → components → hooks → performance). Whole module ran on concept say-back instead of build drills; the through-line held end-to-end: every topic is a **contract** — shape (Zod), look (tokens), behavior in one component (props), behavior across components (hooks), and cost (measure before you optimise). Milestone dashboard is the last gate to Module 07 |
 | 2026-07-24 | **Module 06 complete** — the milestone dashboard passed with zero code findings on a real, verified-live PR-style review (typecheck, build, and a headless-browser pass through both routes and both error states). First module-gate review with nothing to fix. Unlocked Module 07 (Frontend Testing & Quality) |
 | 2026-09-14 | **Module 07 started** after a ~7-week break — 7.1 Testing Fundamentals taught as genuine new ground. The problem → consequence → who-pays review comment landed in a single pass for the first time (previously always needed a second run), with the student asking for the multiple-choice scaffold by name |
+| 2026-09-17 | **Module 07 — all 6 topics taught** (7.4, 7.5 and 7.6 in one day). In the budget-pressure say-back, pushed back on the shortcut and offered a scoped alternative for the first time (7.5 had accepted it). Module 07 milestone set: the first executed test code |

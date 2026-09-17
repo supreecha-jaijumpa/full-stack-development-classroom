@@ -19,6 +19,12 @@
 
 ## Corrections
 
+### 2026-09-17 — Web Performance & Core Web Vitals (7.6)
+- **Misconception:** A PR that fails Lighthouse CI on script size (410 KB) and TBT (480 ms) mainly hurts CLS, and desktop users feel it first.
+- **Correction:** Script size and TBT measure JavaScript work on the main thread. A blocked main thread delays responses to clicks, so the at-risk metric is **INP**, not CLS (CLS is content moving). Users on **mid-range phones** feel it first, because their slower CPUs take longer to parse and execute the same JS; desktop users feel it least.
+- **Why it matters:** Naming the wrong metric points the fix at the wrong thing (reserving layout space instead of deferring or cutting JS) and makes the pushback to a PM unconvincing. Same pattern as the 7.5 CI-direction slip: answering without tracing what the failing number actually measures.
+- **Revisit:** During the Module 07 milestone's Lighthouse/CWV step — ask which metric each failing audit feeds, and who feels it first, before the fix is chosen.
+
 ### 2026-09-17 — Accessibility Testing (7.5)
 - **Misconception:** Disabling an axe rule globally (`disableRules(['color-contrast'])`) to hit a release date leaves CI red with lots of failures for the next maintainer, and is fine as a temporary measure to "come back to later".
 - **Correction:** A disabled rule doesn't run, so CI stays **green** — it goes blind, including for code written after the disable, and new violations ship silently. The "wall of red" is the no-baseline scenario, which is exactly why a ratchet exists. Scoped alternative: baseline the known violations (fail only on new ones), keep the rule on everywhere else, and fix the root cause at the design token.
