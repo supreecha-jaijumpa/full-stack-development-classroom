@@ -9,10 +9,9 @@
 ---
 
 ## Learning Objectives
-- [ ] Explain how the Node.js event loop and Go's goroutine scheduler each handle concurrent work
 - [ ] Write idiomatic Go: structs, pointers, slices, maps, and errors as values
 - [ ] Apply design principles in Go with small interfaces, composition, and constructor injection
-- [ ] Use goroutines, channels, and `context` safely, and find data races with the race detector
+- [ ] Use goroutines, channels, and `context` safely, explain how they differ from the Node event loop, and find data races with the race detector
 - [ ] Build a Gin application with structured routing and typed request/response structs
 - [ ] Design RESTful endpoints that follow consistent resource and status-code conventions
 - [ ] Implement reusable middleware and a centralized error-handling strategy
@@ -23,31 +22,29 @@
 ---
 
 ## Topics
-- [8.1 Node Runtime & the Event Loop](8.1-node-runtime-event-loop.md)
-- [8.2 Go Essentials for TS Developers](8.2-go-essentials-for-ts-developers.md)
-- [8.3 Interfaces & Composition](8.3-go-interfaces-and-composition.md)
-- [8.4 Goroutines, Channels & Context](8.4-goroutines-channels-context.md)
-- [8.5 Gin Fundamentals](8.5-gin-fundamentals.md)
-- [8.6 REST API Design](8.6-rest-api-design.md)
-- [8.7 Middleware & Error Handling](8.7-middleware-and-error-handling.md)
-- [8.8 Request Validation](8.8-request-validation.md)
-- [8.9 Environment & Configuration](8.9-environment-and-configuration.md)
-- [8.10 Build a REST API (hands-on)](8.10-build-a-rest-api.md)
+- [8.1 Go Essentials for TS Developers](8.1-go-essentials-for-ts-developers.md)
+- [8.2 Interfaces & Composition](8.2-go-interfaces-and-composition.md)
+- [8.3 Goroutines, Channels & Context](8.3-goroutines-channels-context.md)
+- [8.4 Gin Fundamentals](8.4-gin-fundamentals.md)
+- [8.5 REST API Design](8.5-rest-api-design.md)
+- [8.6 Middleware & Error Handling](8.6-middleware-and-error-handling.md)
+- [8.7 Request Validation](8.7-request-validation.md)
+- [8.8 Environment & Configuration](8.8-environment-and-configuration.md)
+- [8.9 Build a REST API (hands-on)](8.9-build-a-rest-api.md)
 
 ---
 
 ## Exercises
 *(Unlocks as each topic is covered. Every backend exercise is real Go code that you write and run.)*
-- Exercise 8.1: Not required (cleared 2026-11-03, when the backend moved to Go)
-- [ ] Exercise 8.2: Write a CLI that reads JSON into structs, filters the records, and handles every error
-- [ ] Exercise 8.3: Build a service on a `Notifier` interface with real and fake implementations injected through a constructor
-- [ ] Exercise 8.4: Build a concurrent URL checker with a worker pool and `context` timeout, then create, detect, and fix a data race
-- [ ] Exercise 8.5: Scaffold a Gin server with a `/health` route and feature route groups
-- [ ] Exercise 8.6: Implement a resource (e.g. `tasks`) with full CRUD endpoints and correct status codes
-- [ ] Exercise 8.7: Add logging and 404 handling plus a centralized error middleware with typed errors
-- [ ] Exercise 8.8: Validate every request body and query with `binding` tags and return 422 with field-level details
-- [ ] Exercise 8.9: Load typed config from `.env`, fail fast on missing required variables, and support dev/test/prod
-- [ ] Exercise 8.10: Combine everything into a documented REST API for a real domain
+- [ ] Exercise 8.1: Write a CLI that reads JSON into structs, filters the records, and handles every error
+- [ ] Exercise 8.2: Build a service on a `Notifier` interface with real and fake implementations injected through a constructor
+- [ ] Exercise 8.3: Build a concurrent URL checker with a worker pool and `context` timeout, then create, detect, and fix a data race
+- [ ] Exercise 8.4: Scaffold a Gin server with a `/health` route and feature route groups
+- [ ] Exercise 8.5: Implement a resource (e.g. `tasks`) with full CRUD endpoints and correct status codes
+- [ ] Exercise 8.6: Add logging and 404 handling plus a centralized error middleware with typed errors
+- [ ] Exercise 8.7: Validate every request body and query with `binding` tags and return 422 with field-level details
+- [ ] Exercise 8.8: Load typed config from `.env`, fail fast on missing required variables, and support dev/test/prod
+- [ ] Exercise 8.9: Combine everything into a documented REST API for a real domain
 
 ---
 

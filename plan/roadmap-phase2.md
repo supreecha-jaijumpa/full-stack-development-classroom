@@ -79,7 +79,6 @@
 
 | # | Topic | Status | Score | Completed |
 |---|-------|--------|-------|-----------|
-| M08 | Node Runtime & the Event Loop | 🔒 | — | — |
 | M08 | Go Essentials for TS Developers | 🔒 | — | — |
 | M08 | Interfaces & Composition | 🔒 | — | — |
 | M08 | Goroutines, Channels & Context | 🔒 | — | — |

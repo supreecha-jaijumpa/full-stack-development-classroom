@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Current Module** | Module 08 — Backend with Go (unlocked 2026-09-17; 1/10 topics) |
+| **Current Module** | Module 08 — Backend with Go (unlocked 2026-09-17; 0/9 topics) |
 | **Current Phase** | Phase 3 — Backend Development |
 | **Overall Progress** | Module 01 ✅ (6/6) · Module 02 ✅ (6/6) · Module 03 ✅ (8/8) · Module 04 ✅ (6/6) · Module 05 ✅ (7/7) · Module 06 ✅ (7/7 + milestone, 2026-07-24) · Module 07 ✅ (6/6 taught; milestone **skipped** by student choice, 2026-09-17) |
-| **Next Topic** | 8.2 — Go Essentials for TS Developers |
+| **Next Topic** | 8.1 — Go Essentials for TS Developers |
 
 ---
 
@@ -36,7 +36,7 @@
 
 | # | Date | Topic | Outcome | Score | Notes |
 |---|------|-------|---------|-------|-------|
-| 49 | 2026-11-03 | 8.1 — Node Runtime & the Event Loop | ✅ Pass, `await` vs blocking needs review | — | First session after a ~7-week break. Log order correct; teammate pushback needed MC. `await` misconception wrong 3 times, correct once after direct explanation. Homework set. |
+| 49 | 2026-11-03 | Node Runtime & the Event Loop (lesson since removed) | ✅ Pass, `await` vs blocking needs review | — | First session after a ~7-week break. Log order correct; teammate pushback needed MC. `await` misconception wrong 3 times, correct once after direct explanation. Homework set. |
 | 48 | 2026-09-17 | Module 07 milestone | Skipped by student choice | — | Module 07 closed on concepts only. Module 08 unlocked. |
 | 47 | 2026-09-17 | 7.6 — Web Performance & Core Web Vitals | ✅ Taught · Q1 pass · Q2 partial (stance improved) — **Module 07 all 6 topics taught** | — | Third session of the day. Two parts at architect altitude: CWV (LCP/INP/CLS, p75/28 days, INP replaced FID), metric breakdowns, lab vs field (no INP in Lighthouse → TBT), `web-vitals` RUM; fixes per metric, bundle cost, caching, render-blocking/third-party, Lighthouse CI budgets (exceptions, ratchet, two loops). Guiding question: frame right, one cause only; nudge answered with bare letters (mechanisms supplied). Q1 pass with weak reason. Q2 needed short-label MC; picked CLS instead of INP (corrected); rejected raising the budget + offered scoped alternative (improvement vs 7.5); who-pays stopped at users. Module 07 milestone set. |
 | 46 | 2026-09-17 | 7.5 — Accessibility Testing | ✅ Taught · Q1 pass (two payers unaided) · Q2 partial | — | Second session of the day. Two-part lesson at architect altitude. **Part 1** — why a11y is an architect concern (users, EU Accessibility Act, design-system blast radius); the accessibility tree as a public API (role / name / state); WCAG 2.2 AA + POUR; layered strategy (jsx-a11y lint → role queries + axe in component tests → `@axe-core/playwright` in E2E, where contrast is checkable → manual keyboard / screen reader / zoom); automation catches only part of the problem; wait for real content before auditing. **Guiding question** (which layer catches each of the three work roles-admin a11y bugs): **3/3 correct letters** (unlinked label → axe; duplicate checkbox names → role query; silent skeleton → manual/explicit test) but no reasons given — mentor supplied the mechanism (snapshot-level generic rules vs app meaning and time). **Part 2** — keyboard-only modal focus test (move in, trap, Escape, return); narrow `exclude` over global `disableRules`, ticketed disables, baseline ratchet for legacy violations; Lighthouse score = axe subset on one page/state; CI gating table; fix at the source (tokens, design-system Dialog); common-fix table. **Q1** (Lighthouse 100 + axe green = accessible?): pass — snapshot limit + **two payers unaided** (users, team hearing it from users); missed that axe is generic-rules-only and offered no alternative. **Q2** (PM wants global `disableRules(['color-contrast'])` before Friday): partial — first payer (low-vision users) right, but the stance accepted the global disable "and come back later"; nudge 1 **inverted the CI direction** (said CI goes red — it stays green/blind); nudge 2 MC picked **B only**, missed **C** (fix the token). Mentor handed back the tightened version. English: subject–verb (*lighthouse check*, *CI still get*), *not mean*, *alot of number*. |
@@ -321,7 +321,7 @@
 ---
 
 ## Areas Needing Review
-- `await` vs blocking (8.1): contrast with goroutines in 8.4 and re-test on Next.js server code in 13.4. See `corrections.md`.
+- `await` vs blocking: contrast with goroutines in 8.3 and re-test on Next.js server code in 13.4. See `corrections.md`.
 
 ---
 
@@ -329,21 +329,21 @@
 
 ## 2026-11-03 (curriculum change, not a study session)
 - Topic: Backend stack changed from Node/Express/Prisma to Go → Gin → GORM
-- Covered: Module 08 expanded to 10 topics with 8.2–8.4 added for Go; Modules 09–18 updated for Go; event-loop homework cleared; backend topics made fully hands-on
-- Outcome: Curriculum updated at the student's request
-- Next: 8.2 — Go Essentials for TS Developers
+- Covered: Module 08 rebuilt around Go, Gin, and REST APIs; Modules 09–18 updated for Go; event-loop homework cleared; backend topics made fully hands-on
+- Outcome: Curriculum updated at the student's request. The Node event-loop lesson and its lecture note were then removed at the student's request, and Module 08 was renumbered to 9 topics (8.1–8.9)
+- Next: 8.1 — Go Essentials for TS Developers
 
 ## 2026-11-03 (session 49)
-- Topic: 8.1 — Node Runtime & the Event Loop
-- Covered: Two parts at architect altitude, first session after a ~7-week break. **Part 1:** V8/libuv/Node APIs, non-blocking I/O (OS kernel vs libuv thread pool), one shared JS thread. The student predicted the `/wait` vs `/block` timings exactly reversed, believing `await` makes the thread wait; fixed with a browser click-handler comparison and fill-in-the-blanks. **Part 2:** loop phases, `nextTick` → Promises, thread pool vs worker threads, common pitfalls. **Q1** (log order): order correct first try; Poll → Check reason correct after a prompt. **Q2** (teammate's blocking CSV route): needed short-label MC. Slots 1–3 correct (blocks the JS thread / every request waits / users → business → team). Slot 4 first picked "add `await`", then answered that `await buildCsv()` frees the thread, both wrong; picked worker thread/background job on the second try. Mentor explained directly and ran the timing demo after the student answered "no idea" (500ms timer fired at ~3013 ms). **Final check** (`await blockFor` vs `await sleep`): correct in the student's own sentences, with mentor tightening where the wait lives. The student did not run any 8.1 code. English: *synchronous*, *immediately*, *before*, "happens in" vs "happen on". Homework set: event-loop latency experiment, due ~2026-11-10.
+- Topic: Node Runtime & the Event Loop (lesson since removed)
+- Covered: Two parts at architect altitude, first session after a ~7-week break. **Part 1:** V8/libuv/Node APIs, non-blocking I/O (OS kernel vs libuv thread pool), one shared JS thread. The student predicted the `/wait` vs `/block` timings exactly reversed, believing `await` makes the thread wait; fixed with a browser click-handler comparison and fill-in-the-blanks. **Part 2:** loop phases, `nextTick` → Promises, thread pool vs worker threads, common pitfalls. **Q1** (log order): order correct first try; Poll → Check reason correct after a prompt. **Q2** (teammate's blocking CSV route): needed short-label MC. Slots 1–3 correct (blocks the JS thread / every request waits / users → business → team). Slot 4 first picked "add `await`", then answered that `await buildCsv()` frees the thread, both wrong; picked worker thread/background job on the second try. Mentor explained directly and ran the timing demo after the student answered "no idea" (500ms timer fired at ~3013 ms). **Final check** (`await blockFor` vs `await sleep`): correct in the student's own sentences, with mentor tightening where the wait lives. The student did not run any code from this lesson. English: *synchronous*, *immediately*, *before*, "happens in" vs "happen on". Homework set: event-loop latency experiment, due ~2026-11-10.
 - Outcome: Pass, with `await` vs blocking marked needs review (right once, right after the explanation)
-- Next: Check the homework if submitted, then 8.2 — Express Fundamentals, opening with an `await` re-test on a real handler
+- Next: Check the homework if submitted, then Express Fundamentals (later replaced by Gin), opening with an `await` re-test on a real handler
 
 ## 2026-09-17 (session 48)
 - Topic: Module 07 milestone — **skipped (student's choice)**
 - Covered: The student asked to skip the Module 07 milestone. Mentor explained the trade-off: no test code was run anywhere in Module 07 (7.1/7.2 homework skipped, 7.3 never run, 7.4–7.6 concepts only). Mentor offered two lighter options: a 1–2 hr mini-milestone (one run test per layer) or a written strategy doc only. The student chose the full skip. No reason given.
 - Outcome: Module 07 closed on concepts only; milestone not collected. Module 08 unlocked (Phase 3 begins).
-- Next: 8.1 — Node Runtime & the Event Loop. Known gap: no hands-on testing. In Module 12 (Backend Testing), make running real tests a firm requirement.
+- Next: Node Runtime & the Event Loop. Known gap: no hands-on testing. In Module 12 (Backend Testing), make running real tests a firm requirement.
 
 ## 2026-09-17 (session 47)
 - Topic: 7.6 — Web Performance & Core Web Vitals — **Module 07 all topics taught**
