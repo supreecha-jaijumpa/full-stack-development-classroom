@@ -31,7 +31,7 @@ Ask scores one by one (or as a grouped list):
 - Programming Basics (JS / logic)
 - HTML / CSS
 - Frontend (React)
-- Backend (Node / APIs)
+- Backend (Go / APIs)
 - Databases (SQL / modeling)
 - DevOps / Deployment
 - System Design / Architecture

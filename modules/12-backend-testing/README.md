@@ -9,8 +9,8 @@
 
 ## Learning Objectives
 - [ ] Choose a testing strategy that targets risk, not coverage vanity
-- [ ] Write fast, isolated unit tests for business logic with Vitest
-- [ ] Write integration tests that exercise real HTTP endpoints with Supertest
+- [ ] Write fast, isolated unit tests for business logic with Go's `testing` package
+- [ ] Write integration tests that exercise real HTTP endpoints with `net/http/httptest`
 - [ ] Run tests against a real, reproducible test database with fixtures
 - [ ] Mock external services so tests stay deterministic and offline
 - [ ] Wire a CI-ready test command into the project
@@ -30,10 +30,10 @@
 *(Unlocks as each topic is covered)*
 - [ ] Exercise 12.1: Map your API's critical paths and decide what to unit vs. integration test
 - [ ] Exercise 12.2: Unit-test a service or business rule, including its edge cases, with mocked dependencies
-- [ ] Exercise 12.3: Integration-test a full request/response cycle through your routes with Supertest
-- [ ] Exercise 12.4: Stand up a disposable test database with seeded fixtures and per-test cleanup
+- [ ] Exercise 12.3: Integration-test a full request/response cycle through your Gin routes with `httptest`
+- [ ] Exercise 12.4: Stand up a disposable test database with `testcontainers-go`, seeded fixtures, and per-test cleanup
 - [ ] Exercise 12.5: Replace a third-party call with a mock and assert behavior on success and failure
-- [ ] Exercise 12.6: Add a single CI-ready `test` command that runs the whole suite reproducibly
+- [ ] Exercise 12.6: Add a single CI-ready test command (`go test -race ./...`) that runs the whole suite reproducibly
 
 ---
 

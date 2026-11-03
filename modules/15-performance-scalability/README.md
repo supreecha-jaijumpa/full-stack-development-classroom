@@ -31,7 +31,7 @@
 ## Exercises
 *(Unlocks as each topic is covered)*
 - [ ] Exercise 15.1: Cut your frontend bundle size and improve a Core Web Vitals score with code splitting and lazy loading
-- [ ] Exercise 15.2: Find and fix a slow backend endpoint (reduce blocking work or unnecessary queries)
+- [ ] Exercise 15.2: Find and fix a slow backend endpoint (reduce unnecessary queries, allocations, or contention)
 - [ ] Exercise 15.3: Put a CDN in front of static assets and add a cache layer (e.g. Redis) to a hot path
 - [ ] Exercise 15.4: Add indexes and rewrite the slowest query, measuring the change with `EXPLAIN`
 - [ ] Exercise 15.5: Run a load test against your app and capture throughput and latency under load

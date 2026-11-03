@@ -3,6 +3,7 @@
 > Status: 🔒 Locked (complete the previous module first)
 > Estimated Time: 2–3 weeks
 > Phase: Phase 3 — Backend Development
+> Go tools: `golang-jwt/jwt`, `golang.org/x/crypto` (bcrypt, argon2), `golang.org/x/oauth2`, `gin-contrib/sessions`, `gin-contrib/secure`, `golang.org/x/time/rate`, `govulncheck`
 > Fast Track: See the entry point table in `plan/roadmap.md`.
 
 ---

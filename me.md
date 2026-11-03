@@ -9,8 +9,8 @@
 
 ## Technical Background
 - **Strong in:** React, Next.js, Tailwind, TanStack Query, Zustand, React Hook Form + Zod, HTML/CSS, frontend architecture
-- **Weak in:** Backend (Node/APIs), Databases (SQL/modeling), DevOps/Deployment, System Design/Architecture
-- **Never touched:** Nothing brand-new conceptually — but backend, databases, DevOps, and system design are all at tutorial level only (followed along, never built/shipped for real)
+- **Weak in:** Backend (APIs), Databases (SQL/modeling), DevOps/Deployment, System Design/Architecture
+- **Never touched:** Go (new language, chosen for all backend work on 2026-11-03). Nothing else is brand-new conceptually — but backend, databases, DevOps, and system design are all at tutorial level only (followed along, never built/shipped for real)
 
 ## Self-Assessment (0 = zero, 10 = expert)
 > Filled in during /init-classroom
@@ -20,13 +20,15 @@
 | Programming Basics (JS / logic) | 7 |
 | HTML / CSS | 9 |
 | Frontend (React) | 8 |
-| Backend (Node / APIs) | 5 |
+| Backend (APIs) | 5 |
+| Go | 0 (new) |
 | Databases (SQL / modeling) | 5 |
 | DevOps / Deployment | 2 |
 | System Design / Architecture | 0 |
 
 ## Learning Style
 - **Style:** Concept-first, fast pace. I build React daily at work, so I don't need in-classroom mechanical build drills — teach the concept at architect altitude, then have me *say it back in my own words*. The articulation is the practice. Keep the weekly homework as the one real-code checkpoint before a module unlocks. Only add build exercises if I explicitly ask. (Updated 2026-07-17 — see memory `skip-build-exercises`.)
+- **Backend is fully hands-on (updated 2026-11-03):** On backend topics, I write and run real Go code in every topic. This replaces "no build exercises" for backend work; frontend topics keep the concept-first style above.
 - **Say-back cadence (updated 2026-07-23):** **2 questions per topic, not 3.** Answer in one messy pass — mentor hands back the tightened version (**draft-then-polish**; don't make him grind for the right words unaided). Repeating the tightened version once is **optional** (updated 2026-09-17 — it was skipped every time). Mentor supplies the **problem → consequence → who-pays** sentence skeleton up front rather than making him rediscover the shape each time; he fills the slots. Only the *last* question gets pushed for the who-pays ending — concept-only is a pass on the others.
 - **Time Per Week:** ~14 hrs/week (2 hrs/day)
 - **Real-world apps I use:** GitHub, Spotify, Netflix, YouTube, Facebook (use these for examples — feeds, recommendations, streaming, auth, real-time)

@@ -12,14 +12,14 @@
 | # | Topic | Status | Score | Completed |
 |---|-------|--------|-------|-----------|
 | M13 | Connecting Frontend & Backend | 🔒 | — | — |
-| M13 | End-to-End Type Safety | 🔒 | — | — |
+| M13 | End-to-End Type Safety (OpenAPI) | 🔒 | — | — |
 | M13 | Monorepo Structure | 🔒 | — | — |
-| M13 | Next.js Full-Stack | 🔒 | — | — |
+| M13 | Next.js on a Go API | 🔒 | — | — |
 | M13 | Server-Side Rendering | 🔒 | — | — |
 | M13 | Caching Strategies | 🔒 | — | — |
 | M13 | Build a Full-Stack Feature (hands-on) | 🔒 | — | — |
 
-**Module 13 Milestone:** Combine your frontend and backend into one project (shared types, monorepo or Next.js). Ship one complete feature end-to-end: UI → typed API call → validation → DB → response → UI update, with loading/error handling throughout.
+**Module 13 Milestone:** Combine your frontend and Go backend into one monorepo with a generated OpenAPI contract. Ship one complete feature end-to-end: UI → typed API call → validation → DB → response → UI update, with loading/error handling throughout.
 
 ---
 

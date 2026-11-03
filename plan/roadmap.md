@@ -49,7 +49,7 @@ That's fine. This roadmap is designed to take someone who has never written code
 ```
 Phase 1: Foundations            — the web, HTML/CSS, JavaScript
 Phase 2: Frontend Development   — TypeScript, React, data/state, testing
-Phase 3: Backend Development    — Node/Express, databases, auth, APIs, testing
+Phase 3: Backend Development    — Go/Gin, databases (GORM), auth, APIs, testing
 Phase 4: Full-Stack & DevOps    — integration, Docker/CI-CD, performance
 Phase 5: Senior Level           — system design, engineering practices, capstone
 ```
@@ -62,13 +62,13 @@ Phase 5: Senior Level           — system design, engineering practices, capsto
 
 | Layer | Tools |
 |-------|-------|
-| Language | JavaScript → TypeScript |
+| Language | JavaScript → TypeScript (frontend), Go (backend) |
 | Frontend | React (Vite), React Router, TanStack Query, Tailwind |
-| Backend | Node.js, Express (+ Nest concepts), TypeScript |
-| Database | PostgreSQL + Prisma |
-| Full-stack | Next.js |
+| Backend | Go, Gin |
+| Database | PostgreSQL + GORM, goose migrations |
+| Full-stack | Next.js on the Go API, OpenAPI contract |
 | DevOps | Docker, GitHub Actions (CI/CD), a cloud host |
-| Quality | Vitest, React Testing Library, Playwright |
+| Quality | Vitest, React Testing Library, Playwright (frontend); Go `testing`, `httptest`, testcontainers-go (backend) |
 
 > Concepts transfer to any stack. We pick one concrete stack so you actually ship, instead of drowning in choices.
 

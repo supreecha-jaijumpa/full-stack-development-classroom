@@ -21,7 +21,7 @@ Close the session — summarize what was covered, update all progress files, and
 
 ## Hard Rule — no exercise references
 
-Exercise code lives in the conversation only and is deleted after review to keep the repo small. When wrapping up a session, **never** write exercise content, exercise file names, or `exercises/` paths into `CURRENT.md`, `progress/log.md`, `progress/streaks.md`, or `lectures/`. Record results at topic level only (e.g. "Outcome: pass") — no links or references to exercise files.
+Exercise code lives in the git-ignored `exercises/` folder and stays out of the mentor's records. When wrapping up a session, **never** write exercise content, exercise file names, or `exercises/` paths into `CURRENT.md`, `progress/log.md`, `progress/streaks.md`, or `lectures/`. Record results at topic level only (e.g. "Outcome: pass") — no links or references to exercise files.
 
 ## Lecture File
 

@@ -3,6 +3,7 @@
 > Status: 🔒 Locked (complete the previous module first)
 > Estimated Time: 3 weeks
 > Phase: Phase 3 — Backend Development
+> Go tools: `gqlgen`, `gorilla/websocket`, `asynq`, `oapi-codegen`
 > Fast Track: See the entry point table in `plan/roadmap.md`.
 
 ---

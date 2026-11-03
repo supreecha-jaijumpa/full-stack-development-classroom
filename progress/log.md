@@ -9,10 +9,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Current Module** | Module 08 — Backend with Node.js (unlocked 2026-09-17; 1/7 topics) |
+| **Current Module** | Module 08 — Backend with Go (unlocked 2026-09-17; 1/10 topics) |
 | **Current Phase** | Phase 3 — Backend Development |
 | **Overall Progress** | Module 01 ✅ (6/6) · Module 02 ✅ (6/6) · Module 03 ✅ (8/8) · Module 04 ✅ (6/6) · Module 05 ✅ (7/7) · Module 06 ✅ (7/7 + milestone, 2026-07-24) · Module 07 ✅ (6/6 taught; milestone **skipped** by student choice, 2026-09-17) |
-| **Next Topic** | 8.2 — Express Fundamentals |
+| **Next Topic** | 8.2 — Go Essentials for TS Developers |
 
 ---
 
@@ -321,11 +321,17 @@
 ---
 
 ## Areas Needing Review
-- `await` vs blocking (8.1): re-test in later handler reviews. See `corrections.md`.
+- `await` vs blocking (8.1): contrast with goroutines in 8.4 and re-test on Next.js server code in 13.4. See `corrections.md`.
 
 ---
 
 ## Session Detail
+
+## 2026-11-03 (curriculum change, not a study session)
+- Topic: Backend stack changed from Node/Express/Prisma to Go → Gin → GORM
+- Covered: Module 08 expanded to 10 topics with 8.2–8.4 added for Go; Modules 09–18 updated for Go; event-loop homework cleared; backend topics made fully hands-on
+- Outcome: Curriculum updated at the student's request
+- Next: 8.2 — Go Essentials for TS Developers
 
 ## 2026-11-03 (session 49)
 - Topic: 8.1 — Node Runtime & the Event Loop

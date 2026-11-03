@@ -3,6 +3,7 @@
 > Status: 🔒 Locked (complete the previous module first)
 > Estimated Time: 3 weeks
 > Phase: Phase 4 — Full-Stack Integration & DevOps
+> Go tools: multi-stage builds, `actions/setup-go`, `golangci-lint`, `go test -race`, `log/slog`
 > Fast Track: See the entry point table in `plan/roadmap.md`.
 
 ---
@@ -33,7 +34,7 @@
 *(Unlocks as each topic is covered)*
 - [ ] Exercise 14.1: Write a Dockerfile for your backend and build/run it as a container
 - [ ] Exercise 14.2: Write a `docker-compose.yml` that runs your app and PostgreSQL together
-- [ ] Exercise 14.3: Create a GitHub Actions workflow that installs, lints, and tests on every push
+- [ ] Exercise 14.3: Create a GitHub Actions workflow that lints and tests the Go and frontend code on every push
 - [ ] Exercise 14.4: Deploy your app to a cloud host with a managed PostgreSQL database
 - [ ] Exercise 14.5: Move all configuration to environment variables and store secrets in the platform's secret store
 - [ ] Exercise 14.6: Add structured logging and a health check / basic uptime monitor

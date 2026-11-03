@@ -18,7 +18,7 @@ Teach the current topic (or a specified topic) using the student's level and rea
 5. Teach using this structure:
    - **Concept** — plain explanation matched to student's level
    - **Real-world example** — from apps listed in `me.md`, or fallback to GitHub/Spotify/Trello/Notion/Shopee
-   - **Live code** — real, runnable code in the stack (React/Node/TypeScript/Postgres); have the student type and run it, not just read it
+   - **Live code** — real, runnable code in the stack (React/TypeScript on the frontend, Go/Gin/GORM/Postgres on the backend); have the student type and run it, not just read it. On backend topics this is required, not optional
    - **Guiding questions** — 1–2 questions to make the student think before continuing
 6. After questions are answered, offer `/exercise` to practice
 

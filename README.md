@@ -69,8 +69,8 @@ full-stack-development/
 │   ├── 05-react-fundamentals/       ← Phase 2 — components, hooks, state, routing
 │   ├── 06-frontend-data-state-styling/ ← Phase 2 — data fetching, forms, styling
 │   ├── 07-frontend-testing-quality/ ← Phase 2 — unit/component/E2E tests, perf
-│   ├── 08-backend-node/             ← Phase 3 — Node, Express, REST APIs
-│   ├── 09-databases/                ← Phase 3 — SQL, Postgres, Prisma, modeling
+│   ├── 08-backend-go/               ← Phase 3 — Go, Gin, REST APIs
+│   ├── 09-databases/                ← Phase 3 — SQL, Postgres, GORM, modeling
 │   ├── 10-auth-security/            ← Phase 3 — auth, JWT/sessions, OWASP
 │   ├── 11-api-design-realtime/      ← Phase 3 — REST/GraphQL, WebSockets, jobs
 │   ├── 12-backend-testing/          ← Phase 3 — unit/integration testing
@@ -94,7 +94,7 @@ full-stack-development/
 ```
 Phase 1 → Foundations: the web, HTML/CSS, JavaScript (start here if new)
 Phase 2 → Frontend: TypeScript, React, data/state, testing
-Phase 3 → Backend: Node/Express, databases, auth, APIs, testing
+Phase 3 → Backend: Go/Gin, databases (GORM), auth, APIs, testing
 Phase 4 → Full-Stack & DevOps: integration, Docker/CI-CD, performance
 Phase 5 → Senior: system design, engineering practices, capstone
 ```

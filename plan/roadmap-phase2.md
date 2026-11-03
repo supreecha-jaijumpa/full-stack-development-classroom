@@ -1,6 +1,6 @@
 # Roadmap — Phase 2 & 3 (Frontend & Backend)
 > Phase 2: Become a capable frontend engineer with React + TypeScript
-> Phase 3: Become a capable backend engineer with Node, databases, and APIs
+> Phase 3: Become a capable backend engineer with Go, Gin, GORM, and APIs
 
 ---
 
@@ -74,20 +74,23 @@
 
 # PHASE 3 — Backend Development
 
-## Module 08: Backend with Node.js
-> Goal: Build HTTP APIs with Node and Express
+## Module 08: Backend with Go
+> Goal: Learn Go, then build HTTP APIs with Gin
 
 | # | Topic | Status | Score | Completed |
 |---|-------|--------|-------|-----------|
 | M08 | Node Runtime & the Event Loop | 🔒 | — | — |
-| M08 | Express Fundamentals | 🔒 | — | — |
+| M08 | Go Essentials for TS Developers | 🔒 | — | — |
+| M08 | Interfaces & Composition | 🔒 | — | — |
+| M08 | Goroutines, Channels & Context | 🔒 | — | — |
+| M08 | Gin Fundamentals | 🔒 | — | — |
 | M08 | REST API Design | 🔒 | — | — |
 | M08 | Middleware & Error Handling | 🔒 | — | — |
 | M08 | Request Validation | 🔒 | — | — |
 | M08 | Environment & Configuration | 🔒 | — | — |
 | M08 | Build a REST API (hands-on) | 🔒 | — | — |
 
-**Module 08 Milestone:** Build a typed REST API in Express with proper routing, validation, centralized error handling, and config via environment variables. Document the endpoints.
+**Module 08 Milestone:** Build a REST API in Go with Gin, with proper routing, validation, centralized error handling, and config via environment variables. Document the endpoints.
 
 ---
 
@@ -99,13 +102,13 @@
 | M09 | SQL Fundamentals | 🔒 | — | — |
 | M09 | Relational Schema Design | 🔒 | — | — |
 | M09 | Normalization | 🔒 | — | — |
-| M09 | Prisma ORM | 🔒 | — | — |
+| M09 | GORM | 🔒 | — | — |
 | M09 | Migrations & Seeding | 🔒 | — | — |
 | M09 | Transactions & Concurrency | 🔒 | — | — |
 | M09 | Indexes & Query Performance | 🔒 | — | — |
 | M09 | NoSQL & When to Use It | 🔒 | — | — |
 
-**Module 09 Milestone:** Design and implement a normalized PostgreSQL schema with Prisma for a real domain (e.g. a blog with users/posts/comments/tags). Write migrations, seed data, and the key queries — including one that needs an index and one that needs a transaction.
+**Module 09 Milestone:** Design and implement a normalized PostgreSQL schema with GORM for a real domain (e.g. a blog with users/posts/comments/tags). Write migrations, seed data, and the key queries — including one that needs an index and one that needs a transaction.
 
 ---
 

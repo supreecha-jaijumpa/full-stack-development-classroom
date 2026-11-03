@@ -42,4 +42,4 @@
 ## Module Assessment
 - Pass when: all exercises done + a tested, audited dashboard with a documented test strategy reviewed by mentor
 - Milestone: Take your Module 06 dashboard to production quality: unit tests for logic, component tests for key UI, one E2E flow with Playwright, a passing accessibility audit, and a Lighthouse performance pass. Document your testing strategy.
-- Unlocks: Module 08 — Backend with Node.js (Phase 3)
+- Unlocks: Module 08 — Backend with Go (Phase 3)
