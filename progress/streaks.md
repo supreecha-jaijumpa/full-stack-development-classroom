@@ -6,10 +6,10 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 1 day (2026-09-17) |
+| 🔥 **Current Streak** | 1 day (2026-11-03) |
 | 🏆 **Best Streak Ever** | 6 days |
-| 📅 **Last Session** | 2026-09-17 |
-| 📊 **Total Sessions** | 47 |
+| 📅 **Last Session** | 2026-11-03 |
+| 📊 **Total Sessions** | 49 |
 | ⏱️ **Total Study Time** | ~60 hours |
 
 ---
@@ -49,6 +49,19 @@
 | 14 ✓| 15 ✓| 16  | 17 ✓| 18  | 19  | 20  |
 | 21  | 22  | 23  | 24  | 25  | 26  | 27  |
 | 28  | 29  | 30  |     |     |     |     |
+
+## This Month — November 2026
+
+> Mark each day you studied with ✓ · No sessions in October 2026
+
+| Mon | Tue | Wed | Thu | Fri | Sat | Sun |
+|-----|-----|-----|-----|-----|-----|-----|
+|     |     |     |     |     |     |  1  |
+|  2  |  3 ✓|  4  |  5  |  6  |  7  |  8  |
+|  9  | 10  | 11  | 12  | 13  | 14  | 15  |
+| 16  | 17  | 18  | 19  | 20  | 21  | 22  |
+| 23  | 24  | 25  | 26  | 27  | 28  | 29  |
+| 30  |     |     |     |     |     |     |
 
 ---
 

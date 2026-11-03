@@ -19,6 +19,15 @@
 
 ## Corrections
 
+### 2026-11-03 — Node Runtime & the Event Loop (8.1)
+- **Misconception:** `await` makes the JS thread wait, so a request arriving during `await` is delayed, while a synchronous `while` loop with no `await` lets the thread share work with other requests. (Predicted `/wait` delays `/ping` by 2 s and `/block` delays it by 0 s, which is exactly reversed.)
+- **Correction:** `await` pauses the **function**, not the thread. During `await` the thread is free, so `/ping` responds immediately. Synchronous code never gives up the thread, so during `/block` the `/ping` handler can't start and waits about 2 s until the loop ends.
+- **Why it matters:** Getting this backwards means a CPU-heavy synchronous handler looks safe when it actually stalls every user on that process, and the slowdown shows up on unrelated routes.
+- **Revisit:** 8.1 say-back and the log-order puzzle, then any later handler review (Modules 09–12): ask where the handler gives up the thread and what runs on it synchronously.
+- **Misconception (same session, still open):** Putting `await` in front of a synchronous CPU-heavy call (`await buildCsv()`) frees the thread as soon as the line starts.
+- **Correction:** `buildCsv()` runs to completion first, because the expression after `await` must be evaluated before `await` has a value to receive. `await` can only free the thread for work that is happening elsewhere (I/O, a timer, a worker). Marking the function `async` doesn't change this. CPU-heavy work has to leave the main thread: use a worker thread or a background job.
+- **Why it matters:** `await` on a synchronous function looks non-blocking in code review but still stalls every request on that process.
+
 ### 2026-09-17 — Web Performance & Core Web Vitals (7.6)
 - **Misconception:** A PR that fails Lighthouse CI on script size (410 KB) and TBT (480 ms) mainly hurts CLS, and desktop users feel it first.
 - **Correction:** Script size and TBT measure JavaScript work on the main thread. A blocked main thread delays responses to clicks, so the at-risk metric is **INP**, not CLS (CLS is content moving). Users on **mid-range phones** feel it first, because their slower CPUs take longer to parse and execute the same JS; desktop users feel it least.
