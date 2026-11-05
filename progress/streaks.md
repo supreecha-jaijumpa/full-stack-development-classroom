@@ -6,11 +6,11 @@
 
 | | |
 |--|--|
-| 🔥 **Current Streak** | 1 day (2026-11-03) |
+| 🔥 **Current Streak** | 1 day (2026-11-05) |
 | 🏆 **Best Streak Ever** | 6 days |
-| 📅 **Last Session** | 2026-11-03 |
-| 📊 **Total Sessions** | 49 |
-| ⏱️ **Total Study Time** | ~60 hours |
+| 📅 **Last Session** | 2026-11-05 |
+| 📊 **Total Sessions** | 50 |
+| ⏱️ **Total Study Time** | ~62 hours |
 
 ---
 
@@ -57,7 +57,7 @@
 | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |-----|-----|-----|-----|-----|-----|-----|
 |     |     |     |     |     |     |  1  |
-|  2  |  3 ✓|  4  |  5  |  6  |  7  |  8  |
+|  2  |  3 ✓|  4  |  5 ✓|  6  |  7  |  8  |
 |  9  | 10  | 11  | 12  | 13  | 14  | 15  |
 | 16  | 17  | 18  | 19  | 20  | 21  | 22  |
 | 23  | 24  | 25  | 26  | 27  | 28  | 29  |
@@ -72,7 +72,7 @@
 - [x] 5 sessions done
 - [x] 10 sessions done
 - [x] 25 sessions done
-- [ ] 50 sessions done
+- [x] 50 sessions done
 - [ ] 100 sessions done
 
 ### Streaks
@@ -122,3 +122,4 @@
 | 2026-09-14 | **Module 07 started** after a ~7-week break — 7.1 Testing Fundamentals taught as genuine new ground. The problem → consequence → who-pays review comment landed in a single pass for the first time (previously always needed a second run), with the student asking for the multiple-choice scaffold by name |
 | 2026-09-17 | **Module 07 — all 6 topics taught** (7.4, 7.5 and 7.6 in one day). In the budget-pressure say-back, pushed back on the shortcut and offered a scoped alternative for the first time (7.5 had accepted it). Module 07 milestone set: the first executed test code |
 | 2026-09-17 | **Module 07 closed** — milestone skipped by student choice (concepts only, no tests run). Unlocked Module 08 (Backend with Node.js), the start of Phase 3 |
+| 2026-11-05 | **50 sessions milestone** · first hands-on backend topic — wrote and ran real Go in 8.1, and explained value vs. pointer on their own code |

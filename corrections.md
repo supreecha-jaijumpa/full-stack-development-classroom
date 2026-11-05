@@ -19,6 +19,16 @@
 
 ## Corrections
 
+### 2026-11-05 — Go Essentials for TS Developers (8.1)
+- **Misconception:** A missing file makes a Go program crash with a panic.
+- **Correction:** `os.ReadFile` returns an error value. Each caller checks `err != nil` and can return it, so the program can finish normally. A panic means something is broken, such as a bug, and isn't for expected failures like a missing file or bad JSON.
+- **Why it matters:** Treating errors like thrown exceptions leads to missing checks and wrong control flow in handlers. Expected failures should become the right response, such as a 404, rather than a crash or a 500.
+- **Revisit:** 8.4 and 8.6 — ask what happens to a failed lookup, line by line, before accepting a handler.
+- **Misconception:** Writing to a nil map creates the map. Later explanation: writing crashes because the map "returns the zero", and `make` "sets a default".
+- **Correction:** Reading a nil map returns the zero value. Writing to one panics because it has no storage. `make` creates a real, empty map. `append` works on a nil slice because it returns a result that you assign back, while a map write returns nothing.
+- **Why it matters:** A struct with an uninitialized map field compiles fine, then panics on the first write, often only on a particular request path.
+- **Revisit:** 8.2 or 8.4 — use a struct with a map field and ask what happens on read and on write, and where it should be initialized.
+
 ### 2026-11-03 — Node Runtime & the Event Loop (lesson since removed)
 - **Misconception:** `await` makes the JS thread wait, so a request arriving during `await` is delayed, while a synchronous `while` loop with no `await` lets the thread share work with other requests. (Predicted `/wait` delays `/ping` by 2 s and `/block` delays it by 0 s, which is exactly reversed.)
 - **Correction:** `await` pauses the **function**, not the thread. During `await` the thread is free, so `/ping` responds immediately. Synchronous code never gives up the thread, so during `/block` the `/ping` handler can't start and waits about 2 s until the loop ends.
